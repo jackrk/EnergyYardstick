@@ -1,0 +1,9 @@
+
+CJAX php framework --> http://cjax.sourceforge.net/docs/
+
+jQuery --> http://api.jquery.com/
+
+jQuery Transit --> http://ricostacruz.com/jquery.transit/
+
+RGraph --> http://www.rgraph.net/
+

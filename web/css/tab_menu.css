@@ -1,0 +1,30 @@
+#tab_menu
+{
+    float:left;
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 599px;
+}
+.tab_link
+{
+    font-family: Arial, Helvetica, sans-serif;
+    position:relative;
+    float:left;
+    text-align: center;
+    width: 199px;
+    border-right: 1px solid darkgray;
+    display: inline;
+    height:20px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size: 20px;
+}
+.tab_link:hover
+{
+    cursor: pointer;
+}
+.tab_link_last
+{
+    border-right: 0 !important;
+}
