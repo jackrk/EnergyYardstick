@@ -9,9 +9,9 @@
 class controller_tab {
     function rating() {
         $ajax = ajax();
-
         usleep(400000);
         $ajax->call("../php/tabs/rating_main.php", "tab_container");
+
     }
 
     function compare() {
