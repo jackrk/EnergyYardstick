@@ -65,13 +65,13 @@
 	right: -15px;
 }
 .noUi-vertical {
-	width: 18px;
+	width: 14px;
 }
 .noUi-vertical .noUi-handle {
-	width: 28px;
-	height: 34px;
-	left: -6px;
-	top: -17px;
+    width: 28px;
+    height: 20px;
+    left: -8px;
+    top: -10px;
 }
 .noUi-vertical.noUi-extended {
 	padding: 15px 0;
@@ -83,7 +83,7 @@
 /* Styling;
  */
 .noUi-background {
-	background: #66ff11;
+	background: #99ff11;
 	box-shadow: inset 0 1px 1px #f0f0f0;
 }
 .noUi-connect {
@@ -148,10 +148,10 @@
 	width: 14px;
 	height: 1px;
 	left: 6px;
-	top: 14px;
+    top: 8px;
 }
 .noUi-vertical .noUi-handle:after {
-	top: 17px;
+    top: 10px;
 }
 
 /* Disabled state;

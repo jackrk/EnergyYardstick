@@ -20,20 +20,43 @@ $(document).ready(function() {
     });*/
     $("#tab_rating").click(function(){
         $("#tab_container").load("../php/tabs/rating_main.php", function() {
+            $("#hidden_rating_number").html($(".rating_number").html());
             var curval = parseInt($("#hidden_rating_number").html());
             $('.rating_slider').noUiSlider({
-                range: [-3, 3],
-                start: 0,
+                range: [curval, 10],
+                start: curval,
                 handles: 1,
                 step: 1,
-                orientation: "horizontal",
+                orientation: "vertical",
+                direction: "rtl",
+                behaviour: 'extend-tap',
                 serialization: {
                     resolution: 1
                 },
                 slide: function() {
                     var offset = parseInt($("#slider").val());
-                    var newval = (curval+offset);
-                    $(".rating_number").html(newval);
+                    $(".rating_number").html(offset);
+                    var $rating_background = $("#rating_container");
+                    if (10-offset==0) {
+                        $rating_background.transition({backgroundColor: '#81d681', queue: false}, 200);
+                    } else if (10-offset==1) {
+                        $rating_background.transition({backgroundColor: '#90ee90', queue: false}, 200);
+                    } else if (10-offset==2) {
+                        $rating_background.transition({backgroundColor: '#a6f1a6', queue: false}, 200);
+                    } else if (10-offset==3) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    } else if (10-offset==4) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    } else if (10-offset==5) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    } else if (10-offset==6) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    } else if (10-offset==7) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    } else if (10-offset==8) {
+                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
+                    }
+
                 }
             });
         });
