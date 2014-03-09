@@ -1,10 +1,14 @@
 $(document).ready(function() {
+
+
+
+
     if (!$.support.transition)
         $.fn.transition = $.fn.animate;
     $(".tab_link").mouseenter(function(){
         $(this).transition({backgroundColor: 'lightgreen', queue: false}, 200);
         $(this).bind('mouseout', function(){
-            $(this).transition({backgroundColor: 'white', queue: false}, 150);
+            $(this).transition({backgroundColor: '#f0f0f0', queue: false}, 150);
             $(this).unbind('mouseout');
         });
     });
@@ -16,12 +20,21 @@ $(document).ready(function() {
     });*/
     $("#tab_rating").click(function(){
         $("#tab_container").load("../php/tabs/rating_main.php", function() {
+            var curval = parseInt($("#hidden_rating_number").html());
             $('.rating_slider').noUiSlider({
-                range: [1, 10],
-                start: 5,
+                range: [-3, 3],
+                start: 0,
                 handles: 1,
                 step: 1,
-                orientation: "horizontal"
+                orientation: "horizontal",
+                serialization: {
+                    resolution: 1
+                },
+                slide: function() {
+                    var offset = parseInt($("#slider").val());
+                    var newval = (curval+offset);
+                    $(".rating_number").html(newval);
+                }
             });
         });
     });
