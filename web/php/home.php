@@ -19,6 +19,17 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 ?>
 <html>
 <head>
+<!--
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="/~bilalbesic/web/css/tab_menu.css"/>
+    <link rel="stylesheet" type="text/css" href="/~bilalbesic/web/css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="/~bilalbesic/web/css/compare_tab.css"/>
+    <link rel="stylesheet" type="text/css" href="/~bilalbesic/web/css/rating_tab.css"/>
+    <link rel="stylesheet" type="text/css" href="/~bilalbesic/web/css/history_tab.css"/>
+    <script src="/~bilalbesic/web/javascript/jquery-1.11.0.min.js"></script>
+    <script src="/~bilalbesic/web/javascript/animate/jquery.transit.min.js"></script>
+    <script src="/~bilalbesic/web/javascript/tab_menu.js"></script>
+-->    
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" type="text/css" href="/css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="/css/home.css"/>
