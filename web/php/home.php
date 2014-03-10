@@ -6,15 +6,15 @@
  * Time: 11:01 PM
  */
 
-require_once "../ajax.php";
+//require_once "../ajax.php";
 
-$ajax = ajax();
-
+//$ajax = ajax();
+/*
 $ajax->call("../ajax.php?tab/rating");
 
 $ajax->click("tab_rating",$ajax->call("../ajax.php?tab/rating"));
 $ajax->click("tab_compare",$ajax->call("../ajax.php?tab/compare"));
-$ajax->click("tab_history",$ajax->call("../ajax.php?tab/history"));
+$ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 ?>
 <html>
@@ -25,10 +25,8 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history"));
     <link rel="stylesheet" type="text/css" href="/css/compare_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/rating_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/history_tab.css"/>
-    <script src="/javascript/jquery-1.11.0.min.js"></script>
-    <script src="/javascript/animate/jquery.transit.min.js"></script>
-    <script src="/javascript/tab_menu.js"></script>
-    <?php echo $ajax->init(); ?>
+    <link rel="stylesheet" type="text/css" href="/css/slider/jquery.nouislider.css"/>
+    <?php //echo $ajax->init(); ?>
 </head>
 <body style="width: 599px; height: 600px; margin: 0 !important;">
 <div id="tab_menu">
@@ -37,5 +35,11 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history"));
         <a id="tab_history" class="tab_link tab_link_last">HISTORY</a>
 </div>
 <div id="tab_container"></div>
+
+<script src="/javascript/jquery-1.11.0.min.js"></script>
+<script src="/javascript/animate/jquery.transit.min.js"></script>
+<script src="/javascript/slider/jquery.nouislider.js"></script>
+<script src="/javascript/tab_menu.js"></script>
+
 </body>
 </html>
