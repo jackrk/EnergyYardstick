@@ -2,13 +2,12 @@ $(document).ready(function() {
 
 
 
-
     if (!$.support.transition)
         $.fn.transition = $.fn.animate;
     $(".tab_link").mouseenter(function(){
-        $(this).transition({backgroundColor: 'lightgreen', queue: false}, 200);
+        $(this).transition({backgroundColor: 'lightgray', queue: false}, 100);
         $(this).bind('mouseout', function(){
-            $(this).transition({backgroundColor: '#f0f0f0', queue: false}, 150);
+            $(this).transition({backgroundColor: '#f0f0f0', queue: false}, 100);
             $(this).unbind('mouseout');
         });
     });
@@ -22,6 +21,7 @@ $(document).ready(function() {
         $("#tab_container").load("../php/tabs/rating_main.php", function() {
             $("#hidden_rating_number").html($(".rating_number").html());
             var curval = parseInt($("#hidden_rating_number").html());
+            animateRating($("#rating_container"), $(".rating_text"), curval, 10);
             $('.rating_slider').noUiSlider({
                 range: [curval, 10],
                 start: curval,
@@ -37,25 +37,7 @@ $(document).ready(function() {
                     var offset = parseInt($("#slider").val());
                     $(".rating_number").html(offset);
                     var $rating_background = $("#rating_container");
-                    if (10-offset==0) {
-                        $rating_background.transition({backgroundColor: '#81d681', queue: false}, 200);
-                    } else if (10-offset==1) {
-                        $rating_background.transition({backgroundColor: '#90ee90', queue: false}, 200);
-                    } else if (10-offset==2) {
-                        $rating_background.transition({backgroundColor: '#a6f1a6', queue: false}, 200);
-                    } else if (10-offset==3) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    } else if (10-offset==4) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    } else if (10-offset==5) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    } else if (10-offset==6) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    } else if (10-offset==7) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    } else if (10-offset==8) {
-                        $rating_background.transition({backgroundColor: '#c7f6c7', queue: false}, 200);
-                    }
+                    animateRating($rating_background, $(".rating_text"), offset, 200);
 
                 }
             });

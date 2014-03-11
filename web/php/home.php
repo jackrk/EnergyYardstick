@@ -36,11 +36,12 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         <a id="tab_history" class="tab_link tab_link_last">HISTORY</a>
 </div>
 <div id="tab_container"></div>
-
+<div id="hidden_rating_number" style="display: none"></div>
 <script src="/javascript/jquery-1.11.0.min.js"></script>
 <script src="/javascript/animate/jquery.transit.min.js"></script>
 <script src="/javascript/slider/jquery.nouislider.js"></script>
 <script src="/javascript/tab_menu.js"></script>
+<script src="/javascript/rating_functions.js"></script>
 
 </body>
 </html>

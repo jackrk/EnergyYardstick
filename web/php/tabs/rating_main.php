@@ -9,7 +9,7 @@
 ?>
 <div id="rating_tab">
     <div id="rating_container">
-        <div class="rating_info"><span class="rating_number">7</span><span class="rating_text">good</span></div>
+        <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
         <div class="rating_breakdown">
             <span class="rating_breakdown_desc" >
                 average monthly use: <br>
@@ -23,6 +23,5 @@
             </span>
         </div>
         <div class="rating_slider" id="slider"></div>
-        <div id="hidden_rating_number" style="display: none"></div>
     </div>
 </div>
