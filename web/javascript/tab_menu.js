@@ -19,7 +19,11 @@ $(document).ready(function() {
     });*/
     $("#tab_rating").click(function(){
         $("#tab_container").load("../php/tabs/rating_main.php", function() {
-            $("#hidden_rating_number").html($(".rating_number").html());
+            var hid = $("#hidden_rating_number").html();
+            if (hid == "")
+                $("#hidden_rating_number").html($(".rating_number").html());
+            else
+                $('.rating_number').html(hid);
             var curval = parseInt($("#hidden_rating_number").html());
             animateRating($("#rating_container"), $(".rating_text"), curval, 10);
             $('.rating_slider').noUiSlider({
@@ -36,6 +40,7 @@ $(document).ready(function() {
                 slide: function() {
                     var offset = parseInt($("#slider").val());
                     $(".rating_number").html(offset);
+                    $("#hidden_rating_number").html(offset);
                     var $rating_background = $("#rating_container");
                     animateRating($rating_background, $(".rating_text"), offset, 200);
 

@@ -9,7 +9,7 @@
 ?>
 <div id="rating_tab">
     <div id="rating_container">
-        <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
+        <div class="rating_info"><span class="rating_number">4</span><span class="rating_text">good</span></div>
         <div class="rating_breakdown">
             <span class="rating_breakdown_desc" >
                 average monthly use: <br>
@@ -22,6 +22,8 @@
                 $621.54<br>
             </span>
         </div>
+    </div>
+    <div id="tips_container">
         <div class="rating_slider" id="slider"></div>
     </div>
 </div>

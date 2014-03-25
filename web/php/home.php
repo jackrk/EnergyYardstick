@@ -17,6 +17,7 @@ $ajax->click("tab_compare",$ajax->call("../ajax.php?tab/compare"));
 $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -27,6 +28,9 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <link rel="stylesheet" type="text/css" href="/css/rating_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/history_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/slider/jquery.nouislider.css"/>
+    <!--[if IE 7]>
+    <link href="/css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
     <?php //echo $ajax->init(); ?>
 </head>
 <body style="width: 599px; height: 600px; margin: 0 !important;">
@@ -35,7 +39,9 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         <a id="tab_compare" class="tab_link">COMPARE</a>
         <a id="tab_history" class="tab_link tab_link_last">HISTORY</a>
 </div>
+
 <div id="tab_container"></div>
+
 <div id="hidden_rating_number" style="display: none"></div>
 <script src="/javascript/jquery-1.11.0.min.js"></script>
 <script src="/javascript/animate/jquery.transit.min.js"></script>
