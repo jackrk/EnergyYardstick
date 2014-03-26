@@ -5,12 +5,21 @@ $(document).ready(function() {
     if (!$.support.transition)
         $.fn.transition = $.fn.animate;
     $(".tab_link").mouseenter(function(){
-        $(this).transition({backgroundColor: 'lightgray', queue: false}, 100);
+        $(this).transition({color: 'darkgray', queue: false}, 100);
         $(this).bind('mouseout', function(){
-            $(this).transition({backgroundColor: '#f0f0f0', queue: false}, 100);
+            $(this).transition({color: 'black', queue: false}, 100);
             $(this).unbind('mouseout');
         });
     });
+
+    $("#tips_submit").mouseenter(function(){
+       $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
+        $(this).bind('mouseout', function(){
+            $(this).transition({backgroundColor: '#47707F', queue: false}, 200);
+            $(this).unbind('mouseout');
+        });
+    });
+
     /*$(".tab_link").bind('click', function() {
         $("#tab_container").transition({opacity: 0, queue: false}, 200);
         setTimeout(function(){
@@ -31,8 +40,8 @@ $(document).ready(function() {
                 start: curval,
                 handles: 1,
                 step: 1,
-                orientation: "vertical",
-                direction: "rtl",
+                orientation: "horizontal",
+                direction: "ltr",
                 behaviour: 'extend-tap',
                 serialization: {
                     resolution: 1
@@ -46,6 +55,8 @@ $(document).ready(function() {
 
                 }
             });
+
+
         });
     });
     $("#tab_compare").click(function(){

@@ -9,16 +9,16 @@
 {
     display:block;
     height: 160px;
-    border-bottom: 2px dashed dimgray;
+    border-bottom: 1px solid lightslategray;
     width: 599px;
 }
 
 .rating_slider {
     top: 25px;
-    left: -40px;
-    height: 140px;
+    left: 40px;
+    width: 240px;
     position: relative;
-    float: right;
+    float: left;
 }
 
 .rating_info {
@@ -38,6 +38,7 @@
     position: relative;
     font-size: 70px;
     line-height: 95px;
+    font-weight: 300;
 }
 
 .rating_text
@@ -54,6 +55,7 @@
 .rating_breakdown
 {
     font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
     font-size: 16px;
     position: relative;
     display: block;
@@ -84,9 +86,9 @@
 #tips_container
 {
     display:block;
-    height: 320px;
-    border-bottom: 2px dashed dimgray;
+    height: 317px;
     width: 599px;
+    background-color: #f0f0f0;
 }
 
 
@@ -123,4 +125,71 @@
 }
 .rating_container_10 {
     background-color: #33ff22 !important;
+}
+
+#tips_title
+{
+    font-family: 'Titillium Web';
+    font-size: 18px;
+    font-style: italic;
+    position: relative;
+    width: 599px;
+    line-height: 36px;
+    border-bottom: 1px solid lightslategray;
+    background-color: #E0E5E2;
+    text-align: center;
+    display: inline-block;
+}
+
+#tips_submit
+{
+    background-color: #47707F;
+    color: white;
+    font-family: 'Open Sans';
+    font-size: 23px;
+    font-style: normal !important;
+    position: relative;
+    display: inline-block;
+    width: 199px;
+    margin-left: 16px;
+    float: right;
+}
+#tips_submit:hover
+{
+    cursor:pointer;
+}
+
+.tips
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    height: 282px;
+}
+.tip-unselected
+{
+    font-family: 'Open Sans';
+    font-style: italic;
+    display: inline-block;
+    width: 194px;
+    font-size: 18px;
+    height: 56px;
+    padding-left: 6px;
+    line-height: 56px;
+    text-align: left;
+}
+.tips li:nth-child(3n)
+{
+    width:193px;
+}
+.tips li:hover
+{
+    cursor: pointer;
+}
+
+.tip-selected
+{
+    background-color: #8EE0FF;
+    font-style: normal;
 }

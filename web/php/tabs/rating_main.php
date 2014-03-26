@@ -7,6 +7,7 @@
  */
 
 ?>
+<script type="text/javascript" src="/javascript/tips_selector.js"></script>
 <div id="rating_tab">
     <div id="rating_container">
         <div class="rating_info"><span class="rating_number">4</span><span class="rating_text">good</span></div>
@@ -24,6 +25,29 @@
         </div>
     </div>
     <div id="tips_container">
+        <div id="tips_title">Select all that apply and click&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----------------><span id="tips_submit">RECALCULATE</span></div>
+        <div id="tips_list">
+            <ul class="tips">
+                <li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    Electric Water Heater</li><li class="tip-unselected">
+                    LED Lights</li><li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    Electric Water Heater</li><li class="tip-unselected">
+                    LED Lights</li><li class="tip-unselected">
+                    Electric Water Heater</li><li class="tip-unselected">
+                    LED Lights</li><li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    LED Lights</li><li class="tip-unselected">
+                    Electric Water Heater</li><li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    Electric Range</li><li class="tip-unselected">
+                    LED Lights</li>
+            </ul>
+        </div>
+    </div>
+    <div id="slide_container">
         <div class="rating_slider" id="slider"></div>
     </div>
 </div>

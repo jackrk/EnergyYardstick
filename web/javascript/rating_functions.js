@@ -40,8 +40,10 @@ function animateRatingTo_1(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_1");
     }
-    else
+    else {
         ele.transition({backgroundColor: '#ff6458', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffc1bc', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_2(ele, animateTime) {
@@ -49,8 +51,10 @@ function animateRatingTo_2(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_2");
     }
-    else
+    else {
         ele.transition({background: '#ff9911', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffd69f', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_3(ele, animateTime) {
@@ -58,8 +62,10 @@ function animateRatingTo_3(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_3");
     }
-    else
+    else {
         ele.transition({background: '#ffcc11', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffea9f', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_4(ele, animateTime) {
@@ -67,8 +73,10 @@ function animateRatingTo_4(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_4");
     }
-    else
+    else {
         ele.transition({background: '#ffdb58', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#fff0bc', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_5(ele, animateTime) {
@@ -76,8 +84,10 @@ function animateRatingTo_5(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_5");
     }
-    else
+    else {
         ele.transition({background: '#ffff7f', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffffcb', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_6(ele, animateTime) {
@@ -85,8 +95,10 @@ function animateRatingTo_6(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_6");
     }
-    else
+    else {
         ele.transition({background: '#e0ff70', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#f2ffc5', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_7(ele, animateTime) {
@@ -94,8 +106,10 @@ function animateRatingTo_7(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_7");
     }
-    else
+    else {
         ele.transition({background: '#b7f358', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#e2fabc', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_8(ele, animateTime) {
@@ -103,8 +117,10 @@ function animateRatingTo_8(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_8");
     }
-    else
+    else {
         ele.transition({background: '#a3ef28', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#daf8a9', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_9(ele, animateTime) {
@@ -112,8 +128,10 @@ function animateRatingTo_9(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_9");
     }
-    else
+    else {
         ele.transition({background: '#83ef28', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#cdf8a9', queue: false}, animateTime);
+    }
 }
 
 function animateRatingTo_10(ele, animateTime) {
@@ -121,8 +139,10 @@ function animateRatingTo_10(ele, animateTime) {
         ele.removeClass();
         ele.addClass("rating_container_10");
     }
-    else
+    else {
         ele.transition({background: '#33ff22', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#adffa6', queue: false}, animateTime);
+    }
 }
 
 
