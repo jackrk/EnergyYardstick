@@ -86,12 +86,15 @@
 #tips_container
 {
     display:block;
-    height: 317px;
+    height: 344px;
     width: 599px;
     background-color: #f0f0f0;
 }
 
-
+#slide_container
+{
+    height: 160px;
+}
 
 
 /* Classes for IE and older browser compatibility issues with jQuery animations */
@@ -143,16 +146,16 @@
 
 #tips_submit
 {
-    background-color: #47707F;
-    color: white;
+    background-color: #E0E5E2;
+    color: black;
     font-family: 'Open Sans';
-    font-size: 23px;
-    font-style: normal !important;
-    position: relative;
-    display: inline-block;
-    width: 199px;
-    margin-left: 16px;
-    float: right;
+    height: 33px;
+    line-height: 33px;
+    font-style: italic;
+    font-size: 20px;
+    border-bottom: 1px solid lightslategray;
+    border-top: 1px solid lightslategray;
+    text-align: center;
 }
 #tips_submit:hover
 {
@@ -165,23 +168,26 @@
     padding: 0;
     margin: 0;
     display: block;
-    height: 282px;
+    height: 272px;
 }
 .tip-unselected
 {
     font-family: 'Open Sans';
-    font-style: italic;
     display: inline-block;
-    width: 194px;
+    width: 292px;
     font-size: 18px;
-    height: 56px;
+    height: 34px;
     padding-left: 6px;
-    line-height: 56px;
+    line-height: 34px;
     text-align: left;
+    font-weight: 600;
+    color: #505050;
+    border-right: 1px solid lightslategray;
 }
-.tips li:nth-child(3n)
+.tips li:nth-child(2n)
 {
-    width:193px;
+    width:294px;
+    border-right: none;
 }
 .tips li:hover
 {
@@ -190,6 +196,20 @@
 
 .tip-selected
 {
-    background-color: #8EE0FF;
-    font-style: normal;
+    color: black;
+}
+
+.check_container
+{
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    opacity: 0;
+}
+.tip-unselected span img {
+    position: relative;
+    top: 2px;
+}
+.tip-selected .check_container {
+    opacity: 1;
 }

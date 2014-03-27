@@ -25,26 +25,27 @@
         </div>
     </div>
     <div id="tips_container">
-        <div id="tips_title">Select all that apply and click&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----------------><span id="tips_submit">RECALCULATE</span></div>
+        <div id="tips_title">Select all that apply</div>
         <div id="tips_list">
             <ul class="tips">
                 <li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    Electric Water Heater</li><li class="tip-unselected">
-                    LED Lights</li><li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    Electric Water Heater</li><li class="tip-unselected">
-                    LED Lights</li><li class="tip-unselected">
-                    Electric Water Heater</li><li class="tip-unselected">
-                    LED Lights</li><li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    LED Lights</li><li class="tip-unselected">
-                    Electric Water Heater</li><li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    Electric Range</li><li class="tip-unselected">
-                    LED Lights</li>
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li>
             </ul>
+            <div id="tips_submit">RECALCULATE</div>
         </div>
     </div>
     <div id="slide_container">

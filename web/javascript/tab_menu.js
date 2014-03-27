@@ -69,4 +69,5 @@ $(document).ready(function() {
 
         });
     });
+    $('#tab_rating').click();
 });
