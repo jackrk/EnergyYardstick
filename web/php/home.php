@@ -33,7 +33,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <![endif]-->
     <?php //echo $ajax->init(); ?>
 </head>
-<body style="width: 599px; height: 600px; margin: 0 !important;">
+<body style="width: 599px; height: 600px; margin: 0 auto;">
 <div id="tab_menu">
         <a id="tab_rating" class="tab_link">RATING</a>
         <a id="tab_compare" class="tab_link">COMPARE</a>
