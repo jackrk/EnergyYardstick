@@ -1,6 +1,6 @@
 #rating_tab
 {
-    height: 671px;
+    height: 562px;
     background-color: #f0f0f0;
     border-top: 1px solid darkgray;
 
@@ -8,7 +8,7 @@
 #rating_container
 {
     display:block;
-    height: 160px;
+    height: 320px;
     border-bottom: 1px solid lightslategray;
     width: 599px;
 }
@@ -24,10 +24,10 @@
 .rating_info {
     font-family: 'Titillium Web', sans-serif;
     position: relative;
-    float:left;
-    height: 120px;
-    color: #333333;
-    left: 30px;
+    float: left;
+    height: 180px;
+    left: 80px;
+    top: 20px;
     text-align: center;
     width: 130px;
 }
@@ -36,8 +36,8 @@
 {
     display: block;
     position: relative;
-    font-size: 70px;
-    line-height: 95px;
+    font-size: 100px;
+    line-height: 120px;
     font-weight: 300;
 }
 
@@ -45,7 +45,7 @@
 {
     display: block;
     position: relative;
-    font-size: 28px;
+    font-size: 36px;
     font-style: italic;
     font-weight: 300;
     border-top: 1px solid #333333;
@@ -59,10 +59,12 @@
     font-size: 16px;
     position: relative;
     display: block;
-    width: 310px;
-    float: left;
-    top: 30px;
-    left: 130px;
+    border-top: 1px dashed black;
+    width: 424px;
+    margin-left: 25px;
+    padding-left: 126px;
+    margin-top: 24px;
+    padding-top: 12px;
 }
 
 .rating_breakdown_desc
@@ -86,15 +88,11 @@
 #tips_container
 {
     display:block;
-    height: 344px;
+    height: 241px;
     width: 599px;
     background-color: #f0f0f0;
 }
 
-#slide_container
-{
-    height: 160px;
-}
 
 
 /* Classes for IE and older browser compatibility issues with jQuery animations */
@@ -168,7 +166,7 @@
     padding: 0;
     margin: 0;
     display: block;
-    height: 272px;
+    height: 170px;
 }
 .tip-unselected
 {
@@ -212,4 +210,51 @@
 }
 .tip-selected .check_container {
     opacity: 1;
+}
+
+#rating_metrics
+{
+    position: relative;
+    width: 285px;
+    left: 180px;
+    margin-top: 37px;
+    display: inline-block;
+}
+
+
+.metric
+{
+    width: 266px;
+}
+
+.x_img
+{
+
+}
+
+.icon_img
+{
+    margin-right: 10px;
+}
+.metric_number
+{
+    font-family: 'Titillium Web';
+    font-size: 36px;
+    margin-bottom: -4px;
+    font-weight: 400;
+    width: 45px;
+    width: 160px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    top: -4px;
+}
+.metric_text
+{
+    font-weight: 300 !important;
+    font-size: 28px !important;
+    text-align: right;
+    display: inline;
+    position: relative;
+    font-style: italic;
 }

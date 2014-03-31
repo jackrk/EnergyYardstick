@@ -5,18 +5,18 @@ $(document).ready(function() {
     if (!$.support.transition)
         $.fn.transition = $.fn.animate;
     $(".tab_link").mouseenter(function(){
-        $(this).transition({color: 'darkgray', queue: false}, 100);
-        $(this).bind('mouseout', function(){
-            $(this).transition({color: 'black', queue: false}, 100);
-            $(this).unbind('mouseout');
+        $(this).transition({color: 'white', backgroundColor: 'darkslategray', queue: false}, 100);
+        $(this).bind('mouseleave', function(){
+            $(this).transition({color: '', backgroundColor: '', queue: false}, 100);
+            $(this).unbind('mouseleave');
         });
     });
 
     $("#tips_submit").mouseenter(function(){
        $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
-        $(this).bind('mouseout', function(){
+        $(this).bind('mouseleave', function(){
             $(this).transition({backgroundColor: '#47707F', queue: false}, 200);
-            $(this).unbind('mouseout');
+            $(this).unbind('mouseleave');
         });
     });
 
@@ -27,6 +27,12 @@ $(document).ready(function() {
         },520);
     });*/
     $("#tab_rating").click(function(){
+        if (!$(this).hasClass('tab_active')) {
+            $(this).parent().children().each(function() {
+                $(this).removeClass("tab_active");
+            });
+            $(this).addClass("tab_active");
+        }
         $("#tab_container").load("../php/tabs/rating_main.php", function() {
             var hid = $("#hidden_rating_number").html();
             if (hid == "")
@@ -60,11 +66,23 @@ $(document).ready(function() {
         });
     });
     $("#tab_compare").click(function(){
+        if (!$(this).hasClass('tab_active')) {
+            $(this).parent().children().each(function() {
+                $(this).removeClass("tab_active");
+            });
+            $(this).addClass("tab_active");
+        }
         $("#tab_container").load("../php/tabs/compare_main.php", function() {
 
         });
     });
     $("#tab_history").click(function(){
+        if (!$(this).hasClass('tab_active')) {
+            $(this).parent().children().each(function() {
+                $(this).removeClass("tab_active");
+            });
+            $(this).addClass("tab_active");
+        }
         $("#tab_container").load("../php/tabs/history_main.php", function() {
 
         });
