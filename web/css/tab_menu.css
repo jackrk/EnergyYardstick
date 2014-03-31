@@ -12,13 +12,16 @@
     position:relative;
     float:left;
     text-align: center;
-    width: 199px;
-    border-right: 1px solid darkgray;
+    width: 200px;
     display: inline;
     height:20px;
     padding-top:5px;
     padding-bottom:5px;
     font-size: 20px;
+    background-color: #f0f0f0;
+}
+.tab_link:nth-child(1) {
+    width: 199px;
 }
 .tab_link:hover
 {

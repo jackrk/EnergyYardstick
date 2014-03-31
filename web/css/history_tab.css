@@ -1,8 +1,39 @@
 #history_container
 {
-    font-family: Arial, Helvetica, sans-serif;
+    height: 562px;
+}
+#histgraph_container
+{
+    height: 400px;
+    border-bottom: 1px solid black;
+}
+#range_buttons
+{
+    height: 120px;
+}
+.range_button
+{
+    height: 110px;
+    font-family: 'Titillium Web';
+    display: inline-block;
+    width: 200px;
+    line-height: 53px;
+    font-size: 44px;
     text-align: center;
-    line-height: 671px;
-    font-size: 4em;
-    background-color: lightskyblue;
+    font-weight: 300;
+    padding-top: 10px;
+    border-bottom: 1px solid black;
+}
+.range_button:hover {
+    cursor: pointer;
+}
+.range_month
+{
+    font-size:32px;
+    font-style: italic;
+    display: block;
+}
+.selected {
+    background-color: darkslategray;
+    color: white;
 }
