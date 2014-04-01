@@ -17,45 +17,50 @@ $ajax->click("tab_compare",$ajax->call("../ajax.php?tab/compare"));
 $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-<!-- This block is for Bilal's Mac
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/tab_menu.css"/>
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/home.css"/>
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/compare_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/rating_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/history_tab.css"/>
-    <script src="/~bilalbesic/EnergyYardstick/web/javascript/jquery-1.11.0.min.js"></script>
-    <script src="/~bilalbesic/EnergyYardstick/web/javascript/animate/jquery.transit.min.js"></script>
-    <script src="/~bilalbesic/EnergyYardstick/web/javascript/tab_menu.js"></script>
-    <script src="/~bilalbesic/EnergyYardstick/web/javascript/slider/jquery.nouislider.js"></script>
-    <link rel="stylesheet" type="text/css" href="/~bilalbesic/EnergyYardstick/web/css/slider/jquery.nouislider.css"/>
--->
-   <!--
-   The Block below is for everyone else (Windows)
+
+ <!--
+   Bilal:
+   
+   There are getting to be too many references to have different blocks 
+   for your workspace and the rest of ours. Every img tag would have to be changed 
+   as well as script tags in other files besides this one.
+   
+   I'd recommend that you figure out how to set your root directory in php to the folder
+   that contains the php, css, javascript, img etc directories. 
+   
    -->
+
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="/css/font_faces.css"/>
     <link rel="stylesheet" type="text/css" href="/css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="/css/home.css"/>
     <link rel="stylesheet" type="text/css" href="/css/compare_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/rating_tab.css"/>
     <link rel="stylesheet" type="text/css" href="/css/history_tab.css"/>
-    <script src="/javascript/jquery-1.11.0.min.js"></script>
-    <script src="/javascript/animate/jquery.transit.min.js"></script>
-    <script src="/javascript/tab_menu.js"></script>
-    <script src="/javascript/slider/jquery.nouislider.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/slider/jquery.nouislider.css"/>
-
+    <!--[if IE 7]>
+    <link href="/css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
     <?php //echo $ajax->init(); ?>
 </head>
-<body style="width: 599px; height: 600px; margin: 0 !important;">
+<body style="width: 599px; height: 600px; margin: 0 auto;">
 <div id="tab_menu">
         <a id="tab_rating" class="tab_link">RATING</a>
         <a id="tab_compare" class="tab_link">COMPARE</a>
         <a id="tab_history" class="tab_link tab_link_last">HISTORY</a>
 </div>
+
 <div id="tab_container"></div>
+
+<div id="hidden_rating_number" style="display: none"></div>
+<script src="/javascript/jquery-1.11.0.min.js"></script>
+<script src="/javascript/animate/jquery.transit.min.js"></script>
+<script src="/javascript/slider/jquery.nouislider.js"></script>
+<script src="/javascript/tab_menu.js"></script>
+<script src="/javascript/rating_functions.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,126 @@
+#rating_tab
+{
+    height: 671px;
+    background-color: #f0f0f0;
+    border-top: 1px solid darkgray;
+
+}
+#rating_container
+{
+    display:block;
+    height: 160px;
+    border-bottom: 2px dashed dimgray;
+    width: 599px;
+}
+
+.rating_slider {
+    top: 25px;
+    left: 40px;
+    width: 240px;
+    position: relative;
+    float: left;
+}
+
+.rating_info {
+    font-family: 'Titillium Web', sans-serif;
+    position: relative;
+    float:left;
+    height: 120px;
+    color: #333333;
+    left: 30px;
+    text-align: center;
+    width: 130px;
+}
+
+.rating_number
+{
+    display: block;
+    position: relative;
+    font-size: 70px;
+    line-height: 95px;
+}
+
+.rating_text
+{
+    display: block;
+    position: relative;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    border-top: 1px solid #333333;
+    line-height: 44px;
+}
+
+.rating_breakdown
+{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    position: relative;
+    display: block;
+    width: 310px;
+    float: left;
+    top: 30px;
+    left: 130px;
+}
+
+.rating_breakdown_desc
+{
+    text-align: left;
+    display: inline-block;
+    line-height: 24px;
+    font-style: italic;
+}
+
+.rating_breakdown_numbers
+{
+    text-align: right;
+    float: right;
+    display: inline;
+    line-height: 24px;
+    margin-left: 40px;
+    position: absolute;
+}
+
+#tips_container
+{
+    display:block;
+    height: 320px;
+    border-bottom: 2px dashed dimgray;
+    width: 599px;
+}
+
+
+
+
+/* Classes for IE and older browser compatibility issues with jQuery animations */
+
+.rating_container_1 {
+    background-color: #ff6458 !important;
+}
+.rating_container_2 {
+    background-color: #ff9911 !important;
+}
+.rating_container_3 {
+    background-color: #ffcc11 !important;
+}
+.rating_container_4 {
+    background-color: #ffdb58 !important;
+}
+.rating_container_5 {
+    background-color: #ffff7f !important;
+}
+.rating_container_6 {
+    background-color: #e0ff70 !important;
+}
+.rating_container_7 {
+    background-color: #b7f358 !important;
+}
+.rating_container_8 {
+    background-color: #a3ef28 !important;
+}
+.rating_container_9 {
+    background-color: #83ef28 !important;
+}
+.rating_container_10 {
+    background-color: #33ff22 !important;
+}
