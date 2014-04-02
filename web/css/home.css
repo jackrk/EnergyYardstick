@@ -7,8 +7,33 @@
     width:599px;
 
 }
-.tab_active
+.show_load
 {
-    color: white;
-    background-color: darkslategray;
+    height:563px;
+    width:599px;
+    display: block;
+    position: absolute;
+    top:31px;
+    text-align: center;
+    vertical-align: middle;
+    opacity: .8;
+    background-color: #efefef;
+}
+.hide_load
+{
+    display: none !important;
+}
+.load_gif
+{
+    position: relative;
+    top: 150px;
+}
+.loading_label
+{
+    position: absolute;
+    top: 102px;
+    left: 248px;
+    font-size: 2em;
+    /* color: darkgreen; */
+    font-family: 'Open Sans';
 }

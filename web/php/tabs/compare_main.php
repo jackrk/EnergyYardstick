@@ -46,9 +46,24 @@ try {
  */
 
 ?>
+<script type="text/javascript" src="/javascript/compare_selector.js"></script>
 <div id="compare_container">
-	COMPARISONS
+    <div id="compgraph_container">
+
+    </div>
+    <div id="compare_selector">
+        <div id="reset_similar_button">Reset to <span class="color_text">similar</span></div>
+        <div id="compare_buttons">
+            <div class="compare_button compare_selected">
+                Compare by&nbsp;<span class="color_text">size</span><label class="comp_desc">(sq ft)</label></div><div class="compare_button">
+                Compare by&nbsp;<span class="color_text">style</span><label class="comp_desc">(ex. number of stories)</label></div><div class="compare_button compare_button_bottom">
+                Compare by&nbsp;<span class="color_text">age</span></div><div class="compare_button compare_button_bottom">
+                Compare in your&nbsp;<span class="color_text">neighborhood</span></div>
+        </div>
+    </div>
 </div>
 <?php 
 //echo $rating 
 ?>
+
+

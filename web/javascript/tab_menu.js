@@ -4,13 +4,13 @@ $(document).ready(function() {
 
     if (!$.support.transition)
         $.fn.transition = $.fn.animate;
-    $(".tab_link").mouseenter(function(){
+    /*$(".tab_link").mouseenter(function(){
         $(this).transition({color: 'white', backgroundColor: 'darkslategray', queue: false}, 100);
         $(this).bind('mouseleave', function(){
             $(this).transition({color: '', backgroundColor: '', queue: false}, 100);
             $(this).unbind('mouseleave');
         });
-    });
+    });*/
 
     $("#tips_submit").mouseenter(function(){
        $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
@@ -27,6 +27,7 @@ $(document).ready(function() {
         },520);
     });*/
     $("#tab_rating").click(function(){
+        $("#loader").removeClass("hide_load");
         if (!$(this).hasClass('tab_active')) {
             $(this).parent().children().each(function() {
                 $(this).removeClass("tab_active");
@@ -61,11 +62,11 @@ $(document).ready(function() {
 
                 }
             });
-
-
+            $("#loader").addClass("hide_load");
         });
     });
     $("#tab_compare").click(function(){
+        $("#loader").removeClass("hide_load");
         if (!$(this).hasClass('tab_active')) {
             $(this).parent().children().each(function() {
                 $(this).removeClass("tab_active");
@@ -73,10 +74,11 @@ $(document).ready(function() {
             $(this).addClass("tab_active");
         }
         $("#tab_container").load("../php/tabs/compare_main.php", function() {
-
+            $("#loader").addClass("hide_load");
         });
     });
     $("#tab_history").click(function(){
+        $("#loader").removeClass("hide_load");
         if (!$(this).hasClass('tab_active')) {
             $(this).parent().children().each(function() {
                 $(this).removeClass("tab_active");
@@ -84,7 +86,7 @@ $(document).ready(function() {
             $(this).addClass("tab_active");
         }
         $("#tab_container").load("../php/tabs/history_main.php", function() {
-
+            $("#loader").addClass("hide_load");
         });
     });
     $('#tab_rating').click();

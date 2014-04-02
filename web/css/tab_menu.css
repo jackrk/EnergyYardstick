@@ -8,26 +8,38 @@
 }
 .tab_link
 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
     position:relative;
     float:left;
     text-align: center;
     width: 200px;
     display: inline;
-    height:20px;
-    padding-top:5px;
+    height:24px;
+    padding-top:1px;
     padding-bottom:5px;
     font-size: 20px;
     background-color: #f0f0f0;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    cursor: pointer;
 }
-.tab_link:nth-child(1) {
-    width: 199px;
+.tab_link:nth-child(0) {
+
+    border-left: 1px solid black;
 }
 .tab_link:hover
 {
-    cursor: pointer;
+    background-color: #d8d8d8;
 }
 .tab_link_last
 {
-    border-right: 0 !important;
+    width: 199px;
+}
+
+.tab_active
+{
+    background-color: #d8d8d8;
 }

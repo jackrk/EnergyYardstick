@@ -11,6 +11,7 @@
     height: 320px;
     border-bottom: 1px solid lightslategray;
     width: 599px;
+    box-shadow: inset 0 0 20px #383838;
 }
 
 .rating_slider {
@@ -132,8 +133,10 @@
     font-size: 18px;
     font-style: italic;
     position: relative;
-    width: 599px;
+    width: 597px;
     line-height: 36px;
+    border-left: 1px solid lightslategray;
+    border-right: 1px solid lightslategray;
     border-bottom: 1px solid lightslategray;
     background-color: #E0E5E2;
     text-align: center;
@@ -148,8 +151,7 @@
     height: 33px;
     line-height: 33px;
     font-size: 20px;
-    border-bottom: 1px solid lightslategray;
-    border-top: 1px solid lightslategray;
+    border: 1px solid lightslategray;
     text-align: center;
 }
 #tips_submit:hover
@@ -164,12 +166,14 @@
     margin: 0;
     display: block;
     height: 170px;
+    border-right: 1px solid lightslategray;
+    border-left: 1px solid lightslategray;
 }
 .tip-unselected
 {
     font-family: 'Open Sans', sans-serif;
     display: inline-block;
-    width: 292px;
+    width: 291px;
     font-size: 18px;
     height: 34px;
     padding-left: 6px;
@@ -180,7 +184,7 @@
 }
 .tips li:nth-child(2n)
 {
-    width:294px;
+    width:293px;
     border-right: none;
 }
 .tips li:hover
