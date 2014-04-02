@@ -34,13 +34,13 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
    -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" type="text/css" href="/css/font_faces.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/tab_menu.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/home.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/compare_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/rating_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/history_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/slider/jquery.nouislider.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/font_faces.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/tab_menu.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/compare_tab.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/rating_tab.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/history_tab.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/slider/jquery.nouislider.css"/>
     <!--[if IE 7]>
     <link href="/css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
     <![endif]-->
@@ -56,11 +56,11 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <div id="tab_container"></div>
 
 <div id="hidden_rating_number" style="display: none"></div>
-<script src="/javascript/jquery-1.11.0.min.js"></script>
-<script src="/javascript/animate/jquery.transit.min.js"></script>
-<script src="/javascript/slider/jquery.nouislider.js"></script>
-<script src="/javascript/tab_menu.js"></script>
-<script src="/javascript/rating_functions.js"></script>
+<script src="../javascript/jquery-1.11.0.min.js"></script>
+<script src="../javascript/animate/jquery.transit.min.js"></script>
+<script src="../javascript/slider/jquery.nouislider.js"></script>
+<script src="../javascript/tab_menu.js"></script>
+<script src="../javascript/rating_functions.js"></script>
 
 </body>
 </html>
