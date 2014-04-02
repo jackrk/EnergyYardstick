@@ -34,7 +34,8 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
    -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" type="text/css" href="/css/font_faces.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="/css/home.css"/>
     <link rel="stylesheet" type="text/css" href="/css/compare_tab.css"/>

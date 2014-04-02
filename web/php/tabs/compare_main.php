@@ -10,8 +10,8 @@ function get_rating($data){
 	if($count > 0)
 		return $sum/$count;
 }
-$user = "theciuc0_1";
-$pass = "seniordesign1";
+$user = "theciuc0_jdev";
+$pass = "jripper1138";
 try {
     $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 	
