@@ -129,7 +129,7 @@
 <body>
 
 <div id="history_container">
-    <div id="histgraph_container">
+    <div id="histgraph_container" style="width: 500px; height: 300px;">
     </div>
     <div id="range_buttons">
         <div style="width: 199px !important" class="range_button selected">
