@@ -21,9 +21,15 @@
         $(document).ready(function () {
             $('#histgraph_container').jqChart({
                 title: { text: 'Monthly Electricity Usage (kWh)' },
+                legend: { location: 'top' },
                 animation: { duration: 1 },
                 shadows: {
                     enabled: true
+                },
+                border: {
+                    cornerRadius: 1,
+                    strokeStyle: '#212121',
+                    padding: 30
                 },
                 series: [
                     {
@@ -55,7 +61,7 @@
 <body>
 
 <div id="history_container">
-    <div id="histgraph_container" style="width: 600px; height: 300px;">
+    <div id="histgraph_container">
     </div>
     <div id="range_buttons">
         <div style="width: 199px !important" class="range_button selected">

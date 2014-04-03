@@ -21,7 +21,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <head>
     <?php echo $ajax->init(); ?>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <link href="/css/login.css" rel="stylesheet" type="text/css">
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
 </head>
 <body style="width: 599px; height: 600px; margin: 0 auto;">
 <div id="splash_logo">
@@ -36,7 +36,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     </form>
 </div>
 
-<script src="/javascript/jquery-1.11.0.min.js"></script>
-<script src="/javascript/animate/jquery.transit.min.js"></script>
+<script src="../javascript/jquery-1.11.0.min.js"></script>
+<script src="../javascript/animate/jquery.transit.min.js"></script>
 </body>
 </html>
