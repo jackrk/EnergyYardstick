@@ -7,7 +7,7 @@
  */
 
 ?>
-<script type="text/javascript" src="../javascript/tips_selector.js"></script>
+
 <div id="rating_tab">
     <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
     <div id="rating_container">
@@ -53,3 +53,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../javascript/tips_selector.js"></script>
+<script src="../javascript/slider/jquery.nouislider.js"></script>
+<script src="../javascript/animate/jquery.transit.min.js"></script>
+<script src="../javascript/rating_functions.js"></script>
