@@ -9,8 +9,9 @@
 ?>
 <script type="text/javascript" src="/javascript/tips_selector.js"></script>
 <div id="rating_tab">
+    <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
     <div id="rating_container">
-        <div class="rating_info"><span class="rating_number">4</span><span class="rating_text">good</span></div>
+        <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
         <div id="rating_metrics">
             <div class="metric" id="mpg_metric"><img style="padding-left: 8px;" src="/img/gas_mid.png" class="icon_img"/><img src="/img/x_mid.png" class="x_img" />
                 <div class="metric_number"><span id="mpg_number">21</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>

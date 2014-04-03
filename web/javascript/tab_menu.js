@@ -47,8 +47,8 @@ $(document).ready(function() {
                 start: curval,
                 handles: 1,
                 step: 1,
-                orientation: "horizontal",
-                direction: "ltr",
+                orientation: "vertical",
+                direction: "rtl",
                 behaviour: 'extend-tap',
                 serialization: {
                     resolution: 1
@@ -56,12 +56,22 @@ $(document).ready(function() {
                 slide: function() {
                     var offset = parseInt($("#slider").val());
                     $(".rating_number").html(offset);
-                    $("#hidden_rating_number").html(offset);
                     var $rating_background = $("#rating_container");
                     animateRating($rating_background, $(".rating_text"), offset, 200);
 
                 }
             });
+            /*$(".noUi-vertical .noUi-handle").bind('mouseenter', function() {
+                $('.noUi-vertical').transition({boxShadow: '0 0 6px black', queue: false}, 300);
+                $(this).bind('mouseleave',function(){
+                    $('.noUi-vertical').transition({boxShadow: '', queue: false}, 200);
+                });
+                $('.noUi-vertical .noUi-handle').bind('mousedown', function(){
+                    $(this).bind('mouseup', function(){
+
+                    });
+                });
+            });*/
             $("#loader").addClass("hide_load");
         });
     });

@@ -11,26 +11,28 @@
     height: 320px;
     border-bottom: 1px solid lightslategray;
     width: 599px;
-    box-shadow: inset 0 0 20px #383838;
+    box-shadow: inset 0 0 20px #212121;
+    -webkit-box-shadow: inset 0 0 20px #212121;
+    -moz-box-shadow: inset 0 0 20px #212121;
 }
 
 .rating_slider {
-    top: 25px;
-    left: 40px;
-    width: 240px;
-    position: relative;
-    float: left;
+    top: 42px;
+    left: 58px;
+    width: 10px;
+    height: 124px;
+    position: absolute;
 }
 
 .rating_info {
     font-family: 'Open Sans', sans-serif;
     position: relative;
     float: left;
-    height: 11em;
-    left: 5em;
+    height: 176px;
+    left: 94px;
     top: 8px;
     text-align: center;
-    width: 8em;
+    width: 128px;
 }
 
 .rating_number
@@ -215,9 +217,9 @@
 #rating_metrics
 {
     position: relative;
-    width: 17em;
-    left: 11em;
-    margin-top: 2.2em;
+    width: 272px;
+    left: 170px;
+    margin-top: 34px;
     display: inline-block;
 }
 

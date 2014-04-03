@@ -32,7 +32,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         <div class="element-input" ><label class="title">User</label><input class="inputbox" type="text" id="a[username]" name="a[username]" placeholder="username" /></div>
         <div class="element-input" ><label class="title">Password</label><input class="inputbox" type="password" id="a[password]" name="a[password]" placeholder="password" /></div>
 
-        <div class="submit"><input id="ajaxsubmit" name="ajaxsubmit" class="submit_button" type="submit" value="Submit"/></div>
+        <div class="submit"><div id="err"></div><input id="ajaxsubmit" name="ajaxsubmit" class="submit_button" type="submit" value="Submit"/></div>
     </form>
 </div>
 

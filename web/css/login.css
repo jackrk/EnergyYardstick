@@ -1,6 +1,6 @@
 #logincontainer
 {
-    background-color: #e9e9e9;
+    background-color: #eeeeee;
     width:100%;
     height: 100%;
 }
@@ -13,19 +13,19 @@
 }
 .logintitle
 {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #d0dada;
-    font-size: 1.8em;
-    padding-left: 2em;
-    background-color: #f3fdf3;
+    font-size: 22px;
+    padding-left: 47px;
+    background-color: #e8fbe8;
 }
 label.title
 {
     display: block;
     margin-bottom: 3px;
     clear: both;
-    font-size: 1.3em;
+    font-size: 18px;
 }
 .inputbox
 {
@@ -34,10 +34,10 @@ label.title
     background: #FFF;
     resize: none;
     outline: medium none;
-    padding: 0.5em;
+    padding: 8px;
     width: 90%;
     box-sizing: border-box;
-    font-size: 1.4em;
+    font-size: 15px;
     -webkit-transition: border-color 0.3s;
     -moz-transition: border-color 0.3s;
     -ms-transition: border-color 0.3s;
@@ -55,35 +55,29 @@ label.title
 .submit
 {
     vertical-align: middle;
-    text-align: right;
     margin: 0;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 24px;
+    padding-bottom: 68px;
     border-top: 1px solid #d0dada;
-    margin-top: 2em;
+    margin-top: 24px;
 }
 .element-input
 {
-    padding-left: 4em;
-    margin-top: 1em;
-}
-.element-password
-{
-    padding-left: 7em;
-    margin-top: 1em;
+    padding-left: 48px;
+    margin-top: 14px;
 }
 .submit_button
 {
     background-color: #4c924c;
-    font-size: 1.4em;
+    font-size: 16px;
     text-align: center;
     color: white;
     opacity: 0.8;
     border: none;
     display: inline-block;
-    padding: 0.5em 1.4em;
-    position: relative;
-    margin-right: 2.7em;
+    padding: 10px 24px;
+    position: absolute;
+    left: 334px;
     cursor: pointer;
     transition: background-color 0.2s;
     -webkit-transition: background-color 0.2s;
@@ -93,9 +87,17 @@ label.title
 }
 .submit
 {
-    background-color: #f3fdf3;
+    background-color: #e8fbe8;
 }
 .submit_button:hover
 {
     background-color: darkgreen;
+}
+#err
+{
+    position: absolute;
+    margin-left: 80px;
+    font-size: 16px;
+    color: #ff5552;
+    margin-top: 8px;
 }
