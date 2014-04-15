@@ -8,14 +8,14 @@
 ?>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../css/jquery.jqChart.css" />
-    <link rel="stylesheet" type="text/css" href="../css/jquery.jqRangeSlider.css" />
-    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.8.20.css" />
-    <script src="../javascript/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="../javascript/jquery.mousewheel.js" type="text/javascript"></script>
-    <script src="../javascript/jquery.jqChart.min.js" type="text/javascript"></script>
-    <script src="../javascript/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
-    <!--[if IE]><script lang="javascript" type="text/javascript" src="../js/excanvas.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="../../css/jquery.jqChart.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.jqRangeSlider.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.10.4.css" />
+    <script src="../../javascript/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../../javascript/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="../../javascript/jquery.jqChart.min.js" type="text/javascript"></script>
+    <script src="../../javascript/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="../../javascript/excanvas.js"></script><![endif]-->
     
     <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
@@ -55,7 +55,7 @@
         });
     </script>
 
-<script type="text/javascript" src="../javascript/range_selector.js"></script>
+<script type="text/javascript" src="../../javascript/range_selector.js"></script>
 </head>
 
 <body>

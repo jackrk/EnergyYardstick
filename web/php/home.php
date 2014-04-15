@@ -56,7 +56,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 <div id="tab_container"></div>
 <div id="loader" class="hide_load show_load"><label class="loading_label">loading</label><img class="load_gif" src="../img/loader.gif"/></div>
-<div id="hidden_rating_number" style="display: none"></div>
+<div id="hidden_rating_number" style="display: none">4</div>
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/tab_menu.js"></script>
 <script src="../javascript/rating_functions.js"></script>

@@ -50,13 +50,13 @@
 /* Slider size and handle placement;
  */
 .noUi-horizontal {
-	height: 18px;
+	height: 7px;
 }
 .noUi-horizontal .noUi-handle {
-	width: 34px;
-	height: 28px;
-	left: -17px;
-	top: -6px;
+    width: 10px;
+    height: 19px;
+    left: -5px;
+    top: -7px;
 }
 .noUi-horizontal.noUi-extended {
 	padding: 0 15px;
@@ -83,22 +83,22 @@
 /* Styling;
  */
 .noUi-background {
-	background: #646464;
-	/*box-shadow: inset 0 1px 1px #f0f0f0;*/
-}
+    background: rgba(0,0,0,0.4);
+    /* box-shadow: inset 0 1px 1px #f0f0f0; */
+    }
 .noUi-connect {
-	background: #3FB8AF;
-	box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
+    background: #3FB8AF;
+    box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
 -webkit-transition: background 450ms;
-	transition: background 450ms;
+    transition: background 450ms;
 }
 .noUi-origin {
-	border-radius: 2px;
+    border-radius: 2px;
 }
 .noUi-target {
-	border-radius: 4px;
-	border: 1px solid #121212;
-	/*box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;*/
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.5);
+    /*box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB;*/
 }
 .noUi-target.noUi-connect {
 	box-shadow: inset 0 0 3px rgba(51,51,51,0.45), 0 3px 6px -5px #BBB;
@@ -113,10 +113,10 @@
 	cursor: n-resize;
 }
 .noUi-handle {
-	border: 1px solid #494949;
-	border-radius: 3px;
-	background: #646464;
-	cursor: pointer;
+    border: 1px solid #121212;
+    border-radius: 3px;
+    background: #464646;
+    cursor: pointer;
 	/*box-shadow: inset 0 0 1px #FFF,
 				inset 0 1px 7px #EBEBEB,
 				0 3px 6px -3px #BBB;*/

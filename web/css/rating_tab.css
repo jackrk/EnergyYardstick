@@ -17,10 +17,10 @@
 }
 
 .rating_slider {
-    top: 42px;
-    left: 58px;
-    width: 10px;
-    height: 124px;
+    top: 125px;
+    left: 84px;
+    height: 10px;
+    width: 135px;
     position: absolute;
 }
 
@@ -29,7 +29,7 @@
     position: relative;
     float: left;
     height: 176px;
-    left: 94px;
+    left: 86px;
     top: 8px;
     text-align: center;
     width: 128px;
@@ -51,23 +51,24 @@
     position: relative;
     font-size: 36px;
     font-style: italic;
-    border-top: 1px solid #333333;
-    line-height: 44px;
+    /* border-top: 1px solid #333333; */
+    line-height: 58px;
+
 }
 
 .rating_breakdown
 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.1em;
+    font-size: 16px;
     position: relative;
     display: block;
-    border-top: 1px dashed black;
-    width: 25em;
-    margin-left: 1.3em;
-    padding-left: 6.6em;
-    margin-top: 2em;
-    padding-top: .7em;
-    line-height: 1.5em;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    width: 521px;
+    margin-left: 24px;
+    padding-left: 30px;
+    margin-top: 38px;
+    line-height: 24px;
+    padding-top: 4px;
 }
 
 .rating_breakdown_desc
@@ -75,6 +76,7 @@
     text-align: left;
     display: inline-block;
     font-style: italic;
+    padding-top: 24px;
 }
 
 .rating_breakdown_numbers
@@ -82,7 +84,6 @@
     text-align: right;
     float: right;
     display: inline;
-    margin-left: 3em;
     position: absolute;
 }
 
@@ -217,21 +218,42 @@
 #rating_metrics
 {
     position: relative;
-    width: 272px;
-    left: 170px;
-    margin-top: 34px;
+    width: 210px;
+    left: 345px;
+    margin-top: 2px;
     display: inline-block;
 }
+#piechart
+{
+    position: absolute;
+    left: 312px;
+    margin-top: 2px;
+    display: inline-block;
+    height: 158px;
+    width: 274px;
+    border: 1px solid lightcyan;
+}
 
+#metric_container
+{
+    /* display: inline; */
+    /* width: 300px; */
+    position: absolute;
+    /* float: left; */
+    height: 190px;
+    width: 299px;
+    margin-top: 10px;
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
 
 .metric
 {
-    width: 17em;
+    width: 226px;
 }
 
 .x_img
 {
-
+    margin-right: 9px;
 }
 
 .icon_img
@@ -240,21 +262,66 @@
 }
 .metric_number
 {
-    font-family: 'Open Sans';
-    font-size: 36px;
-    margin-bottom: -4px;
-    width: 45px;
-    width: 160px;
-    text-align: center;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 29px;
+    width: 132px;
     position: relative;
     display: inline-block;
-    top: -4px;
+    top: -2px;
 }
 .metric_text
 {
-    font-size: 28px !important;
+    font-size: 21px !important;
     text-align: right;
     display: inline;
     position: relative;
     font-style: italic;
+}
+.metric_title
+{
+    font-family: 'Open Sans';
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+#equiv_button
+{
+    left: 23px;
+}
+
+#piechart_button
+{
+    left: 115px;
+}
+.metric_button
+{
+    position: absolute;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.metric_button:hover
+{
+    text-decoration: underline;
+}
+
+#metric_selector
+{
+    position: absolute;
+    display: inline;
+    width: 108px;
+    cursor: pointer;
+    left: -3px;
+    margin-top: 7px;
+    height: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
 }

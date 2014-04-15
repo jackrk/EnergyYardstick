@@ -47,8 +47,8 @@ $(document).ready(function() {
                 start: curval,
                 handles: 1,
                 step: 1,
-                orientation: "vertical",
-                direction: "rtl",
+                orientation: "horizontal",
+                direction: "ltr",
                 behaviour: 'extend-tap',
                 serialization: {
                     resolution: 1
@@ -57,7 +57,7 @@ $(document).ready(function() {
                     var offset = parseInt($("#slider").val());
                     $(".rating_number").html(offset);
                     var $rating_background = $("#rating_container");
-                    animateRating($rating_background, $(".rating_text"), offset, 200);
+                    animateRating($rating_background, $(".rating_text"), offset, 600);
 
                 }
             });
@@ -72,6 +72,7 @@ $(document).ready(function() {
                     });
                 });
             });*/
+            $("#equiv_button").click();
             $("#loader").addClass("hide_load");
         });
     });
