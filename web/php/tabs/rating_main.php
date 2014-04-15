@@ -7,29 +7,41 @@
  */
 
 ?>
-<script type="text/javascript" src="/javascript/tips_selector.js"></script>
+
 <div id="rating_tab">
+    <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
     <div id="rating_container">
-        <div class="rating_info"><span class="rating_number">4</span><span class="rating_text">good</span></div>
-        <div id="rating_metrics">
-            <div class="metric" id="mpg_metric"><img style="padding-left: 8px;" src="/img/gas_mid.png" class="icon_img"/><img src="/img/x_mid.png" class="x_img" />
-                <div class="metric_number"><span id="mpg_number">21</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
-            <div class="metric" id="cars_metric"><img src="/img/car_mid.png" class="icon_img"/><img src="/img/x_mid.png" class="x_img"/>
-                <div class="metric_number"><span id="cars_number">5</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
-            <div class="metric" id="trees_metric"><img src="/img/tree_mid.png" class="icon_img" /><img src="/img/x_mid.png" class="x_img"/>
-                <div class="metric_number"><span id="trees_number">20</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
-        </div>
-        <div class="rating_breakdown">
-            <span class="rating_breakdown_desc" >
-                average monthly use: <br>
-                average cost per month:  <br>
-                total billed last 12 months: <br>
-            </span>
-            <span class="rating_breakdown_numbers" >
-                548.3 kWh<br>
-                $40.67<br>
-                $621.54<br>
-            </span>
+        <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
+        <div id="metric_container">
+            <div id="piechart" style="opacity: 0">piechart - remove border</div>
+            <div id="rating_metrics"><span class="metric_title">equivalent to</span>
+                <div class="metric" id="mpg_metric"><img style="padding-left: 4px;" src="../../img/gas_mid.png" height="26" width="26" class="icon_img"/><img style="padding-left: 2px;" src="../../img/x_mid.png" height="26" width="38" class="x_img" />
+                    <div class="metric_number"><span id="mpg_number">21</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
+                <div class="metric" id="cars_metric"><img src="../../img/car_mid.png" height="32" width="32" class="icon_img"/><img src="../../img/x_mid.png" height="26" width="38" class="x_img"/>
+                    <div class="metric_number"><span id="cars_number">5</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
+                <div class="metric" id="trees_metric"><img style="padding-left: 1px; margin-right: 9px;" src="../../img/tree_mid.png" height="32" width="32" class="icon_img" /><img src="../../img/x_mid.png" heheight="26" width="38" class="x_img"/>
+                    <div class="metric_number"><span id="trees_number">20</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
+            <span id="metric_selector"></span><span id="equiv_button" class="metric_button">metrics</span><span id="piechart_button" class="metric_button">breakdown</span>
+            </div>
+            <div class="rating_breakdown">
+                <span class="rating_breakdown_desc" >
+                    average monthly use: <br>
+                    average cost per month:  <br>
+                    total billed last 12 months: <br>
+                </span>
+                <span id="usage_now" style="padding-left:70px" class="rating_breakdown_numbers" >
+                    <span style="font-style: italic">now</span><br>
+                    548.3 kWh<br>
+                    $50.45<br>
+                    $605.40<br>
+                </span>
+                <span id="usage_minus_five" style="padding-left:231px" class="rating_breakdown_numbers" >
+                    <span style="font-style: italic">5% less</span><br>
+                    520.9 kWh<br>
+                    $47.90<br>
+                    $575.13<br>
+                </span>
+            </div>
         </div>
     </div>
     <div id="tips_container">
@@ -37,18 +49,22 @@
         <div id="tips_list">
             <ul class="tips">
                 <li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="/img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li>
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li>
             </ul>
             <div id="tips_submit">RECALCULATE</div>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="../../javascript/tips_selector.js"></script>
+<script src="../../javascript/slider/jquery.nouislider.js"></script>
+<script src="../../javascript/animate/jquery.transit.min.js"></script>
+<script src="../../javascript/rating_functions.js"></script>

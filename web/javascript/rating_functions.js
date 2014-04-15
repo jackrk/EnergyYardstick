@@ -43,7 +43,6 @@ function animateRatingTo_1(ele, animateTime) {
     else {
         ele.transition({backgroundColor: '#ff6458', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#ffc1bc', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#ff6458', queue: false}, animateTime);
     }
 }
 
@@ -53,9 +52,8 @@ function animateRatingTo_2(ele, animateTime) {
         ele.addClass("rating_container_2");
     }
     else {
-        ele.transition({background: '#ff9911', queue: false}, animateTime);
-        ele.next().transition({backgroundColor: '#ffd69f', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#ff9911', queue: false}, animateTime);
+        ele.transition({background: '#FF7732', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffc8ad', queue: false}, animateTime);
     }
 }
 
@@ -65,9 +63,8 @@ function animateRatingTo_3(ele, animateTime) {
         ele.addClass("rating_container_3");
     }
     else {
-        ele.transition({background: '#ffcc11', queue: false}, animateTime);
-        ele.next().transition({backgroundColor: '#ffea9f', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#ffcc11', queue: false}, animateTime);
+        ele.transition({background: '#ff9911', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffd69f', queue: false}, animateTime);
     }
 }
 
@@ -77,9 +74,8 @@ function animateRatingTo_4(ele, animateTime) {
         ele.addClass("rating_container_4");
     }
     else {
-        ele.transition({background: '#ffdb58', queue: false}, animateTime);
-        ele.next().transition({backgroundColor: '#fff0bc', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#ffdb58', queue: false}, animateTime);
+        ele.transition({background: '#ffcc11', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#ffea9f', queue: false}, animateTime);
     }
 }
 
@@ -89,9 +85,8 @@ function animateRatingTo_5(ele, animateTime) {
         ele.addClass("rating_container_5");
     }
     else {
-        ele.transition({background: '#ffff7f', queue: false}, animateTime);
-        ele.next().transition({backgroundColor: '#ffffcb', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#ffff7f', queue: false}, animateTime);
+        ele.transition({background: '#F0E641', queue: false}, animateTime);
+        ele.next().transition({backgroundColor: '#f9f5b3', queue: false}, animateTime);
     }
 }
 
@@ -103,7 +98,6 @@ function animateRatingTo_6(ele, animateTime) {
     else {
         ele.transition({background: '#e0ff70', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#f2ffc5', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#e0ff70', queue: false}, animateTime);
     }
 }
 
@@ -115,7 +109,6 @@ function animateRatingTo_7(ele, animateTime) {
     else {
         ele.transition({background: '#b7f358', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#e2fabc', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#b7f358', queue: false}, animateTime);
     }
 }
 
@@ -127,7 +120,6 @@ function animateRatingTo_8(ele, animateTime) {
     else {
         ele.transition({background: '#a3ef28', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#daf8a9', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#a3ef28', queue: false}, animateTime);
     }
 }
 
@@ -139,7 +131,6 @@ function animateRatingTo_9(ele, animateTime) {
     else {
         ele.transition({background: '#83ef28', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#cdf8a9', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#83ef28', queue: false}, animateTime);
     }
 }
 
@@ -151,7 +142,6 @@ function animateRatingTo_10(ele, animateTime) {
     else {
         ele.transition({background: '#33ff22', queue: false}, animateTime);
         ele.next().transition({backgroundColor: '#adffa6', queue: false}, animateTime);
-        ele.next().next().transition({backgroundColor: '#33ff22', queue: false}, animateTime);
     }
 }
 

@@ -1,7 +1,8 @@
 /**
- * Created by jack_ultra on 3/30/14.
+ * Created by jack_ultra on 4/2/14.
  */
-$('.range_button').bind('mouseenter', function(event) {
+
+$('.compare_button').bind('mouseenter', function(event) {
     //$(this).transition({backgroundColor: 'darkslategray', color: 'white', queue: false}, 100);
     $(this).bind('mouseleave', function() {
         //$(this).transition({backgroundColor: '', color: '', queue: false}, 100);
@@ -9,11 +10,11 @@ $('.range_button').bind('mouseenter', function(event) {
         $(this).unbind('click');
     });
     $(this).bind('click', function() {
-        if (!$(this).hasClass('selected')) {
+        if (!$(this).hasClass('compare_selected')) {
             $(this).parent().children().each(function() {
-                $(this).removeClass("selected");
+                $(this).removeClass("compare_selected");
             });
-            $(this).addClass("selected");
+            $(this).addClass("compare_selected");
         }
     });
 });
