@@ -4,7 +4,7 @@ function get_rating($data){
 	$count = 0;
 	$sum = 0;
 	foreach($data as $row){
-		$sum = $row['usage']/$row['days_in_cycle'];
+		$sum = $row['energy_usage']/$row['days_in_cycle'];
 		$count++;
 	}
 	if($count > 0)
@@ -21,7 +21,8 @@ try {
 	$stmt->execute();
 	$house = $stmt->fetch();
 
-	$house_id = $house[0];
+	//$house_id = $house[0];
+	$house_id = 2346;
 	$stmt = $dbh->prepare("SELECT * from EnergyUsage WHERE (house_id) =  (:house_id)");
 	$stmt->bindParam(':house_id', $house_id);
 	$stmt->execute();
@@ -31,7 +32,7 @@ try {
 		$usage[] = $row;
     }
 	$rating =  get_rating($usage);
-	
+
     $dbh = null;
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
@@ -46,6 +47,7 @@ try {
  */
 
 ?>
+
 <link rel="stylesheet" type="text/css" href="../../css/jquery.jqChart.css" />
 <link rel="stylesheet" type="text/css" href="../../css/jquery.jqRangeSlider.css" />
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.10.4.css" />
@@ -74,19 +76,29 @@ try {
                     type: 'column',
                     title: 'City Average',
                     fillStyle: '#418CF0',
-                    data: [['Jan. 2013', 32], ['Feb. 2013', 35], ['Mar. 2013', 38],
-                        ['Apr. 2013', 30], ['May 2013', 39], ['Jun. 2013', 52], ['Jul. 2013', 79],
-                        ['Aug. 2013', 75], ['Sep. 2013', 48], ['Oct. 2013', 28], ['Nov. 2013', 24],
-                        ['Dec. 2013', 22]]
+                    data: [['Jan. 2013', 600], ['Feb. 2013', 700], ['Mar. 2013', 800],
+                        ['Apr. 2013', 900], ['May 2013', 1000], ['Jun. 2013', 1100], ['Jul. 2013', 1200],
+                        ['Aug. 2013', 1100], ['Sep. 2013', 1000], ['Oct. 2013', 900], ['Nov. 2013', 800],
+                        ['Dec. 2013', 700]]
                 },
                 {
                     type: 'column',
                     title: 'Your Usage',
                     fillStyle: '#FCB441',
-                    data: [['Jan. 2013', 29], ['Feb. 2013', 37], ['Mar. 2013', 40],
-                        ['Apr. 2013', 22], ['May 2013', 41], ['Jun. 2013', 55], ['Jul. 2013', 75],
-                        ['Aug. 2013', 76], ['Sep. 2013', 42], ['Oct. 2013', 30], ['Nov. 2013', 29],
-                        ['Dec. 2013', 31]]
+					<?php
+                    echo <<<EOHTML
+					
+					data: [['Jan. 2013', {$usage[0]['energy_usage']}], 
+						['Feb. 2013', {$usage[1]['energy_usage']}], ['Mar. 2013', {$usage[2]['energy_usage']}],
+                        ['Apr. 2013', {$usage[3]['energy_usage']}], ['May 2013', {$usage[4]['energy_usage']}], 
+						['Jun. 2013', {$usage[5]['energy_usage']}], ['Jul. 2013', {$usage[6]['energy_usage']}],
+                        ['Aug. 2013', {$usage[7]['energy_usage']}], ['Sep. 2013', {$usage[8]['energy_usage']}], 
+						['Oct. 2013', {$usage[9]['energy_usage']}], ['Nov. 2013', {$usage[10]['energy_usage']}],
+						['Dec. 2013', {$usage[11]['energy_usage']}]]
+						
+EOHTML;
+					
+					?>
                 }
             ]
         });
@@ -109,7 +121,8 @@ try {
         </div>
     </div>
 </div>
-<?php 
+<?php
+
 //echo $rating 
 ?>
 
