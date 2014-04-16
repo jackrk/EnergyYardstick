@@ -33,6 +33,12 @@ try {
     }
 	$rating =  get_rating($usage);
 
+	/**
+	Sample Query that will get the average for one neighborhood for 1 month.
+	SELECT AVG(energy_usage) from EnergyUsage JOIN House ON 
+		(House.id = EnergyUsage.house_id) WHERE 
+		(neighborhood) = "Stonebr" AND (bill_date) = "2013-01-01";
+	*/
     $dbh = null;
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
