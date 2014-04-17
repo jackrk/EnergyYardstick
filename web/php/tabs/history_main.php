@@ -33,22 +33,31 @@
                 },
                 series: [
                     {
-                        type: 'column',
+                        type: 'line',
                         title: 'City Average',
-                        fillStyle: '#418CF0',
+                        fillStyle: '',
                         data: [['Jan. 2013', 32], ['Feb. 2013', 35], ['Mar. 2013', 38],
                                ['Apr. 2013', 30], ['May 2013', 39], ['Jun. 2013', 52], ['Jul. 2013', 79],
                                ['Aug. 2013', 75], ['Sep. 2013', 48], ['Oct. 2013', 28], ['Nov. 2013', 24],
                                ['Dec. 2013', 22]]
                     },
                     {
-                        type: 'column',
+                        type: 'line',
                         title: 'Your Usage',
-                        fillStyle: '#FCB441',
+                        fillStyle: '',
                         data: [['Jan. 2013', 29], ['Feb. 2013', 37], ['Mar. 2013', 40],
                                ['Apr. 2013', 22], ['May 2013', 41], ['Jun. 2013', 55], ['Jul. 2013', 75],
                                ['Aug. 2013', 76], ['Sep. 2013', 42], ['Oct. 2013', 30], ['Nov. 2013', 29],
                                ['Dec. 2013', 31]]
+                    },
+                    {
+                        type: 'line',
+                        title: '5% Line',
+                        fillStyle: '',
+                        data: [['Jan. 2013', 24], ['Feb. 2013', 31], ['Mar. 2013', 41],
+                               ['Apr. 2013', 25], ['May 2013', 36], ['Jun. 2013', 52], ['Jul. 2013', 70],
+                               ['Aug. 2013', 72], ['Sep. 2013', 44], ['Oct. 2013', 27], ['Nov. 2013', 25],
+                               ['Dec. 2013', 26]]
                     }
                 ]
             });
