@@ -4,7 +4,7 @@ function get_rating($data){
 	$count = 0;
 	$sum = 0;
 	foreach($data as $row){
-		$sum = $row['usage']/$row['days_in_cycle'];
+		$sum = $row['energy_usage']/$row['days_in_cycle'];
 		$count++;
 	}
 	if($count > 0)
