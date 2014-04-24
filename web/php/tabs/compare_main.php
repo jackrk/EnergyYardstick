@@ -126,8 +126,7 @@ EOHTML;
         </div>
     </div>
 </div>
-<?php
-
+<?php 
 //echo $rating 
 ?>
 

@@ -13,7 +13,7 @@
     <div id="rating_container">
         <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
         <div id="metric_container">
-            <div id="piechart"></div>
+            <div id="piechart" style="border:0px;"></div>
             <div id="rating_metrics"><span class="metric_title">equivalent to</span>
                 <div class="metric" id="mpg_metric"><img style="padding-left: 4px;" src="../../img/gas_mid.png" height="26" width="26" class="icon_img"/><img style="padding-left: 2px;" src="../../img/x_mid.png" height="26" width="38" class="x_img" />
                     <div class="metric_number"><span id="mpg_number">21</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
@@ -91,7 +91,7 @@
             $('#piechart').jqChart({
                 title: { text: 'Usage Breakdown' },
                 legend: { title: 'Usage Key' },
-                border: { strokeStyle: '#6ba851' },
+                
                 background: background,
                 animation: { duration: 1 },
                 shadows: {
@@ -100,17 +100,17 @@
                 series: [
                     {
                         type: 'pie',
-                        fillStyles: ['#418CF0', '#FCB441', '#E0400A', '#056492', '#BFBFBF', '#1A3B69', '#FFE382'],
+                        fillStyles: ['#418CF0', '#FCB441', '#E0400A', '#056492', '#BFBFBF'],
                         labels: {
                             stringFormat: '%.1f%%',
                             valueType: 'percentage',
-                            font: '15px sans-serif',
+                            font: '9px sans-serif',
                             fillStyle: 'white'
                         },
-                        explodedRadius: 10,
-                        explodedSlices: [5],
-                        data: [['Light bulbs', 65], ['Refrigerator', 58], ['Stove', 30],
-                               ['Television', 60], ['Dishwasher', 65], ['Other', 75]]
+                        explodedRadius: 0,
+                        explodedSlices: [0],
+                        data: [['Cooling', 15], ['Water', 5], ['Plug load', 30],
+                               ['Lighting', 15], ['Heating', 35]]
                     }
                 ]
             });
