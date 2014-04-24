@@ -56,42 +56,51 @@ try {
 <!--[if IE]><script lang="javascript" type="text/javascript" src="../../javascript/excanvas.js"></script><![endif]-->
 
 <script lang="javascript" type="text/javascript">
-    $(document).ready(function () {
-        $('#compgraph_container').jqChart({
-            title: { text: 'Monthly Electricity Usage (kWh)' },
-            legend: { location: 'top' },
-            animation: { duration: 1 },
-            shadows: {
-                enabled: true
-            },
-            border: {
-                cornerRadius: 1,
-                strokeStyle: '#212121',
-                padding: 16
-            },
-            series: [
-                {
-                    type: 'column',
-                    title: 'City Average',
-                    fillStyle: '#418CF0',
-                    data: [['Jan. 2013', 32], ['Feb. 2013', 35], ['Mar. 2013', 38],
-                        ['Apr. 2013', 30], ['May 2013', 39], ['Jun. 2013', 52], ['Jul. 2013', 79],
-                        ['Aug. 2013', 75], ['Sep. 2013', 48], ['Oct. 2013', 28], ['Nov. 2013', 24],
-                        ['Dec. 2013', 22]]
+        $(document).ready(function () {
+            $('#histgraph_container').jqChart({
+                title: { text: 'Monthly Electricity Usage (kWh)' },
+                legend: { location: 'top' },
+                animation: { duration: 1 },
+                shadows: {
+                    enabled: true
                 },
-                {
-                    type: 'column',
-                    title: 'Your Usage',
-                    fillStyle: '#FCB441',
-                    data: [['Jan. 2013', 29], ['Feb. 2013', 37], ['Mar. 2013', 40],
-                        ['Apr. 2013', 22], ['May 2013', 41], ['Jun. 2013', 55], ['Jul. 2013', 75],
-                        ['Aug. 2013', 76], ['Sep. 2013', 42], ['Oct. 2013', 30], ['Nov. 2013', 29],
-                        ['Dec. 2013', 31]]
-                }
-            ]
+                border: {
+                    cornerRadius: 1,
+                    strokeStyle: '#212121',
+                    padding: 30
+                },
+                series: [
+                    {
+                        type: 'line',
+                        title: 'City Average',
+                        fillStyle: '',
+                        data: [['Jan. 2013', 32], ['Feb. 2013', 35], ['Mar. 2013', 38],
+                               ['Apr. 2013', 30], ['May 2013', 39], ['Jun. 2013', 52], ['Jul. 2013', 79],
+                               ['Aug. 2013', 75], ['Sep. 2013', 48], ['Oct. 2013', 28], ['Nov. 2013', 24],
+                               ['Dec. 2013', 22]]
+                    },
+                    {
+                        type: 'line',
+                        title: 'Your Usage',
+                        fillStyle: '',
+                        data: [['Jan. 2013', 29], ['Feb. 2013', 37], ['Mar. 2013', 40],
+                               ['Apr. 2013', 22], ['May 2013', 41], ['Jun. 2013', 55], ['Jul. 2013', 75],
+                               ['Aug. 2013', 76], ['Sep. 2013', 42], ['Oct. 2013', 30], ['Nov. 2013', 29],
+                               ['Dec. 2013', 31]]
+                    },
+                    {
+                        type: 'line',
+                        title: '5% Line',
+                        fillStyle: '',
+                        data: [['Jan. 2013', 24], ['Feb. 2013', 31], ['Mar. 2013', 41],
+                               ['Apr. 2013', 25], ['May 2013', 36], ['Jun. 2013', 52], ['Jul. 2013', 70],
+                               ['Aug. 2013', 72], ['Sep. 2013', 44], ['Oct. 2013', 27], ['Nov. 2013', 25],
+                               ['Dec. 2013', 26]]
+                    }
+                ]
+            });
         });
-    });
-</script>
+    </script>
 
 <script type="text/javascript" src="../../javascript/compare_selector.js"></script>
 <div id="compare_container">
