@@ -53,7 +53,6 @@ try {
  */
 
 ?>
-
 <link rel="stylesheet" type="text/css" href="../../css/jquery.jqChart.css" />
 <link rel="stylesheet" type="text/css" href="../../css/jquery.jqRangeSlider.css" />
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.10.4.css" />
@@ -82,25 +81,25 @@ try {
                     type: 'column',
                     title: 'City Average',
                     fillStyle: '#418CF0',
-                    data: [['Jan. 2013', 600], ['Feb. 2013', 700], ['Mar. 2013', 800],
-                        ['Apr. 2013', 900], ['May 2013', 1000], ['Jun. 2013', 1100], ['Jul. 2013', 1200],
-                        ['Aug. 2013', 1100], ['Sep. 2013', 1000], ['Oct. 2013', 900], ['Nov. 2013', 800],
-                        ['Dec. 2013', 700]]
+                    data: [['Jan 13', 600], ['Feb 13', 700], ['Mar 13', 800],
+                        ['Apr 13', 900], ['May 13', 1000], ['Jun 13', 1100], ['Jul 13', 1200],
+                        ['Aug 13', 1100], ['Sep 13', 1000], ['Oct 13', 900], ['Nov 13', 800],
+                        ['Dec 13', 700]]
                 },
                 {
-                    type: 'column',
+                    type: 'line',
                     title: 'Your Usage',
                     fillStyle: '#FCB441',
 					<?php
                     echo <<<EOHTML
 					
-					data: [['Jan. 2013', {$usage[0]['energy_usage']}], 
-						['Feb. 2013', {$usage[1]['energy_usage']}], ['Mar. 2013', {$usage[2]['energy_usage']}],
-                        ['Apr. 2013', {$usage[3]['energy_usage']}], ['May 2013', {$usage[4]['energy_usage']}], 
-						['Jun. 2013', {$usage[5]['energy_usage']}], ['Jul. 2013', {$usage[6]['energy_usage']}],
-                        ['Aug. 2013', {$usage[7]['energy_usage']}], ['Sep. 2013', {$usage[8]['energy_usage']}], 
-						['Oct. 2013', {$usage[9]['energy_usage']}], ['Nov. 2013', {$usage[10]['energy_usage']}],
-						['Dec. 2013', {$usage[11]['energy_usage']}]]
+					data: [['Jan 13', {$usage[0]['energy_usage']}],
+						['Feb 13', {$usage[1]['energy_usage']}], ['Mar 13', {$usage[2]['energy_usage']}],
+                        ['Apr 13', {$usage[3]['energy_usage']}], ['May 13', {$usage[4]['energy_usage']}],
+						['Jun 13', {$usage[5]['energy_usage']}], ['Jul 13', {$usage[6]['energy_usage']}],
+                        ['Aug 13', {$usage[7]['energy_usage']}], ['Sep 13', {$usage[8]['energy_usage']}],
+						['Oct 13', {$usage[9]['energy_usage']}], ['Nov 13', {$usage[10]['energy_usage']}],
+						['Dec 13', {$usage[11]['energy_usage']}]]
 						
 EOHTML;
 					
