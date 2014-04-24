@@ -75,12 +75,15 @@ $(".metric_button").bind('click', function() {
         $('#piechart').transition({opacity: 0, queue: false}, 200, 'snap');
         $('.metric_title').transition({opacity: 1, queue: false}, 200, 'snap');
         $('.metric').transition({opacity: 1, queue: false}, 200, 'snap');
+        $('#piechart_button').removeClass('metric_selected');
     } else {
         $selector.transition({x: 104, queue: false}, 200, 'snap');
         $('#equiv_button').css('color', '');
         $('#piechart').transition({opacity: 1, queue: false}, 200, 'snap');
         $('.metric_title').transition({opacity: 0, queue: false}, 200, 'snap');
         $('.metric').transition({opacity: 0, queue: false}, 200, 'snap');
+        $('#equiv_button').removeClass('metric_selected');
     }
     $(this).transition({color: colortext, queue: false}, 200,'snap');
+    $(this).addClass('metric_selected');
 });

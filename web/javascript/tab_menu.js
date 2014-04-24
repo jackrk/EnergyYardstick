@@ -74,6 +74,7 @@ $(document).ready(function() {
             });*/
             $("#equiv_button").click();
             $("#loader").addClass("hide_load");
+            $('#equiv_button').css('color', $("#rating_container").css("background-color"));
         });
     });
     $("#tab_compare").click(function(){
