@@ -74,7 +74,10 @@ $(document).ready(function() {
             });*/
             $("#equiv_button").click();
             $("#loader").addClass("hide_load");
-            $('#equiv_button').css('color', $("#rating_container").css("background-color"));
+            setTimeout(function() {
+                $('#equiv_button').css('color', $("#rating_container").css("background-color"));
+            }, 100);
+            // );
         });
     });
     $("#tab_compare").click(function(){
