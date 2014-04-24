@@ -1,8 +1,51 @@
 #history_container
 {
-    font-family: Arial, Helvetica, sans-serif;
+    height: 562px;
+    background-color: #e8fbe8;
+    box-shadow: inset 0 0 20px #212121;
+    -webkit-box-shadow: inset 0 0 20px #212121;
+    -moz-box-shadow: inset 0 0 20px #212121;
+}
+#histgraph_container
+{
+    height: 380px;
+    border-bottom: 1px solid gray;
+}
+#range_buttons
+{
+    height: 120px;
+}
+.range_button
+{
+    height: 110px;
+    font-family: 'Open Sans';
+    display: inline-block;
+    width: 200px;
+    color: white;
+    line-height: 53px;
+    font-size: 44px;
     text-align: center;
-    line-height: 671px;
-    font-size: 4em;
-    background-color: lightskyblue;
+    padding-top: 10px;
+    background-color: #4c924c;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.4s;
+    -webkit-transition: background-color 0.2s, box-shadow 0.4s;
+    -moz-transition: background-color 0.2s, box-shadow 0.4s;
+    -ms-transition: background-color 0.2s, box-shadow 0.4s;
+    -o-transition: background-color 0.2s, box-shadow 0.4s;
+}
+.range_button:hover
+{
+    background-color: #197319;
+}
+.range_month
+{
+    font-size:32px;
+    font-style: italic;
+    display: block;
+}
+.selected {
+    background-color: darkgreen;
+    box-shadow: inset 0 0 14px #363636;
 }

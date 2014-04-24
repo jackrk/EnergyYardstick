@@ -1,7 +1,6 @@
 #rating_tab
 {
-    text-align: center;
-    height: 671px;
+    height: 562px;
     background-color: #f0f0f0;
     border-top: 1px solid darkgray;
 
@@ -9,43 +8,320 @@
 #rating_container
 {
     display:block;
-    height: 160px;
-    border-bottom: 1px dashed dimgray;
+    height: 320px;
+    border-bottom: 1px solid lightslategray;
     width: 599px;
-    background: #D4FFD0;
+    box-shadow: inset 0 0 20px #212121;
+    -webkit-box-shadow: inset 0 0 20px #212121;
+    -moz-box-shadow: inset 0 0 20px #212121;
 }
 
 .rating_slider {
-    top: 70px;
-    left: 40px;
-    width:300px;
-    position:relative;
-    float: left
+    top: 125px;
+    left: 84px;
+    height: 10px;
+    width: 135px;
+    position: absolute;
 }
 
 .rating_info {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     position: relative;
-    float:right;
-    height: 120px;
-    top: 20px;
-    color: #333333;
-    margin-right: 60px;
-    width: 130px;
+    float: left;
+    height: 176px;
+    left: 86px;
+    top: 8px;
+    text-align: center;
+    width: 128px;
 }
 
 .rating_number
 {
+    font-family: 'Titillium Web';
     display: block;
     position: relative;
-    font-size: 60px;
+    font-size: 100px;
+    font-weight: 300;
+    line-height: 120px;
 }
 
 .rating_text
 {
     display: block;
     position: relative;
+    font-size: 36px;
+    font-style: italic;
+    /* border-top: 1px solid #333333; */
+    line-height: 58px;
+
+}
+
+.rating_breakdown
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    position: relative;
+    display: block;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    width: 521px;
+    margin-left: 24px;
+    padding-left: 30px;
+    margin-top: 38px;
+    line-height: 24px;
+    padding-top: 4px;
+}
+
+.rating_breakdown_desc
+{
+    text-align: left;
+    display: inline-block;
+    font-style: italic;
+    padding-top: 24px;
+}
+
+.rating_breakdown_numbers
+{
+    text-align: right;
+    float: right;
+    display: inline;
+    position: absolute;
+}
+
+#tips_container
+{
+    display:block;
+    height: 241px;
+    width: 599px;
+    background-color: #f0f0f0;
+}
+
+
+
+/* Classes for IE and older browser compatibility issues with jQuery animations */
+
+.rating_container_1 {
+    background-color: #ff6458 !important;
+}
+.rating_container_2 {
+    background-color: #ff9911 !important;
+}
+.rating_container_3 {
+    background-color: #ffcc11 !important;
+}
+.rating_container_4 {
+    background-color: #ffdb58 !important;
+}
+.rating_container_5 {
+    background-color: #ffff7f !important;
+}
+.rating_container_6 {
+    background-color: #e0ff70 !important;
+}
+.rating_container_7 {
+    background-color: #ccff11 !important;
+}
+.rating_container_8 {
+    background-color: #b7f358 !important;
+}
+.rating_container_9 {
+    background-color: #a3ef28 !important;
+}
+.rating_container_10 {
+    background-color: #33ff22 !important;
+}
+
+#tips_title
+{
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-style: italic;
+    position: relative;
+    width: 597px;
+    line-height: 36px;
+    border-left: 1px solid lightslategray;
+    border-right: 1px solid lightslategray;
+    border-bottom: 1px solid lightslategray;
+    background-color: #E0E5E2;
+    text-align: center;
+    display: inline-block;
+}
+
+#tips_submit
+{
+    background-color: #E0E5E2;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    height: 33px;
+    line-height: 33px;
+    font-size: 20px;
+    border: 1px solid lightslategray;
+    text-align: center;
+}
+#tips_submit:hover
+{
+    cursor:pointer;
+}
+
+.tips
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    height: 170px;
+    border-right: 1px solid lightslategray;
+    border-left: 1px solid lightslategray;
+}
+.tip-unselected
+{
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    width: 291px;
+    font-size: 18px;
+    height: 34px;
+    padding-left: 6px;
+    line-height: 34px;
+    text-align: left;
+    color: #505050;
+    border-right: 1px solid lightslategray;
+}
+.tips li:nth-child(2n)
+{
+    width:293px;
+    border-right: none;
+}
+.tips li:hover
+{
+    cursor: pointer;
+}
+
+.tip-selected
+{
+    color: black;
+}
+
+.check_container
+{
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    opacity: 0;
+}
+.tip-unselected span img {
+    position: relative;
+    top: 2px;
+}
+.tip-selected .check_container {
+    opacity: 1;
+}
+
+#rating_metrics
+{
+    position: relative;
+    width: 210px;
+    left: 345px;
+    margin-top: 2px;
+    display: inline-block;
+}
+#piechart
+{
+    position: absolute;
+    left: 312px;
+    margin-top: 2px;
+    display: inline-block;
+    height: 158px;
+    width: 274px;
+    border: 1px solid lightcyan;
+}
+
+#metric_container
+{
+    /* display: inline; */
+    /* width: 300px; */
+    position: absolute;
+    /* float: left; */
+    height: 190px;
+    width: 299px;
+    margin-top: 10px;
+    border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+.metric
+{
+    width: 226px;
+}
+
+.x_img
+{
+    margin-right: 9px;
+}
+
+.icon_img
+{
+    margin-right: 10px;
+}
+.metric_number
+{
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 29px;
+    width: 132px;
+    position: relative;
+    display: inline-block;
+    top: -2px;
+}
+.metric_text
+{
+    font-size: 21px !important;
+    text-align: right;
+    display: inline;
+    position: relative;
+    font-style: italic;
+}
+.metric_title
+{
+    font-family: 'Open Sans';
     font-size: 24px;
-    border-top: 1px solid #333333;
-    line-height: 44px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+#equiv_button
+{
+    left: 23px;
+}
+
+#piechart_button
+{
+    left: 115px;
+}
+.metric_button
+{
+    position: absolute;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.metric_button:hover
+{
+    text-decoration: underline;
+}
+
+#metric_selector
+{
+    position: absolute;
+    display: inline;
+    width: 108px;
+    cursor: pointer;
+    left: -3px;
+    margin-top: 7px;
+    height: 22px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
 }
