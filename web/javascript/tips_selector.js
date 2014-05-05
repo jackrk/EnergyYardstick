@@ -3,7 +3,7 @@
  */
 
 $("#tips_submit").mouseenter(function(){
-    $(this).transition({backgroundColor: '#8EE0FF', queue: false}, 200);
+    $(this).transition({backgroundColor: '#d8d8d8', queue: false}, 200);
     $(this).bind('mousedown', function(){
         $(this).css('background-color', '#7fc9e5');
         $(this).bind('mouseup', function(){
@@ -12,39 +12,48 @@ $("#tips_submit").mouseenter(function(){
             $(this).unbind('mousedown');
         });
     });
-    $(this).bind('mouseout', function(){
+    $(this).bind('mouseleave', function(){
         $(this).transition({backgroundColor: '#E0E5E2', queue: false}, 200);
-        $(this).unbind('mouseout');
+        $(this).unbind('mouseleave');
     });
 });
-$(".tips").on('mouseover', ".tip-unselected", function() {
+$("#tips_submit").click(function() {
+    var n = $(".tip-selected").length;
+    if (n>0) {
+        n += parseInt($("#hidden_rating_number").html());
+        $(".rating_slider").val(n, { set: true });
+    }
+});
+/*$(".tips").on('mouseenter', ".tip-unselected", function() {
     $(this).transition({color: 'black', queue: false}, 200);
     $(this).children().first().transition({opacity:.5, queue: false}, 200);
     $(this).bind('mousedown', function(){
         $(this).bind('mouseup', function(){
             $(this).children().first().css('opacity', '1');
+            $(this).removeClass('tip-unselected');
             $(this).addClass('tip-selected');
             $(this).unbind('mouseup');
             $(this).unbind('mousedown');
             $(this).bind('mousedown', function(){
                 $(this).bind('mouseup', function(){
                     $(this).removeClass('tip-selected');
+                    $(this).addClass('tip-unselected');
                     $(this).unbind('mouseup');
                     $(this).unbind('mousedown');
                 });
             });
         });
-        $(this).bind('mouseout', function(){
+        $(this).bind('mouseleave', function(){
             $(this).transition({color: '', queue: false}, 200);
             $(this).children().first().transition({opacity: 1, queue: false}, 200);
         });
     });
-    $(this).bind('mouseout', function(){
+    $(this).bind('mouseleave', function(){
         $(this).transition({color: '', queue: false}, 200);
         $(this).children().first().transition({opacity: 0, queue: false}, 200);
     });
 });
-$(".tips").on('mouseover', ".tip-selected", function() {
+$(".tips").on('mouseenter', ".tip-selected", function() {
     $(this).transition({color: '', queue: false}, 200);
     $(this).children().first().transition({opacity:.5, queue: false}, 200);
     $(this).bind('mousedown', function(){
@@ -52,17 +61,28 @@ $(".tips").on('mouseover', ".tip-selected", function() {
         $(this).bind('mouseup', function(){
             $(this).children().first().css('opacity', '.5');
             $(this).removeClass('tip-selected');
+            $(this).addClass('tip-unselected');
             $(this).unbind('mouseup');
             $(this).unbind('mousedown');
         });
-        $(this).bind('mouseout', function(){
+        $(this).bind('mouseleave', function(){
             $(this).children().first().transition({opacity: 0, queue: false}, 200);
         });
     });
-    $(this).bind('mouseout', function(){
+    $(this).bind('mouseleave', function(){
         $(this).transition({color: 'black', queue: false}, 200);
         $(this).children().first().transition({opacity: 1, queue: false}, 200);
     });
+});*/
+$(".tips").on('click', ".tip-unselected", function() {
+    $(this).children().first().transition({opacity:1, queue: false}, 200);
+    $(this).removeClass('tip-unselected');
+    $(this).addClass('tip-selected');
+});
+$(".tips").on('click', ".tip-selected", function() {
+    $(this).children().first().transition({opacity:0, queue: false}, 200);
+    $(this).removeClass('tip-selected');
+    $(this).addClass('tip-unselected');
 });
 
 $(".metric_button").bind('click', function() {

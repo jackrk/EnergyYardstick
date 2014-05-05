@@ -43,23 +43,32 @@ $(document).ready(function() {
             var curval = parseInt($("#hidden_rating_number").html());
             animateRating($("#rating_container"), $(".rating_text"), curval, 10);
             $('.rating_slider').noUiSlider({
-                range: [curval, 10],
+                range: {
+                    'min': [  curval ],
+                    'max': [ 10 ]
+                },
                 start: curval,
-                handles: 1,
                 step: 1,
                 orientation: "horizontal",
                 direction: "ltr",
                 behaviour: 'extend-tap',
                 serialization: {
                     resolution: 1
-                },
-                slide: function() {
+                }/*,
+                change: function() {
+                    var $ratingnumber = $(".rating_number");
                     var offset = parseInt($("#slider").val());
-                    $(".rating_number").html(offset);
                     var $rating_background = $("#rating_container");
                     animateRating($rating_background, $(".rating_text"), offset, 600);
-
-                }
+                    if (offset > parseInt($ratingnumber.html()))
+                        $(".tip-unselected").first().click();
+                    else if (offset < parseInt($ratingnumber.html()))
+                        $(".tip-selected").last().click();
+                    $ratingnumber.html(offset);
+                },
+                set: function() {
+                   alert("set");
+                }*/
             });
             /*$(".noUi-vertical .noUi-handle").bind('mouseenter', function() {
                 $('.noUi-vertical').transition({boxShadow: '0 0 6px black', queue: false}, 300);
@@ -72,6 +81,24 @@ $(document).ready(function() {
                     });
                 });
             });*/
+            $(".rating_slider").on("slide", function() {
+                var $ratingnumber = $(".rating_number");
+                var offset = parseInt($("#slider").val());
+                var $rating_background = $("#rating_container");
+                animateRating($rating_background, $(".rating_text"), offset, 600);
+                if (offset > parseInt($ratingnumber.html()))
+                    $(".tip-unselected").first().click();
+                else if (offset < parseInt($ratingnumber.html()))
+                    $(".tip-selected").last().click();
+                $ratingnumber.html(offset);
+            });
+            $(".rating_slider").on("set", function() {
+                var $ratingnumber = $(".rating_number");
+                var offset = parseInt($("#slider").val());
+                var $rating_background = $("#rating_container");
+                animateRating($rating_background, $(".rating_text"), offset, 600);
+                $ratingnumber.html(offset);
+            });
             $("#equiv_button").click();
             $("#loader").addClass("hide_load");
             setTimeout(function() {

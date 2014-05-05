@@ -31,41 +31,41 @@
                 </span>
                 <span id="usage_now" style="padding-left:70px" class="rating_breakdown_numbers" >
                     <span style="font-style: italic">now</span><br>
-                    548.3 kWh<br>
-                    $50.45<br>
-                    $605.40<br>
+                    <span id="cur_kwh">548.3</span> kWh<br>
+                    $<span id="cur_month_bill">50.45</span><br>
+                    $<span id="cur_year_bill">605.40</span><br>
                 </span>
                 <span id="usage_minus_five" style="padding-left:231px" class="rating_breakdown_numbers" >
-                    <span style="font-style: italic">5% less</span><br>
-                    520.9 kWh<br>
-                    $47.90<br>
-                    $575.13<br>
+                    <span style="font-style: italic">10% less</span><br>
+                    <span id="new_kwh"></span> kWh<br>
+                    <span id="new_month_bill"></span><br>
+                    <span id="new_year_bill"></span><br>
                 </span>
             </div>
         </div>
     </div>
     <div id="tips_container">
-        <div id="tips_title">Select all that apply</div>
+        <div id="tips_title">Select improvements to see the impact on your efficiency</div>
         <div id="tips_list">
             <ul class="tips">
-                <li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li>
+                <li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li>
             </ul>
             <div id="tips_submit">RECALCULATE</div>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="../../javascript/tips_selector.js"></script>
-<script src="../../javascript/slider/jquery.nouislider.js"></script>
+<script src="../../javascript/slider/jquery.nouislider.min.js"></script>
+<script src="../../javascript/number/jquery.animateNumber.min.js"></script>
+<script src="../../javascript/number/jquery.easing.1.3.js"></script>
 <script src="../../javascript/animate/jquery.transit.min.js"></script>
 <script src="../../javascript/rating_functions.js"></script>
 <link rel="stylesheet" type="text/css" href="../../css/jquery.jqChart.css" />
@@ -122,5 +122,52 @@
                 return '<b>' + data.dataItem[0] + '</b><br />' +
                        data.value + ' (' + percentage + ')';
             });
+            $("#new_kwh").text((parseFloat($("#cur_kwh").text())*.9).toFixed(1));
+            $("#new_month_bill").text((parseFloat($("#cur_month_bill").text())*.9).toFixed(2));
+            $("#new_year_bill").text((parseFloat($("#cur_year_bill").text())*9).toFixed(2));
+           /* var decimal_places = 1;
+            var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;*/
+            $("#new_kwh").prop('number',parseFloat($("#cur_kwh").text())).animateNumber(
+                {
+                    number: parseFloat($("#cur_kwh").text())*.9,
+                    easing: 'easeOutCirc',
+                    numberStep: function(now, tween) {
+                        var target = $(tween.elem);
+                        // force decimal places even if they are 0
+                        now = now.toFixed(1);
+
+                        target.text(now);
+                    }
+                },
+                2000
+            );
+            $("#new_month_bill").prop('number',parseFloat($("#cur_month_bill").text())).animateNumber(
+                {
+                    number: parseFloat($("#cur_month_bill").text())*.9,
+                    easing: 'easeOutCirc',
+                    numberStep: function(now, tween) {
+                        var target = $(tween.elem);
+                        // force decimal places even if they are 0
+                        now = now.toFixed(2);
+
+                        target.text('$' + now);
+                    }
+                },
+                2000
+            );
+            $("#new_year_bill").prop('number',parseFloat($("#cur_year_bill").text())).animateNumber(
+                {
+                    number: parseFloat($("#cur_year_bill").text())*.9,
+                    easing: 'easeOutCirc',
+                    numberStep: function(now, tween) {
+                        var target = $(tween.elem);
+                        // force decimal places even if they are 0
+                        now = now.toFixed(2);
+
+                        target.text('$' + now);
+                    }
+                },
+                3000
+            );
         });
     </script>

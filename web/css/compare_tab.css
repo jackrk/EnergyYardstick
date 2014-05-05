@@ -1,7 +1,7 @@
 #compare_container
 {
     font-family: 'Open Sans', Helvetica, sans-serif;
-    height: 562px;
+    height: 530px;
     background-color: #e8fbe8;
     box-shadow: inset 0 0 20px #212121;
     -webkit-box-shadow: inset 0 0 20px #212121;
@@ -13,7 +13,7 @@
 }
 #compare_selector
 {
-    height: 160px;
+    height: 154px;
     color: white;
 }
 #compare_buttons
