@@ -85,7 +85,6 @@ $(document).ready(function() {
                 var $ratingnumber = $(".rating_number");
                 var offset = parseInt($("#slider").val());
                 var $rating_background = $("#rating_container");
-                animateRating($rating_background, $(".rating_text"), offset, 600);
                 if (offset > parseInt($ratingnumber.html()))
                     $(".tip-unselected").first().click();
                 else if (offset < parseInt($ratingnumber.html()))

@@ -6,46 +6,77 @@ function animateRating($rating_background, $rating_desc, offset, animateTime) {
         $rating_desc.html('great');
         animateRatingTo_10($rating_background, animateTime);
         $metrictext.css('color', '#33ff22');
+        animateMetricNumbers(70, 20, 200);
     } else if (10-offset==1) {
         $rating_desc.html('great');
         animateRatingTo_9($rating_background, animateTime);
         $metrictext.css('color', '#83ef28');
+        animateMetricNumbers(55, 15, 150);
     } else if (10-offset==2) {
         $rating_desc.html('good');
         animateRatingTo_8($rating_background, animateTime);
         $metrictext.css('color', '#a3ef28');
+        animateMetricNumbers(45, 12, 120);
     } else if (10-offset==3) {
         $rating_desc.html('good');
         animateRatingTo_7($rating_background, animateTime);
         $metrictext.css('color', '#b7f358');
+        animateMetricNumbers(35, 8, 90);
     } else if (10-offset==4) {
         $rating_desc.html('fair');
         animateRatingTo_6($rating_background, animateTime);
         $metrictext.css('color', '#e0ff70');
+        animateMetricNumbers(30, 4, 70);
     } else if (10-offset==5) {
         $rating_desc.html('average');
         animateRatingTo_5($rating_background, animateTime);
         $metrictext.css('color', '#F0E641');
+        animateMetricNumbers(25, 2, 20);
     } else if (10-offset==6) {
         $rating_desc.html('poor');
         animateRatingTo_4($rating_background, animateTime);
         $metrictext.css('color', '#ffcc11');
+        animateMetricNumbers(20, 0, 0);
     } else if (10-offset==7) {
         $rating_desc.html('poor');
         animateRatingTo_3($rating_background, animateTime);
         $metrictext.css('color', '#ff9911');
+        animateMetricNumbers(15, -2, -10);
     } else if (10-offset==8) {
         $rating_desc.html('bad');
         animateRatingTo_2($rating_background, animateTime);
         $metrictext.css('color', '#FF7732');
+        animateMetricNumbers(10, -5, -30);
     } else if (10-offset==9) {
         $rating_desc.html('bad');
         animateRatingTo_1($rating_background, animateTime);
         $metrictext.css('color', '#ff6458');
+        animateMetricNumbers(6, -10, -60);
     }
 
 }
-
+/*
+function animateMetricNumbers(mpg, cars, trees) {
+    if (!animatingNumbers)
+    {
+        animatingNumbers = true;
+        $("#mpg_number").prop('number', parseInt($("#mpg_number").text())).animateNumber({
+            number: mpg
+        });
+        $("#cars_number").prop('number', parseInt($("#cars_number").text())).animateNumber({
+            number: cars
+        });
+        $("#trees_number").prop('number', parseInt($("#trees_number").text())).animateNumber({
+            number: trees
+        });
+        animatingNumbers = false;
+    }
+}*/
+function animateMetricNumbers(mpg, cars, trees) {
+    $("#mpg_number").numerator({ duration: 1000, toValue: mpg });
+    $("#cars_number").numerator({ duration: 1000, toValue: cars });
+    $("#trees_number").numerator({ duration: 1000, toValue: trees });
+}
 
 function animateRatingTo_1(ele, animateTime) {
     if (!$.support.transition) {

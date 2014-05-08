@@ -16,11 +16,11 @@
             <div id="piechart" style="border:0px;"></div>
             <div id="rating_metrics"><span class="metric_title">equivalent to</span>
                 <div class="metric" id="mpg_metric"><img style="padding-left: 4px;" src="../../img/gas_mid.png" height="26" width="26" class="icon_img"/><img style="padding-left: 2px;" src="../../img/x_mid.png" height="26" width="38" class="x_img" />
-                    <div class="metric_number"><span id="mpg_number">21</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
+                    <div class="metric_number"><span id="mpg_number">0</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
                 <div class="metric" id="cars_metric"><img src="../../img/car_mid.png" height="32" width="32" class="icon_img"/><img src="../../img/x_mid.png" height="26" width="38" class="x_img"/>
-                    <div class="metric_number"><span id="cars_number">5</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
+                    <div class="metric_number"><span id="cars_number">0</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
                 <div class="metric" id="trees_metric"><img style="padding-left: 1px; margin-right: 9px;" src="../../img/tree_mid.png" height="32" width="32" class="icon_img" /><img src="../../img/x_mid.png" heheight="26" width="38" class="x_img"/>
-                    <div class="metric_number"><span id="trees_number">20</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
+                    <div class="metric_number"><span id="trees_number">0</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
             <span id="metric_selector"></span><span id="equiv_button" class="metric_button">metrics</span><span id="piechart_button" class="metric_button">breakdown</span>
             </div>
             <div class="rating_breakdown">
@@ -29,17 +29,23 @@
                     average cost per month:  <br>
                     total billed last 12 months: <br>
                 </span>
-                <span id="usage_now" style="padding-left:70px" class="rating_breakdown_numbers" >
+                <span id="usage_now" class="rating_breakdown_numbers" >
                     <span style="font-style: italic">now</span><br>
                     <span id="cur_kwh">548.3</span> kWh<br>
                     $<span id="cur_month_bill">50.45</span><br>
                     $<span id="cur_year_bill">605.40</span><br>
                 </span>
-                <span id="usage_minus_five" style="padding-left:231px" class="rating_breakdown_numbers" >
+                <span id="usage_goal" class="rating_breakdown_numbers" >
                     <span style="font-style: italic">10% less</span><br>
+                    <span id="goal_kwh"></span> kWh<br>
+                    $<span id="goal_month_bill"></span><br>
+                    $<span id="goal_year_bill"></span><br>
+                </span>
+                <span id="usage_new" class="rating_breakdown_numbers" >
+                    <span style="font-style: italic">new</span><br>
                     <span id="new_kwh"></span> kWh<br>
-                    <span id="new_month_bill"></span><br>
-                    <span id="new_year_bill"></span><br>
+                    $<span id="new_month_bill"></span><br>
+                    $<span id="new_year_bill"></span><br>
                 </span>
             </div>
         </div>
@@ -49,22 +55,23 @@
         <div id="tips_list">
             <ul class="tips">
                 <li class="tip tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">New Refrigerator</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
                     <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Range</span></li><li class="tip tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">New Refrigerator</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
                     <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
-                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Electric Water Heater</span></li><li class="tip tip-unselected">
+                    <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
                     <span class="check_container"><img src="../../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li>
             </ul>
-            <div id="tips_submit">RECALCULATE</div>
+            <div id="tips_submit">SAVE</div>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="../../javascript/tips_selector.js"></script>
 <script src="../../javascript/slider/jquery.nouislider.min.js"></script>
 <script src="../../javascript/number/jquery.animateNumber.min.js"></script>
+<script src="../../javascript/number/jquery-numerator.js"></script>
 <script src="../../javascript/number/jquery.easing.1.3.js"></script>
 <script src="../../javascript/animate/jquery.transit.min.js"></script>
 <script src="../../javascript/rating_functions.js"></script>
@@ -77,7 +84,12 @@
     <!--[if IE]><script lang="javascript" type="text/javascript" src="../../javascript/excanvas.js"></script><![endif]-->
     <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
-
+            $("#goal_kwh").text((parseFloat($("#cur_kwh").text())).toFixed(1));
+            $("#goal_month_bill").text((parseFloat($("#cur_month_bill").text())).toFixed(2));
+            $("#goal_year_bill").text((parseFloat($("#cur_year_bill").text())).toFixed(2));
+            $("#new_kwh").text((parseFloat($("#cur_kwh").text())).toFixed(1));
+            $("#new_month_bill").text((parseFloat($("#cur_month_bill").text())).toFixed(2));
+            $("#new_year_bill").text((parseFloat($("#cur_year_bill").text())).toFixed(2));
             var background = {
                 type: 'linearGradient',
                 x0: 0,
@@ -122,12 +134,14 @@
                 return '<b>' + data.dataItem[0] + '</b><br />' +
                        data.value + ' (' + percentage + ')';
             });
-            $("#new_kwh").text((parseFloat($("#cur_kwh").text())*.9).toFixed(1));
-            $("#new_month_bill").text((parseFloat($("#cur_month_bill").text())*.9).toFixed(2));
-            $("#new_year_bill").text((parseFloat($("#cur_year_bill").text())*9).toFixed(2));
+
+            $("#goal_kwh").numerator({toValue:(parseFloat($("#cur_kwh").text()) *.9), duration: 2000, rounding:1 });
+            $("#goal_month_bill").numerator({toValue:(parseFloat($("#cur_month_bill").text()) *.9), duration: 2000, rounding:2 });
+            $("#goal_year_bill").numerator({toValue:(parseFloat($("#cur_year_bill").text()) *.9), duration: 2000, rounding:2 });
+
            /* var decimal_places = 1;
             var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;*/
-            $("#new_kwh").prop('number',parseFloat($("#cur_kwh").text())).animateNumber(
+           /* $("#goal_kwh").prop('number',parseFloat($("#cur_kwh").text())).animateNumber(
                 {
                     number: parseFloat($("#cur_kwh").text())*.9,
                     easing: 'easeOutCirc',
@@ -141,7 +155,7 @@
                 },
                 2000
             );
-            $("#new_month_bill").prop('number',parseFloat($("#cur_month_bill").text())).animateNumber(
+            $("#goal_month_bill").prop('number',parseFloat($("#cur_month_bill").text())).animateNumber(
                 {
                     number: parseFloat($("#cur_month_bill").text())*.9,
                     easing: 'easeOutCirc',
@@ -155,7 +169,7 @@
                 },
                 2000
             );
-            $("#new_year_bill").prop('number',parseFloat($("#cur_year_bill").text())).animateNumber(
+            $("#goal_year_bill").prop('number',parseFloat($("#cur_year_bill").text())).animateNumber(
                 {
                     number: parseFloat($("#cur_year_bill").text())*.9,
                     easing: 'easeOutCirc',
@@ -168,6 +182,6 @@
                     }
                 },
                 3000
-            );
+            );*/
         });
     </script>
