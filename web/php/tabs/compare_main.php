@@ -11,7 +11,7 @@ function get_rating($data){
 		return $sum/$count;
 }
 $user = "theciuc0_jdev";
-$pass = "jripper1138";
+$pass = "tqHzLt6N]h8X";
 try {
     $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 	
