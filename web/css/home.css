@@ -9,11 +9,11 @@
 }
 .show_load
 {
-    height:530px;
-    width:599px;
+    z-index: 100;
+    height: inherit;
+    width: inherit;
     display: block;
     position: absolute;
-    top:31px;
     text-align: center;
     vertical-align: middle;
     opacity: .8;

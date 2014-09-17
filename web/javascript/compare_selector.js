@@ -2,6 +2,7 @@
  * Created by jack_ultra on 4/2/14.
  */
 
+/*
 $('.compare_button').bind('mouseenter', function(event) {
     //$(this).transition({backgroundColor: 'darkslategray', color: 'white', queue: false}, 100);
     $(this).bind('mouseleave', function() {
@@ -17,4 +18,4 @@ $('.compare_button').bind('mouseenter', function(event) {
             $(this).addClass("compare_selected");
         }
     });
-});
+});*/

@@ -8,12 +8,4 @@ $('.range_button').bind('mouseenter', function(event) {
         $(this).unbind('mouseleave');
         $(this).unbind('click');
     });
-    $(this).bind('click', function() {
-        if (!$(this).hasClass('selected')) {
-            $(this).parent().children().each(function() {
-                $(this).removeClass("selected");
-            });
-            $(this).addClass("selected");
-        }
-    });
 });

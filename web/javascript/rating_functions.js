@@ -1,3 +1,6 @@
+
+
+var firstload = true;
 function animateRating($rating_background, $rating_desc, offset, animateTime) {
 
     var $metrictext = $("#equiv_button");
@@ -73,9 +76,18 @@ function animateMetricNumbers(mpg, cars, trees) {
     }
 }*/
 function animateMetricNumbers(mpg, cars, trees) {
-    $("#mpg_number").numerator({ duration: 1000, toValue: mpg });
-    $("#cars_number").numerator({ duration: 1000, toValue: cars });
-    $("#trees_number").numerator({ duration: 1000, toValue: trees });
+    if (firstload) {
+        setTimeout(function() {
+            firstload = false;
+            $("#mpg_number").numerator({ duration: 1000, toValue: mpg });
+            $("#cars_number").numerator({ duration: 1000, toValue: cars });
+            $("#trees_number").numerator({ duration: 1000, toValue: trees });
+        }, 500);
+    } else {
+        $("#mpg_number").numerator({ duration: 1000, toValue: mpg });
+        $("#cars_number").numerator({ duration: 1000, toValue: cars });
+        $("#trees_number").numerator({ duration: 1000, toValue: trees });
+    }
 }
 
 function animateRatingTo_1(ele, animateTime) {
