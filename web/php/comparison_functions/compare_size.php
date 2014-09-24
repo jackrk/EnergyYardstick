@@ -4,6 +4,7 @@
 $user = "theciuc0_jdev";
 $pass = "tqHzLt6N]h8X";
 
+$month = $_GET['m'];
 
 $size_zero = 0;
 $size_fivehundred = 500;
@@ -40,7 +41,58 @@ try {
     $dbmatches = $stmt->fetchAll();
     $matches = array_map('current', $dbmatches);*/
 
-    $jan = getMonthAverage(1, $this_size);
+    switch ($month) {
+        case "jan":
+            $val = getMonthAverage(1, $this_size);
+            echo $val[0];
+            break;
+        case "feb":
+            $val = getMonthAverage(2, $this_size);
+            echo $val[0];
+            break;
+        case "mar":
+            $val = getMonthAverage(3, $this_size);
+            echo $val[0];
+            break;
+        case "apr":
+            $val = getMonthAverage(4, $this_size);
+            echo $val[0];
+            break;
+        case "may":
+            $val = getMonthAverage(5, $this_size);
+            echo $val[0];
+            break;
+        case "jun":
+            $val = getMonthAverage(6, $this_size);
+            echo $val[0];
+            break;
+        case "jul":
+            $val = getMonthAverage(7, $this_size);
+            echo $val[0];
+            break;
+        case "aug":
+            $val = getMonthAverage(8, $this_size);
+            echo $val[0];
+            break;
+        case "sep":
+            $val = getMonthAverage(9, $this_size);
+            echo $val[0];
+            break;
+        case "oct":
+            $val = getMonthAverage(10, $this_size);
+            echo $val[0];
+            break;
+        case "nov":
+            $val = getMonthAverage(11, $this_size);
+            echo $val[0];
+            break;
+        case "dec":
+            $val = getMonthAverage(12, $this_size);
+            echo $val[0];
+            break;
+    }
+
+    /*$jan = getMonthAverage(1, $this_size);
     echo $jan[0];
     echo "-";
     $feb = getMonthAverage(2, $this_size);
@@ -74,7 +126,7 @@ try {
     echo $nov[0];
     echo "-";
     $dec = getMonthAverage(12, $this_size);
-    echo $dec[0];
+    echo $dec[0];*/
 
     $dbh = null;
 } catch (PDOException $e) {
@@ -146,8 +198,7 @@ function getMonthAverage($month, $this_size) {
         global $pass;
         $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
-
-        $stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE MONTH(bill_date) = :bill_date AND house_id IN (SELECT id FROM House WHERE size BETWEEN :lowerbound AND :upperbound)");
+        $stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage JOIN House ON (House.id = EnergyUsage.house_id) WHERE MONTH(bill_date) = :bill_date AND House.size BETWEEN :lowerbound AND :upperbound");
         $stmt->bindParam(':bill_date', $month);
         $lowerBound = getLowerBound($this_size);
         $upperBound = getUpperBound($this_size);

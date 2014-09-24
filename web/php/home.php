@@ -6,7 +6,6 @@
  * Time: 11:01 PM
  */
 
-//require_once "../ajax.php";
 
 //$ajax = ajax();
 /*
@@ -45,7 +44,6 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <!--[if IE 7]>
     <link href="../css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
     <![endif]-->
-    <?php //echo $ajax->init(); ?>
 </head>
 <body style="width: 599px; height: 560px; margin: 0 auto;">
 <div id="tab_menu">
@@ -58,6 +56,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <div id="loader" class="hide_load show_load"><label class="loading_label">loading</label><img class="load_gif" src="../../img/loader.gif"/></div>
 <div id="hidden_rating_number" style="display: none">3</div>
 <script src="../../javascript/jquery-1.11.0.min.js"></script>
+<script src="../../javascript/jquery-ui-1.10.4.min.js"></script>
 <script src="../../javascript/tab_menu.js"></script>
 <script src="../../javascript/rating_functions.js"></script>
 

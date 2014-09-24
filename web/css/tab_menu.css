@@ -13,12 +13,13 @@
     float:left;
     text-align: center;
     width: 200px;
+    text-decoration: none;
     display: inline;
     height:24px;
     padding-top:1px;
     padding-bottom:5px;
     font-size: 20px;
-    background-color: #f0f0f0;
+    color: gray;
     -webkit-transition: background-color 0.2s;
     -moz-transition: background-color 0.2s;
     -ms-transition: background-color 0.2s;
@@ -32,7 +33,7 @@
 }
 .tab_link:hover
 {
-    background-color: #d8d8d8;
+    color: black;
 }
 .tab_link_last
 {
@@ -41,5 +42,6 @@
 
 .tab_active
 {
-    background-color: #d8d8d8;
+    color: black;
 }
+
