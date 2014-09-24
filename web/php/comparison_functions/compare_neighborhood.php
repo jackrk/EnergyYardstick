@@ -62,8 +62,9 @@ function getMonthAverage($month, $this_neighborhood) {
         global $pass;
         $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
-        $stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE MONTH(bill_date) = :bill_date AND house_id IN (SELECT id FROM House WHERE neighborhood = $$this_neighborhood");
+        $stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE MONTH(bill_date) = :bill_date AND house_id IN (SELECT id FROM House WHERE neighborhood = :neighbor");
         $stmt->bindParam(':bill_date', $month);
+        $stmt->bindParam(':neighbor', $this_neighborhood);
         $stmt->execute();
         $avg = $stmt->fetch();
         return $avg;
