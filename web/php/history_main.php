@@ -22,7 +22,7 @@ if (isset($_SESSION['usage'])) {
         $stmt->execute();
         $house = $stmt->fetch();
 
-        $this_size = $house["size"];
+        //$this_size = $house["size"];
         //$house_id = $house[0];
         $house_id = 2346;
         $stmt = $dbh->prepare("SELECT energy_usage from EnergyUsage WHERE (house_id) =  (:house_id)");

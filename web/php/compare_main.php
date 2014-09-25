@@ -1,55 +1,41 @@
 <?php
 session_start();
-/*require_once "../ajax.php";
+require_once "../ajax.php";
 
 $ajax = ajax();
 
-$ajax->click("tjan",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("tfeb",$ajax->call("../ajax.php/compare/size/feb"));
-$ajax->click("tmar",$ajax->call("../ajax.php/compare/size/mar"));*/
-/*$ajax->click("apr",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("may",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("jun",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("jul",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("aug",$ajax->call("../ajax.php/compare/size/jan"));
-$ajax->click("sep",$ajax->call("../ajax.php/compare/size/jan"));*/
-
-/*function get_rating($data){
-	$count = 0;
-	$sum = 0;
-	foreach($data as $row){
-		$sum = $row['energy_usage']/$row['days_in_cycle'];
-		$count++;
-	}
-	if($count > 0)
-		return $sum/$count;
-}*/
 $user = "theciuc0_jdev";
 $pass = "tqHzLt6N]h8X";
-if (isset($_SESSION['usage'])) {
-    $usage = $_SESSION['usage'];
-} else {
+
     try {
         $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
-        $customer_id = 695;
-        $stmt = $dbh->prepare("SELECT * from House WHERE (customer_id) = (:customer_id)");
+        $customer_id = 15374;
+        $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
         $stmt->bindParam(':customer_id', $customer_id );
         $stmt->execute();
         $house = $stmt->fetch();
-
         $this_size = $house["size"];
-        //$house_id = $house[0];
-        $house_id = 2346;
-        $stmt = $dbh->prepare("SELECT * from EnergyUsage WHERE (house_id) =  (:house_id)");
-        $stmt->bindParam(':house_id', $house_id);
-        $stmt->execute();
-        $usage = array();
-
-        while($row = $stmt->fetch()) {
-            $usage[] = $row;
-        }
-        $_SESSION['usage']=$usage;
+        $this_area = $house["neighborhood"];
+        $this_age = $house["year_built"];
+        $this_style = $house["house_style"];
+        //$ajax->call("../ajax.php?controller=compare&function=compareAll&this_age=1965&this_size=1524");
+        $ajax->call("../ajax.php?compare/compare_all/$this_size--$this_age--$this_area--$this_style");
+        $house_id = $house[0];
+        if (isset($_SESSION['usage'])) {
+    	   $usage = $_SESSION['usage'];
+	} else {
+	    $stmt = $dbh->prepare("SELECT * from EnergyUsage WHERE (house_id) =  (:house_id)");
+	        $stmt->bindParam(':house_id', $house_id);
+	        $stmt->execute();
+	        $usage = array();
+	
+	        while($row = $stmt->fetch()) {
+	            $usage[] = $row;
+	        }
+	        $_SESSION['usage']=$usage;
+	}
+        
         //$rating =  get_rating($usage);
 
         /**
@@ -63,8 +49,9 @@ if (isset($_SESSION['usage'])) {
         print "Error!: " . $e->getMessage() . "<br/>";
         die();
     }
-}
 
+
+//$ajax->call("../ajax.php?controller=compare&function=size&size=$this_size");
 
 /**
  * Created by PhpStorm.
@@ -78,7 +65,7 @@ if (isset($_SESSION['usage'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <?php /*echo $ajax->init();*/?>
+    <?php echo $ajax->init(); ?>
 
     <!--
       Bilal:
@@ -122,29 +109,21 @@ if (isset($_SESSION['usage'])) {
             <div id="loader" class="hide_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         </div>
         <div id="compare_selector">
-            <div id="reset_similar_button">Reset to <span class="color_text">similar</span></div>
+            <div id="reset_similar_button" class="compare_button selected">Compare to <span class="color_text">similar</span> homes</div>
             <div id="compare_buttons">
                 <div id="compare_size" class="compare_button">
                     Compare by&nbsp;<span class="color_text">size</span><label class="comp_desc">(sq ft)</label></div><div id="compare_style" class="compare_button">
-                    Compare by&nbsp;<span class="color_text">style</span><label class="comp_desc">(ex. number of stories)</label></div><div id="compare_age" class="compare_button compare_button_bottom">
+                    Compare by&nbsp;<span class="color_text">style</span><label class="comp_desc">(ex. 1 Story)</label></div><div id="compare_age" class="compare_button compare_button_bottom">
                     Compare by&nbsp;<span class="color_text">age</span></div><div id="compare_area" class="compare_button compare_button_bottom">
                     Compare in your&nbsp;<span class="color_text">neighborhood</span></div>
             </div>
         </div>
     </div>
-    <button id="test">Test</button>
-    <div id="jan" class="month"></div>
-    <div id="feb" class="month"></div>
-    <div id="mar" class="month"></div>
-    <div id="apr" class="month"></div>
-    <div id="may" class="month"></div>
-    <div id="jun" class="month"></div>
-    <div id="jul" class="month"></div>
-    <div id="aug" class="month"></div>
-    <div id="sep" class="month"></div>
-    <div id="oct" class="month"></div>
-    <div id="nov" class="month"></div>
-    <div id="dec" class="month"></div>
+    <div style="display: none" id="sizevals" class="month"></div>
+    <div style="display: none" id="agevals" class="month"></div>
+    <div style="display: none" id="areavals" class="month"></div>
+    <div style="display: none" id="stylevals" class="month"></div>
+    <div style="display: none" id="allvals" class="month"></div>
 </div>
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/jquery-ui-1.10.4.min.js"></script>
@@ -155,44 +134,54 @@ if (isset($_SESSION['usage'])) {
 <script lang="javascript" type="text/javascript">
     $(document).ready(function () {
 
-        $("#test").on("click", function() {
-            $(".month").each(function() {
-                $element = $(this);
-                $.get("comparison_functions/compare_size.php?m=" + $element.attr("id"),
-                    function(data) {
-                        $("#jan").append(data);
-                    });
-            });
-        });
-
-
-        $('#compgraph_container').jqChart({
-            title: { text: 'Monthly Electricity Usage (kWh)' },
-            legend: { location: 'top' },
-            animation: { duration: 1 },
-            shadows: {
-                enabled: true
-            },
-            border: {
-                cornerRadius: 1,
-                strokeStyle: '#212121',
-                padding: 16
-            },
-            series: [
-                {
-                    type: 'column',
-                    title: 'City Average',
-                    fillStyle: '#418CF0',
-                    data: [['Jan 13', 600], ['Feb 13', 700], ['Mar 13', 800],
-                        ['Apr 13', 900], ['May 13', 1000], ['Jun 13', 1100], ['Jul 13', 1200],
-                        ['Aug 13', 1100], ['Sep 13', 1000], ['Oct 13', 900], ['Nov 13', 800],
-                        ['Dec 13', 700]]
-                },
-                {
-                    type: 'line',
-                    title: 'Your Usage',
-                    fillStyle: '#FCB441',
-                    <?php
+        var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var allData;
+        var sizeData;
+        var ageData;
+        var areaData;
+        var styleData;
+    	setTimeout(function() {
+   	    allData = $('#allvals').html();
+    	    sizeData = $('#sizevals').html();
+    	    ageData= $('#agevals').html();
+    	    areaData= $('#areavals').html();
+    	    styleData= $('#stylevals').html();
+    	    allData = allData.split("-").splice(0,12);
+    	    sizeData = sizeData.split("-").splice(0,12);
+    	    ageData= ageData.split("-").splice(0,12);
+    	    areaData= areaData.split("-").splice(0,12);
+    	    styleData= styleData.split("-").splice(0,12);
+    	    for (i=0;i<12;i++) {
+    	    	allData[i] = [month[i], allData[i]];
+    	    	sizeData[i] = [month[i], sizeData[i]];
+    	    	areaData[i] = [month[i], areaData[i]];
+    	    	ageData[i] = [month[i], ageData[i]];
+    	    	styleData[i] = [month[i], styleData[i]];
+    	    }
+	        $('#compgraph_container').jqChart({
+	            title: { text: 'Monthly Electricity Usage (kWh)' },
+	            legend: { location: 'top' },
+	            animation: { duration: .5 },
+	            shadows: {
+	                enabled: true
+	            },
+	            border: {
+	                cornerRadius: 1,
+	                strokeStyle: '#212121',
+	                padding: 16
+	            },
+	            series: [
+	                {
+	                    type: 'column',
+	                    title: 'City Average',
+	                    fillStyle: '#418CF0',
+	                    data: allData
+	                },
+	                {
+	                    type: 'line',
+	                    title: 'Your Usage',
+	                    fillStyle: '#FCB441',
+	                    <?php
                     echo <<<EOHTML
 
                     data: [['Jan 13', {$usage[0]['energy_usage']}],
@@ -206,11 +195,42 @@ if (isset($_SESSION['usage'])) {
 EOHTML;
 
                     ?>
-                }
-            ]
-        });
+	                }
+	            ]
+	        }); 
+	        
+        $('.compare_button').on("click", function() {
+            if ($(this).hasClass("selected")) return false;
+            $('.compare_button').each(function() {
+                $(this).removeClass("selected");
+            });
+            $(this).addClass("selected");
+            if ($(this).html().indexOf("similar") > -1) {
+                // get current series
+                var series = $('#compgraph_container').jqChart('option', 'series');
+                // get the data from the first series
+                series[0].data = allData
+                // update (redraw) the chart
+                $('#compgraph_container').jqChart('update');
+            } else if ($(this).html().indexOf("size") > -1) {
+                var series = $('#compgraph_container').jqChart('option', 'series');
+                series[0].data = sizeData;
+                $('#compgraph_container').jqChart('update');
+            } else if ($(this).html().indexOf("age") > -1) {
+                var series = $('#compgraph_container').jqChart('option', 'series');
+                series[0].data = ageData;
+                $('#compgraph_container').jqChart('update');
+            } else if ($(this).html().indexOf("style") > -1) {
+                var series = $('#compgraph_container').jqChart('option', 'series');
+                series[0].data = styleData;
+                $('#compgraph_container').jqChart('update');
+            } else {
+                var series = $('#compgraph_container').jqChart('option', 'series');
+                series[0].data = areaData;
+                $('#compgraph_container').jqChart('update');
+            }
+        });       
+    	}, 800);
     });
 </script>
 </body>
-
-
