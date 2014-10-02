@@ -58,9 +58,9 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
         <div id="rating_container">
             <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
-            <div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div>
+            <div class="info_container">
+            <div class="rating_info_container"><div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div></div>
             <div id="metric_container">
-                <div id="piechart" style="border:0px;"></div>
                 <div id="rating_metrics"><span class="metric_title">equivalent to</span>
                     <div class="metric" id="mpg_metric"><img style="padding-left: 4px;" src="../img/gas_mid.png" height="26" width="26" class="icon_img"/><img style="padding-left: 2px;" src="../img/x_mid.png" height="26" width="38" class="x_img" />
                         <div class="metric_number"><span id="mpg_number">0</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
@@ -68,9 +68,10 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                         <div class="metric_number"><span id="cars_number">0</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
                     <div class="metric" id="trees_metric"><img style="padding-left: 1px; margin-right: 9px;" src="../img/tree_mid.png" height="32" width="32" class="icon_img" /><img src="../img/x_mid.png" heheight="26" width="38" class="x_img"/>
                         <div class="metric_number"><span id="trees_number">0</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
-                    <span id="metric_selector"></span><span id="equiv_button" class="metric_button">metrics</span><span id="piechart_button" class="metric_button">breakdown</span>
                 </div>
-                <div class="rating_breakdown">
+            </div>
+            </div>
+            <div class="rating_breakdown">
                 <span class="rating_breakdown_desc" >
                     average monthly use: <br>
                     average cost per month:  <br>
@@ -95,7 +96,6 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                     $<span id="new_year_bill"></span><br>
                 </span>
                 </div>
-            </div>
         </div>
         <div id="tips_container">
             <div id="tips_title">Select improvements to see the impact on your efficiency</div>
@@ -111,7 +111,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                         <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
                         <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li>
                 </ul>
-                <div id="tips_submit">SAVE</div>
+                <div id="tips_submit">Save selected improvements</div>
             </div>
         </div>
     </div>

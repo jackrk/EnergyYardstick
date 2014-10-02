@@ -142,11 +142,12 @@ body{ /*height:100%*/ }
 
 
 .cjax_loading {
+	display: none !important;
 	position: relative;
 	border-style: solid;
 	border-color: #0080FF;
 	border-width: 1px;
-	background-color: #CCEEFF;
+	background-color: black;
 	font-family: tahoma;
 	background-image: url(../images/loader.gif);
 	background-repeat: no-repeat;

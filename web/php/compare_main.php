@@ -10,7 +10,7 @@ $pass = "tqHzLt6N]h8X";
     try {
         $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
-        $customer_id = 15374;
+        $customer_id = 20042;
         $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
         $stmt->bindParam(':customer_id', $customer_id );
         $stmt->execute();
@@ -106,7 +106,7 @@ $pass = "tqHzLt6N]h8X";
     <div id="compare_container">
         <div id="compgraph_container">
 
-            <div id="loader" class="hide_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
+            <div style="width: 100%" id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         </div>
         <div id="compare_selector">
             <div id="reset_similar_button" class="compare_button selected">Compare to <span class="color_text">similar</span> homes</div>
@@ -133,7 +133,6 @@ $pass = "tqHzLt6N]h8X";
 
 <script lang="javascript" type="text/javascript">
     $(document).ready(function () {
-
         var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         var allData;
         var sizeData;
@@ -229,8 +228,10 @@ EOHTML;
                 series[0].data = areaData;
                 $('#compgraph_container').jqChart('update');
             }
-        });       
-    	}, 800);
+        }); 
+        
+	$("#loadcover").addClass("hide_load");      
+    	}, 1200);
     });
 </script>
 </body>

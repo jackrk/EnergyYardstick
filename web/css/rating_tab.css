@@ -56,19 +56,32 @@
 
 }
 
+.info_container {
+	position: relative;
+	height: 206px;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.rating_info_container {
+	height: inherit;
+	width: 299px;
+	display: inline-block;
+	border-right: 1px solid rgba(0,0,0,0.3);	
+}
+
 .rating_breakdown
 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    position: relative;
-    display: block;
-    border-top: 1px solid rgba(0,0,0,0.3);
-    width: 550px;
-    margin-left: 24px;
-    /* padding-left: 30px; */
-    margin-top: 38px;
-    line-height: 24px;
-    padding-top: 4px;
+    	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	position: relative;
+	display: block;
+	/* border-top: 1px solid rgba(0,0,0,0.3); */
+	width: 550px;
+	margin-left: 24px;
+	/* padding-left: 30px; */
+	margin-top: 4px;
+	line-height: 24px;
+	/* padding-top: 4px; */
 }
 
 #usage_now
@@ -236,11 +249,10 @@
 
 #rating_metrics
 {
-    position: relative;
-    width: 210px;
-    left: 345px;
-    margin-top: 2px;
-    display: inline-block;
+    	position: relative;
+	width: 210px;
+	margin-top: 24px;
+	left: 38px;
 }
 #piechart
 {
@@ -255,14 +267,11 @@
 
 #metric_container
 {
-    /* display: inline; */
-    /* width: 300px; */
-    position: absolute;
-    /* float: left; */
-    height: 190px;
-    width: 299px;
-    margin-top: 10px;
-    border-right: 1px solid rgba(0,0,0,0.3);
+	position: relative;
+	display: inline-block;
+	height: inherit;
+	width: 299px;
+	float: right;
 }
 
 .metric

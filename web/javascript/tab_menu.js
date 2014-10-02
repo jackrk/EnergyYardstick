@@ -13,11 +13,15 @@ $(document).ready(function() {
     });*/
 
     $("#tips_submit").mouseenter(function(){
-       $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
-        $(this).bind('mouseleave', function(){
-            $(this).transition({backgroundColor: '#47707F', queue: false}, 200);
-            $(this).unbind('mouseleave');
-        });
+        $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
+    });
+
+    $("#tips_submit").mouseleave(function(){
+        $(this).transition({backgroundColor: '#E0E5E2', queue: false}, 200);
+    });
+
+    $("#tips_submit").click(function() {
+
     });
     var hid = $("#hidden_rating_number").html();
     if (hid == "")

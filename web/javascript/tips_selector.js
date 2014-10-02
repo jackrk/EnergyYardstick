@@ -3,20 +3,13 @@
  */
 
 $("#tips_submit").mouseenter(function(){
-    $(this).transition({backgroundColor: '#d8d8d8', queue: false}, 200);
-    $(this).bind('mousedown', function(){
-        $(this).css('background-color', '#7fc9e5');
-        $(this).bind('mouseup', function(){
-            $(this).css('background-color', '#E0E5E2');
-            $(this).unbind('mouseup');
-            $(this).unbind('mousedown');
-        });
-    });
-    $(this).bind('mouseleave', function(){
-        $(this).transition({backgroundColor: '#E0E5E2', queue: false}, 200);
-        $(this).unbind('mouseleave');
-    });
+    $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
 });
+
+$("#tips_submit").mouseleave(function(){
+    $(this).transition({backgroundColor: '#E0E5E2', queue: false}, 200);
+});
+
 $("#tips_submit").click(function() {
 
 });
