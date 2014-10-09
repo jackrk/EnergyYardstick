@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab7a1e-56b6-47ac-a1d5-9c810af6d189" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/check_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/check_login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/compare_main.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/history_main.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/home.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/load_data.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/questions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rating_main.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tester.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/php/login.php" afterPath="$PROJECT_DIR$/web/php/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EnergyYardstick.iws" />
@@ -30,40 +39,45 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
+        <entry file="file://$PROJECT_DIR$/web/php/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="720">
-              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="705">
+              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
               <folding>
-                <element signature="e#7#92#0#PHP" expanded="true" />
+                <element signature="e#6#91#0#PHP" expanded="true" />
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <marker date="1412878104000" expanded="true" signature="360:480" placeholder="..." />
-                <marker date="1412878104000" expanded="true" signature="362:409" placeholder="SELECT * FRO.._tbl_name WHERE..." />
+                <marker date="1412880744000" expanded="true" signature="358:479" placeholder="..." />
+                <marker date="1412880744000" expanded="true" signature="345:424" placeholder="SELECT * FRO.._tbl_name WHERE..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="check_login.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/check_login.php">
+        <entry file="file://$PROJECT_DIR$/web/php/check_login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="735">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5871212" vertical-offset="65" max-vertical-offset="720">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding>
-                <marker date="1412878142000" expanded="true" signature="505:584" placeholder="SELECT * FRO.._tbl_name WHERE..." />
+                <marker date="1412881370000" expanded="true" signature="504:517" placeholder="select * fro..." />
+                <marker date="1412881370000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
+                <marker date="1412881370000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881370000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881370000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881370000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_data.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/load_data.php">
+      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="990">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+            <state vertical-scroll-proportion="48.333332" vertical-offset="3560" max-vertical-offset="4065">
+              <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
               <folding>
-                <marker date="1412872670000" expanded="true" signature="1006:1198" placeholder="INSERT INTO ..." />
+                <element signature="e#6#1107#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +86,8 @@
       <file leaf-file-name="log_in.php" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Sites/ComS_Projects/log_in.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.0" vertical-offset="192" max-vertical-offset="720">
-              <caret line="40" column="48" selection-start-line="29" selection-start-column="0" selection-end-line="40" selection-end-column="48" />
+            <state vertical-scroll-proportion="-16.041666" vertical-offset="215" max-vertical-offset="720">
+              <caret line="40" column="48" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="48" />
               <folding>
                 <marker date="1386801561000" expanded="true" signature="536:615" placeholder="SELECT * FRO.._tbl_name WHERE..." />
               </folding>
@@ -104,8 +118,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/check_login.php" />
+        <option value="$PROJECT_DIR$/db_check.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/web/php/login.php" />
+        <option value="$PROJECT_DIR$/web/php/check_login.php" />
       </list>
     </option>
   </component>
@@ -264,12 +281,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/load_data.php">
+    <entry file="file://$PROJECT_DIR$/web/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="990">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cjax/auth.default.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="48.333332" vertical-offset="3560" max-vertical-offset="4065">
+          <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
           <folding>
-            <marker date="1412872670000" expanded="true" signature="1006:1198" placeholder="INSERT INTO ..." />
+            <element signature="e#6#1107#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/php/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="705">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#91#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <marker date="1412880744000" expanded="true" signature="358:479" placeholder="..." />
+            <marker date="1412880744000" expanded="true" signature="345:424" placeholder="SELECT * FRO.._tbl_name WHERE..." />
           </folding>
         </state>
       </provider>
@@ -282,36 +329,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="720">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding>
-            <element signature="e#7#92#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <marker date="1412878104000" expanded="true" signature="360:480" placeholder="..." />
-            <marker date="1412878104000" expanded="true" signature="362:409" placeholder="SELECT * FRO.._tbl_name WHERE..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Sites/ComS_Projects/log_in.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0" vertical-offset="192" max-vertical-offset="720">
-          <caret line="40" column="48" selection-start-line="29" selection-start-column="0" selection-end-line="40" selection-end-column="48" />
+        <state vertical-scroll-proportion="-16.041666" vertical-offset="215" max-vertical-offset="720">
+          <caret line="40" column="48" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="48" />
           <folding>
             <marker date="1386801561000" expanded="true" signature="536:615" placeholder="SELECT * FRO.._tbl_name WHERE..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check_login.php">
+    <entry file="file://$PROJECT_DIR$/web/php/check_login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="735">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.5871212" vertical-offset="65" max-vertical-offset="720">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding>
-            <marker date="1412878142000" expanded="true" signature="505:584" placeholder="SELECT * FRO.._tbl_name WHERE..." />
+            <marker date="1412881370000" expanded="true" signature="504:517" placeholder="select * fro..." />
+            <marker date="1412881370000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
+            <marker date="1412881370000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881370000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881370000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881370000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
           </folding>
         </state>
       </provider>
