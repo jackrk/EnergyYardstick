@@ -55,9 +55,10 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 <div id="tab_container">
     <div id="rating_tab">
+    
+            <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
         <div id="rating_container">
-            <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
             <div class="info_container">
             <div class="rating_info_container"><div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div></div>
             <div id="metric_container">

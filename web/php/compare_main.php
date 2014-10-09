@@ -8,7 +8,7 @@ $user = "theciuc0_jdev";
 $pass = "tqHzLt6N]h8X";
 
     try {
-        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
+        $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
 
         $customer_id = 20042;
         $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
@@ -104,9 +104,10 @@ $pass = "tqHzLt6N]h8X";
 
 <div id="tab_container">
     <div id="compare_container">
+    
+            <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         <div id="compgraph_container">
 
-            <div style="width: 100%" id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         </div>
         <div id="compare_selector">
             <div id="reset_similar_button" class="compare_button selected">Compare to <span class="color_text">similar</span> homes</div>
@@ -166,8 +167,13 @@ $pass = "tqHzLt6N]h8X";
 	            },
 	            border: {
 	                cornerRadius: 1,
-	                strokeStyle: '#212121',
-	                padding: 16
+	                strokeStyle: 'gray',
+	                padding: {
+			      top: 8,
+			      left: 8,
+			      bottom: 20,
+			      right: 8
+			  }
 	            },
 	            series: [
 	                {
