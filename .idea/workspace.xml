@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdab7a1e-56b6-47ac-a1d5-9c810af6d189" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/check_login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/compare_main.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/history_main.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/load_data.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/questions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rating_main.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tester.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/php/login.php" afterPath="$PROJECT_DIR$/web/php/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/php/check_login.php" afterPath="$PROJECT_DIR$/web/php/check_login.php" />
     </list>
     <ignored path="EnergyYardstick.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/php/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="705">
+            <state vertical-scroll-proportion="0.19886364" vertical-offset="0" max-vertical-offset="705">
               <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
               <folding>
                 <element signature="e#6#91#0#PHP" expanded="true" />
@@ -54,18 +43,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_login.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="check_login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/php/check_login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5871212" vertical-offset="65" max-vertical-offset="720">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state vertical-scroll-proportion="-19.5" vertical-offset="162" max-vertical-offset="720">
+              <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
               <folding>
-                <marker date="1412881370000" expanded="true" signature="504:517" placeholder="select * fro..." />
-                <marker date="1412881370000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
-                <marker date="1412881370000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
-                <marker date="1412881370000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
-                <marker date="1412881370000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
-                <marker date="1412881370000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881576000" expanded="true" signature="504:517" placeholder="select * fro..." />
+                <marker date="1412881576000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
+                <marker date="1412881576000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881576000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881576000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
+                <marker date="1412881576000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
               </folding>
             </state>
           </provider>
@@ -166,6 +155,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Energy Yardstick" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Energy Yardstick" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EnergyYardstick" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Energy Yardstick" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EnergyYardstick" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -307,20 +328,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/php/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="705">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding>
-            <element signature="e#6#91#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <marker date="1412880744000" expanded="true" signature="358:479" placeholder="..." />
-            <marker date="1412880744000" expanded="true" signature="345:424" placeholder="SELECT * FRO.._tbl_name WHERE..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Sites/ComS_Projects/log_in_info.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.75" vertical-offset="210" max-vertical-offset="810">
@@ -341,15 +348,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/php/check_login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5871212" vertical-offset="65" max-vertical-offset="720">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state vertical-scroll-proportion="-19.5" vertical-offset="162" max-vertical-offset="720">
+          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
           <folding>
-            <marker date="1412881370000" expanded="true" signature="504:517" placeholder="select * fro..." />
-            <marker date="1412881370000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
-            <marker date="1412881370000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
-            <marker date="1412881370000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
-            <marker date="1412881370000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
-            <marker date="1412881370000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881576000" expanded="true" signature="504:517" placeholder="select * fro..." />
+            <marker date="1412881576000" expanded="true" signature="504:518" placeholder="select * fro..tbl_name..." />
+            <marker date="1412881576000" expanded="true" signature="504:544" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881576000" expanded="true" signature="504:545" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881576000" expanded="true" signature="504:573" placeholder="select * fro.._tbl_name where..." />
+            <marker date="1412881576000" expanded="true" signature="504:583" placeholder="select * fro.._tbl_name where..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/php/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19886364" vertical-offset="0" max-vertical-offset="705">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#91#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <marker date="1412880744000" expanded="true" signature="358:479" placeholder="..." />
+            <marker date="1412880744000" expanded="true" signature="345:424" placeholder="SELECT * FRO.._tbl_name WHERE..." />
           </folding>
         </state>
       </provider>
