@@ -16,6 +16,7 @@ $username = stripslashes($username);
 $password = stripslashes($password);
 $username = mysql_real_escape_string($username);
 $password = mysql_real_escape_string($password);
+$password = md5($password);
 
 $sql = "select * from $tbl_name where username = '$username' and password = '$password'";
 $result = mysql_query($sql, $link) or die ('Unable to run query:'.mysql_error());
@@ -28,16 +29,18 @@ $questions = $row[2];
 if($count == 1){
     if($questions == 1){
         header("Location: rating_main.php");
+        die();
     }
-    else
+    else {
         header("Location: questions.php");
+        die();
+    }
 }
 
 else{
     $message = "Wrong username or password";
     echo "<script type='text/javascript'> alert('$message'); </script>";
-
-    header("Refresh:0; URL= login.php");
+    echo "<script type='text/javascript'> window.location = 'login.php'; </script>";
 }
 
 ?>
