@@ -11,17 +11,20 @@
 {
     z-index: 100;
     height: inherit;
-    width: inherit;
+    width: 100%;
     display: block;
     position: absolute;
     text-align: center;
     vertical-align: middle;
     opacity: .8;
     background-color: #efefef;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
 }
 .hide_load
 {
-    display: none !important;
+    opacity: 0;
 }
 .load_gif
 {

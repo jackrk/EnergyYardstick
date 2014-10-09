@@ -15,7 +15,7 @@ $pass = "tqHzLt6N]h8X";
 	if (isset($_SESSION['fullusage'])) {
 	    $usage = $_SESSION['fullusage'];
 	} else {
-	        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
+	        $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
 	
 	        $customer_id = 20042;
 	        $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
@@ -170,11 +170,16 @@ $pass = "tqHzLt6N]h8X";
                     enabled: true
                 },
                 border: {
-                    cornerRadius: 1,
-                    strokeStyle: '#212121',
-                    padding: 30
-                },
-                series: [
+	                cornerRadius: 1,
+	                strokeStyle: 'gray',
+	                padding: {
+			      top: 8,
+			      left: 8,
+			      bottom: 20,
+			      right: 8
+			  }
+	            },
+	        series: [
                     {
                         type: 'line',
                         title: 'Your Usage',
