@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once "../ajax.php";
@@ -9,7 +10,6 @@ $pass = "tqHzLt6N]h8X";
 
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
-
         $customer_id = 20042;
         $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
         $stmt->bindParam(':customer_id', $customer_id );
