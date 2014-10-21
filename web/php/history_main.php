@@ -134,31 +134,67 @@ $pass = "tqHzLt6N]h8X";
             ['Dec 11', <?php echo $usage[35]['energy_usage'] ?>]];
 
         var usage_data_2 = [['Jan 12', <?php echo $usage[12]['energy_usage'] ?>],
+            ['', <?php echo $usage[13]['energy_usage'] ?>],
             ['Mar 12', <?php echo $usage[14]['energy_usage'] ?>],
+            ['', <?php echo $usage[15]['energy_usage'] ?>],
             ['May 12', <?php echo $usage[16]['energy_usage'] ?>],
+            ['', <?php echo $usage[17]['energy_usage'] ?>],
             ['Jul 12', <?php echo $usage[18]['energy_usage'] ?>],
+            ['', <?php echo $usage[19]['energy_usage'] ?>],
             ['Sep 12', <?php echo $usage[20]['energy_usage'] ?>],
+            ['', <?php echo $usage[21]['energy_usage'] ?>],
             ['Nov 12', <?php echo $usage[22]['energy_usage'] ?>],
+            ['', <?php echo $usage[23]['energy_usage'] ?>],
             ['Jan 13', <?php echo $usage[0]['energy_usage'] ?>],
+            ['', <?php echo $usage[1]['energy_usage'] ?>],
             ['Mar 13', <?php echo $usage[2]['energy_usage'] ?>],
+            ['', <?php echo $usage[3]['energy_usage'] ?>],
             ['May 13', <?php echo $usage[4]['energy_usage'] ?>],
+            ['', <?php echo $usage[5]['energy_usage'] ?>],
             ['Jul 13', <?php echo $usage[6]['energy_usage'] ?>],
+            ['', <?php echo $usage[7]['energy_usage'] ?>],
             ['Sep 13', <?php echo $usage[8]['energy_usage'] ?>],
-            ['Nov 13', <?php echo $usage[10]['energy_usage'] ?>]];
+            ['', <?php echo $usage[9]['energy_usage'] ?>],
+            ['Nov 13', <?php echo $usage[10]['energy_usage'] ?>],
+                ['', <?php echo $usage[11]['energy_usage'] ?>]];
 
 
         var usage_data_3 = [['Jan 11', <?php echo $usage[24]['energy_usage'] ?>],
+            ['', <?php echo $usage[25]['energy_usage'] ?>],
+            ['', <?php echo $usage[26]['energy_usage'] ?>],
             ['Apr 11', <?php echo $usage[27]['energy_usage'] ?>],
+            ['', <?php echo $usage[28]['energy_usage'] ?>],
+            ['', <?php echo $usage[29]['energy_usage'] ?>],
             ['Jul 11', <?php echo $usage[30]['energy_usage'] ?>],
+            ['', <?php echo $usage[31]['energy_usage'] ?>],
+            ['', <?php echo $usage[32]['energy_usage'] ?>],
             ['Oct 11', <?php echo $usage[33]['energy_usage'] ?>],
+            ['', <?php echo $usage[34]['energy_usage'] ?>],
+            ['', <?php echo $usage[35]['energy_usage'] ?>],
             ['Jan 12', <?php echo $usage[12]['energy_usage'] ?>],
+            ['', <?php echo $usage[13]['energy_usage'] ?>],
+            ['', <?php echo $usage[14]['energy_usage'] ?>],
             ['Apr 12', <?php echo $usage[15]['energy_usage'] ?>],
+            ['', <?php echo $usage[16]['energy_usage'] ?>],
+            ['', <?php echo $usage[17]['energy_usage'] ?>],
             ['Jul 12', <?php echo $usage[18]['energy_usage'] ?>],
+            ['', <?php echo $usage[19]['energy_usage'] ?>],
+            ['', <?php echo $usage[20]['energy_usage'] ?>],
             ['Oct 12', <?php echo $usage[21]['energy_usage'] ?>],
+            ['', <?php echo $usage[22]['energy_usage'] ?>],
+            ['', <?php echo $usage[23]['energy_usage'] ?>],
             ['Jan 13', <?php echo $usage[0]['energy_usage'] ?>],
+            ['', <?php echo $usage[1]['energy_usage'] ?>],
+            ['', <?php echo $usage[2]['energy_usage'] ?>],
             ['Apr 13', <?php echo $usage[3]['energy_usage'] ?>],
+            ['', <?php echo $usage[4]['energy_usage'] ?>],
+            ['', <?php echo $usage[5]['energy_usage'] ?>],
             ['Jul 13', <?php echo $usage[6]['energy_usage'] ?>],
-            ['Oct 13', <?php echo $usage[9]['energy_usage'] ?>]];
+            ['', <?php echo $usage[7]['energy_usage'] ?>],
+            ['', <?php echo $usage[8]['energy_usage'] ?>],
+            ['Oct 13', <?php echo $usage[9]['energy_usage'] ?>],
+            ['', <?php echo $usage[10]['energy_usage'] ?>],
+            ['', <?php echo $usage[11]['energy_usage'] ?>]];
 
 
         var usage_data_minus_five = usage_data.slice(0);
@@ -183,11 +219,11 @@ $pass = "tqHzLt6N]h8X";
                     $('#histgraph_container').jqChart('update');
                 } else if ($(this).text().indexOf("24") > -1) {
                     var series = $('#histgraph_container').jqChart('option', 'series');
-                    series[0].data = usage_data_2.slice(0, 12);
+                    series[0].data = usage_data_2.slice(0, 24);
                     $('#histgraph_container').jqChart('update');
                 } else {
                     var series = $('#histgraph_container').jqChart('option', 'series');
-                    series[0].data = usage_data_3.slice(0, 12);
+                    series[0].data = usage_data_3.slice(0, 36);
                     $('#histgraph_container').jqChart('update');
                 }
             });
