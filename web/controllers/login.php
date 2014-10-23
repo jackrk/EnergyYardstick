@@ -12,6 +12,14 @@ class controller_login
     {
         $ajax = ajax();
 
+
+        if (!$form_fields[username]) {
+            return $ajax->err = 'Enter your username';
+        }
+        if (!$form_fields[password]) {
+            return $ajax->err = 'Enter your password';
+        }
+
         $host = "69.195.124.206";
         $user = "theciuc0_jdev";
         $pass = "tqHzLt6N]h8X";
@@ -38,12 +46,6 @@ class controller_login
         $row = mysql_fetch_row($result);
         $questions = $row[2];
 
-        if (!$form_fields[username]) {
-            return $ajax->err = 'Enter your username';
-        }
-        if (!$form_fields[password]) {
-            return $ajax->err = 'Enter your password';
-        }
 
         if ($count == 1) {
             if ($questions == 1) {

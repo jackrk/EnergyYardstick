@@ -29,8 +29,8 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 </div>
 <div id="logincontainer">
     <form id="loginform" class="formlogin" style="background-color:#FFFFFF;font-size:12px;font-family:'Open Sans',sans-serif;font-weight:300;color:#666666;max-width:480px;min-width:150px" method="post"><div class="logintitle">Welcome to the Ames Energy Yardstick</div>
-        <div class="element-input" ><label class="title">User</label><input class="inputbox" type="text" id="a[username]" name="username" placeholder="username" /></div>
-        <div class="element-input" ><label class="title">Password</label><input class="inputbox" type="password" id="a[password]" name="password" placeholder="password" /></div>
+        <div class="element-input" ><label class="title">User</label><input class="inputbox" type="text" id="a[username]" name="a[username]" placeholder="username" /></div>
+        <div class="element-input" ><label class="title">Password</label><input class="inputbox" type="password" id="a[password]" name="a[password]" placeholder="password" /></div>
 
         <div class="submit"><div id="err"></div><input id="ajaxsubmit" name="ajaxsubmit" class="submit_button" type="submit" value="Submit"/></div>
     </form>
