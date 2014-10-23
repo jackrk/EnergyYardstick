@@ -1,17 +1,23 @@
 <?php
+
+
 /**
  * Created by PhpStorm.
  * User: jack_ultra
  * Date: 3/3/14
  * Time: 11:01 PM
  */
+require_once "../ajax.php";
 
 
-//$ajax = ajax();
+$ajax = ajax();
+
+$ajax->call("../ajax.php?tips/get/bbesic");
+
+$ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/bbesic/"));
+
+
 /*
-$ajax->call("../ajax.php?tab/rating");
-
-$ajax->click("tab_rating",$ajax->call("../ajax.php?tab/rating"));
 $ajax->click("tab_compare",$ajax->call("../ajax.php?tab/compare"));
 $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
@@ -19,6 +25,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <!DOCTYPE html>
 <html>
 <head>
+    <?php echo $ajax->init(); ?>
 
     <!--
       Bilal:
@@ -33,7 +40,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
       -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="../css/home.css"/>
@@ -42,6 +49,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <link rel="stylesheet" type="text/css" href="../css/jquery.jqChart.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery.jqRangeSlider.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../css/glyphicons/css/bootstrap.min.css">
     <!--[if IE 7]>
     <link href="../css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
     <![endif]-->
@@ -56,7 +64,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <div id="tab_container">
     <div id="rating_tab">
     
-            <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
+            <div id="loadcover" style="height: 562px !important" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
         <div id="rating_container">
             <div class="info_container">
@@ -99,20 +107,16 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                 </div>
         </div>
         <div id="tips_container">
-            <div id="tips_title">Select improvements to see the impact on your efficiency</div>
+            <div id="tips_title">
+                <div style="width: 60%;display: inline-block;float: left;padding: 4px;margin-left: 34px;">
+                    Click a tip to see how it will impact your efficiency, then save any that you've completed</div>
+                <span id="tip_toggle" class="tip-toggle-button">show saved</span>
+                <span id="save-tips-original" class="glyphicon glyphicon-floppy-disk save-tips-button"></span>
+            </div>
             <div id="tips_list">
-                <ul class="tips">
-                    <li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">New Refrigerator</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">New Refrigerator</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">Turn down A/C by 3&#176;</span></li><li class="tip tip-unselected">
-                        <span class="check_container"><img src="../img/checkmark.png" /></span><span class="tip_text">LED Lights</span></li>
-                </ul>
-                <div id="tips_submit">Save selected improvements</div>
+                <ul id="tips" class="tips"><li id="tips_inner"></li><li id="saved_tips_inner" style="display: none"></li></ul>
+                <input type="text" style="display: none" id="savedtips" value="" />
+                <!--<div id="tips_submit">Click to save any that you've completed</div>-->
             </div>
         </div>
     </div>
@@ -140,6 +144,15 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <!--[if IE]>
 <script lang="javascript" type="text/javascript" src="../javascript/excanvas.js"></script><![endif]-->
 <script lang="javascript" type="text/javascript">
+
+    function grabSelections() {
+        var datastring = "";
+        $(".tip-selected").each(function() {
+            var tipId = $(this).children().first().html();
+            datastring += tipId + "--";
+        });
+        $("#savedtips").attr("value",datastring);
+    }
 
     $(document).ready(function () {
         $("#goal_kwh").text((parseFloat($("#cur_kwh").text())).toFixed(1));

@@ -2,17 +2,6 @@
  * Created by Jack on 3/25/14.
  */
 
-$("#tips_submit").mouseenter(function(){
-    $(this).transition({backgroundColor: '#6AA8BF', queue: false}, 200);
-});
-
-$("#tips_submit").mouseleave(function(){
-    $(this).transition({backgroundColor: '#E0E5E2', queue: false}, 200);
-});
-
-$("#tips_submit").click(function() {
-
-});
 /*$(".tips").on('mouseenter', ".tip-unselected", function() {
     $(this).transition({color: 'black', queue: false}, 200);
     $(this).children().first().transition({opacity:.5, queue: false}, 200);
@@ -84,6 +73,17 @@ $(".tips").on('click', ".tip-selected", function() {
         $(".rating_slider").val(n, { set: true });
     }
     adjustNewValues();
+});
+
+$("#tip_toggle").on('click', function() {
+    $("#tips_inner").toggle();
+    $("#saved_tips_inner").toggle();
+    if ($(this).text().indexOf("show") > -1) {
+        $(this).html("go<br>back");
+    } else {
+        $(this).html("show saved");
+    }
+    return false;
 });
 
 function adjustNewValues() {

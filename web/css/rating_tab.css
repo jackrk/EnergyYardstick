@@ -115,16 +115,6 @@
     position: absolute;
 }
 
-#tips_container
-{
-    display:block;
-    height: 208px;
-    width: 599px;
-    background-color: #f0f0f0;
-}
-
-
-
 /* Classes for IE and older browser compatibility issues with jQuery animations */
 
 .rating_container_1 {
@@ -158,14 +148,22 @@
     background-color: #33ff22 !important;
 }
 
+#tips_container
+{
+    display:block;
+    height: 240px;
+    width: 599px;
+    /*background-color: #f0f0f0;*/
+    background-color: rgb(236, 239, 237) !important;
+}
 #tips_title
 {
     font-family: 'Open Sans';
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
     position: relative;
     width: 597px;
-    line-height: 36px;
+    line-height: 20px;
     border-left: 1px solid lightslategray;
     border-right: 1px solid lightslategray;
     border-bottom: 1px solid lightslategray;
@@ -174,20 +172,44 @@
     display: inline-block;
 }
 
-#tips_submit
-{
-    background-color: #E0E5E2;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-    height: 33px;
-    line-height: 33px;
-    font-size: 20px;
-    border: 1px solid lightslategray;
-    text-align: center;
+.tip-toggle-button {
+    display: inline-block;
+    width: 64px;
+    padding-top: 4px;
+    height: 44px;
+    margin-left: 68px;
+    cursor: pointer;
 }
-#tips_submit:hover
-{
-    cursor:pointer;
+
+.tip-toggle-button:hover {
+    color: white;
+    background-color: #739fee;
+}
+
+.save-tips-button {
+    font-size: 24px;
+    margin-top: 13px;
+    color: #739fee;
+    cursor: pointer;
+    margin-left: 19px;
+    top: -1px !important;
+}
+
+.save-tips-done {
+    color: green;
+}
+
+.save-tips-button:hover {
+    color: #5a86d5;
+}
+
+.save-tips-loading {
+    background: url(../css/images/loading_spin.gif);
+    background-size: 24px 24px;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin-top: 12px;
 }
 
 .tips
@@ -196,54 +218,95 @@
     padding: 0;
     margin: 0;
     display: block;
-    height: 136px;
+    height: 191px;
     border-right: 1px solid lightslategray;
     border-left: 1px solid lightslategray;
+    border-bottom: 1px solid lightslategray;
+    overflow-y: auto;
 }
 .tip
 {
     font-family: 'Open Sans', sans-serif;
     display: inline-block;
-    width: 291px;
-    font-size: 18px;
-    height: 34px;
+    width: 95%;
+    font-size: 16px;
+    height: 26px;
+    padding-top: 1px;
     padding-left: 6px;
-    line-height: 34px;
+    line-height: 27px;
     text-align: left;
-    border-right: 1px solid lightslategray;
 }
 .tip-unselected
 {
     color: #505050;
 }
-.tips li:nth-child(2n)
+/*.tips li:nth-child(2n)
 {
-    width:293px;
+    width:275px;
     border-right: none;
-}
+}*/
 .tip:hover
 {
     cursor: pointer;
     color: black;
+    font-weight: 600;
 }
 
 .tip-selected
 {
     color: black;
+    font-weight: 600;
+}
+
+.tip-saved
+{
+    color: black;
+    font-weight: 600;
+}
+
+.tip-text {
+    width: 446px;
+    display: inline-block;
+   /* border-right: 1px solid rgba(0,0,0,0.3);*/
+}
+
+.tip-id {
+    display: none;
+}
+
+.tip-point-val {
+    display: none;
+}
+
+.tip-cost {
+    width: 56px;
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
 }
 
 .check_container
 {
-    width: 50px;
+    width: 28px;
     display: inline-block;
     text-align: center;
     opacity: 0;
 }
+
+.check_container img {
+    height: 14px;
+    position: relative;
+    top: 1px;
+}
+
 .tip-unselected span img {
     position: relative;
-    top: 2px;
 }
 .tip-selected .check_container {
+    opacity: 1;
+}
+
+.tip-saved .check_container {
     opacity: 1;
 }
 
