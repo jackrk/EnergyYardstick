@@ -7,12 +7,12 @@
  */
 
 class controller_tips {
-    function get($username) {
+    function pull_db($username) {
         try {
             $ajax = ajax();
             $user = "theciuc0_jdev";
             $pass = "tqHzLt6N]h8X";
-            $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
+            $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
             $stmt = $dbh->prepare("select * from Tips where id not in (select tip_id from User_Tips where username = ?)");
             $stmt->bindParam(1, $username);
             $stmt->execute();
@@ -48,14 +48,14 @@ class controller_tips {
                     $cost = "< $100";
                 }
                 $listelements = $listelements."<li class=\"tip tip-saved\">
-                        <span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-cost\">$cost</span></li>";
+                        <span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-cost\">$cost</span><span class=\"tip-point-val\">$tip[2]</span></li>";
 
                 //$ajax->insert('#tips', "<li class=\"tip tip-unselected\">
                 //<span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip_text\">$text</span><span class=\"tip-point-val\">$tip[2]</span></li>", true);
             }
             $listelements = $listelements."</div>";
             $ajax->replace('#saved_tips_inner',$listelements);
-
+            $ajax->replace('#save-tips-loading', "<span id=\"save-tips-original\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
 
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
@@ -63,20 +63,28 @@ class controller_tips {
         }
     }
 
+    function get($username) {
+        $ajax = ajax();
+        $ajax->call("../ajax.php?tips/pull_db/$username");
+        $ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/bbesic/"));
+    }
+
+
     function save($username) {
         $ajax = ajax();
+        $ajax->replace('#save-tips-original', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
+        $ajax->wait(1);
         $ajax->grabSelections();
-        $ajax->call("../ajax.php?tips/update_db/bbesic/|savedtips|");
+        $ajax->call("../ajax.php?tips/update_db/$username/|savedtips|");
     }
 
     function update_db($username, $datastring) {
         try {
             $ajax = ajax();
-            $ajax->replace('#save-tips-original', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
             $savedtips = explode("--",$datastring);
             $user = "theciuc0_jdev";
             $pass = "tqHzLt6N]h8X";
-            $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
+            $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
             $stmt = $dbh->prepare("INSERT INTO User_Tips (username, tip_id) VALUES (?, ?)");
             $stmt->bindParam(1, $username);
             $stmt->bindParam(2, $tipid);
@@ -86,8 +94,8 @@ class controller_tips {
                     $stmt->execute();
                 }
             }
-            $ajax->call("../ajax.php?tips/get/bbesic");
-            $ajax->wait(0.5);
+            $ajax->call("../ajax.php?tips/pull_db/$username");
+            $ajax->wait(1);
             $ajax->replace('#save-tips-loading', "<span id=\"save-tips-done\" class=\"glyphicon glyphicon-floppy-saved save-tips-button save-tips-done\"></span>");
             $ajax->wait(2);
             $ajax->replace('#save-tips-done', "<span id=\"save-tips-original\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
