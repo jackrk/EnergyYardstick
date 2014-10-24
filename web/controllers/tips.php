@@ -55,6 +55,7 @@ class controller_tips {
             }
             $listelements = $listelements."</div>";
             $ajax->replace('#saved_tips_inner',$listelements);
+            $ajax->updateRating(true);
 
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";

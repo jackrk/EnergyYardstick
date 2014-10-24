@@ -1,60 +1,101 @@
 
 
+function updateRating(setSlider) {
+    var hid = $("#hidden_rating_number").html();
+    var curval = parseInt($("#hidden_rating_number").html());
+
+    $(".tip-saved, .tip-selected").each(function() {
+       var points = parseInt($(this).find(".tip-point-val").html());
+        curval += points;
+    });
+
+    curval = Math.round(curval/10);
+
+    if (hid == "")
+        $("#hidden_rating_number").html($(".rating_number").html());
+    else
+        $('.rating_number').html(curval);
+    animateRating($("#rating_container"), $(".rating_text"), curval, 10);
+
+    if (setSlider) {
+        $('.rating_slider').noUiSlider({
+            range: {
+                'min': [  curval ],
+                'max': [ 10 ]
+            },
+            start: curval,
+            step: 1,
+            orientation: "horizontal",
+            direction: "ltr",
+            behaviour: 'extend-tap',
+            serialization: {
+                resolution: 1
+            }/*,
+             change: function() {
+             var $ratingnumber = $(".rating_number");
+             var offset = parseInt($("#slider").val());
+             var $rating_background = $("#rating_container");
+             animateRating($rating_background, $(".rating_text"), offset, 600);
+             if (offset > parseInt($ratingnumber.html()))
+             $(".tip-unselected").first().click();
+             else if (offset < parseInt($ratingnumber.html()))
+             $(".tip-selected").last().click();
+             $ratingnumber.html(offset);
+             },
+             set: function() {
+             alert("set");
+             }*/
+        });
+    } else {
+        $(".rating_slider").val(curval, { set: true });
+    }
+}
+
+
 var firstload = true;
 function animateRating($rating_background, $rating_desc, offset, animateTime) {
 
-    var $metrictext = $("#equiv_button");
-    if ($("#piechart_button").hasClass("metric_selected")) $metrictext = $("#piechart_button");
+
     if (10-offset==0) {
         $rating_desc.html('great');
         animateRatingTo_10($rating_background, animateTime);
-        $metrictext.css('color', '#33ff22');
-        animateMetricNumbers(70, 20, 200);
+        animateMetricNumbers(70, offset);
     } else if (10-offset==1) {
         $rating_desc.html('great');
         animateRatingTo_9($rating_background, animateTime);
-        $metrictext.css('color', '#83ef28');
-        animateMetricNumbers(55, 15, 150);
+        animateMetricNumbers(55, offset);
     } else if (10-offset==2) {
         $rating_desc.html('good');
         animateRatingTo_8($rating_background, animateTime);
-        $metrictext.css('color', '#a3ef28');
-        animateMetricNumbers(45, 12, 120);
+        animateMetricNumbers(45, offset);
     } else if (10-offset==3) {
         $rating_desc.html('good');
         animateRatingTo_7($rating_background, animateTime);
-        $metrictext.css('color', '#b7f358');
-        animateMetricNumbers(35, 8, 90);
+        animateMetricNumbers(35, offset);
     } else if (10-offset==4) {
-        $rating_desc.html('fair');
+        $rating_desc.html('average');
         animateRatingTo_6($rating_background, animateTime);
-        $metrictext.css('color', '#e0ff70');
-        animateMetricNumbers(30, 4, 70);
+        animateMetricNumbers(30, offset);
     } else if (10-offset==5) {
         $rating_desc.html('average');
         animateRatingTo_5($rating_background, animateTime);
-        $metrictext.css('color', '#F0E641');
-        animateMetricNumbers(25, 2, 20);
+        animateMetricNumbers(25, offset);
     } else if (10-offset==6) {
-        $rating_desc.html('poor');
+        $rating_desc.html('average');
         animateRatingTo_4($rating_background, animateTime);
-        $metrictext.css('color', '#ffcc11');
-        animateMetricNumbers(20, 0, 0);
+        animateMetricNumbers(20, offset);
     } else if (10-offset==7) {
         $rating_desc.html('poor');
         animateRatingTo_3($rating_background, animateTime);
-        $metrictext.css('color', '#ff9911');
-        animateMetricNumbers(15, -2, -10);
+        animateMetricNumbers(15, offset);
     } else if (10-offset==8) {
-        $rating_desc.html('bad');
+        $rating_desc.html('poor');
         animateRatingTo_2($rating_background, animateTime);
-        $metrictext.css('color', '#FF7732');
-        animateMetricNumbers(10, -5, -30);
+        animateMetricNumbers(10, offset);
     } else if (10-offset==9) {
         $rating_desc.html('bad');
         animateRatingTo_1($rating_background, animateTime);
-        $metrictext.css('color', '#ff6458');
-        animateMetricNumbers(6, -10, -60);
+        animateMetricNumbers(6, offset);
     }
 
 }
@@ -75,7 +116,11 @@ function animateMetricNumbers(mpg, cars, trees) {
         animatingNumbers = false;
     }
 }*/
-function animateMetricNumbers(mpg, cars, trees) {
+function animateMetricNumbers(mpg, offset) {
+
+    var cars = ((10-offset) - 5);
+    var trees = (8 * (10-offset) - 40);
+
     if (firstload) {
         setTimeout(function() {
             firstload = false;

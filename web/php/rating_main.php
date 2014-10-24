@@ -68,7 +68,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
         <div id="rating_container">
             <div class="info_container">
-            <div class="rating_info_container"><div class="rating_info"><span class="rating_number">1</span><span class="rating_text">good</span></div></div>
+            <div class="rating_info_container"><div class="rating_info"><span class="rating_number">--</span><span class="rating_text">good</span></div></div>
             <div id="metric_container">
                 <div id="rating_metrics"><span class="metric_title">equivalent to</span>
                     <div class="metric" id="mpg_metric"><img style="padding-left: 4px;" src="../img/gas_mid.png" height="26" width="26" class="icon_img"/><img style="padding-left: 2px;" src="../img/x_mid.png" height="26" width="38" class="x_img" />
@@ -122,7 +122,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     </div>
 
 </div>
-<div id="hidden_rating_number" style="display: none">3</div>
+<div id="hidden_rating_number" style="display: none">34</div>
 
 </body>
 </html>
@@ -171,40 +171,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                 { offset: 1, color: 'white' }]
         };
 
-        $('#piechart').jqChart({
-            title: { text: 'Usage Breakdown' },
-            legend: { title: 'Usage Key' },
 
-            background: background,
-            animation: { duration: 1 },
-            shadows: {
-                enabled: true
-            },
-            series: [
-                {
-                    type: 'pie',
-                    fillStyles: ['#418CF0', '#FCB441', '#E0400A', '#056492', '#BFBFBF'],
-                    labels: {
-                        stringFormat: '%.1f%%',
-                        valueType: 'percentage',
-                        font: '9px sans-serif',
-                        fillStyle: 'white'
-                    },
-                    explodedRadius: 0,
-                    explodedSlices: [0],
-                    data: [['Cooling', 15], ['Water', 5], ['Plug load', 30],
-                        ['Lighting', 15], ['Heating', 35]]
-                }
-            ]
-        });
-
-        $('#piechart').bind('tooltipFormat', function (e, data) {
-            var percentage = data.series.getPercentage(data.value);
-            percentage = data.chart.stringFormat(percentage, '%.2f%%');
-
-            return '<b>' + data.dataItem[0] + '</b><br />' +
-                data.value + ' (' + percentage + ')';
-        });
         setTimeout(function() {
             //$("#loadcover").addClass("hide_load");
 
