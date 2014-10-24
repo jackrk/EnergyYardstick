@@ -14,7 +14,7 @@ $ajax = ajax();
 
 $ajax->call("../ajax.php?tips/get/bbesic");
 
-$ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/bbesic/"));
+//$ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/$username"));
 
 
 /*

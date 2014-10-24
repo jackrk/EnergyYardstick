@@ -13,7 +13,7 @@ class controller_tips {
             $user = "theciuc0_jdev";
             $pass = "tqHzLt6N]h8X";
             $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
-            $stmt = $dbh->prepare("select * from Tips where id not in (select tip_id from User_Tips where username = ?)");
+            $stmt = $dbh->prepare("select * from Tips where id not in (select tip_id from User_Tips where username = ?) order by cost");
             $stmt->bindParam(1, $username);
             $stmt->execute();
             $tips = $stmt->fetchAll();
@@ -35,7 +35,7 @@ class controller_tips {
             $ajax->replace('#tips_inner',$listelements);
 
             // Get saved tips now
-            $stmt = $dbh->prepare("select * from Tips where id in (select tip_id from User_Tips where username = ?)");
+            $stmt = $dbh->prepare("select * from Tips where id in (select tip_id from User_Tips where username = ?) order by cost");
             $stmt->bindParam(1, $username);
             $stmt->execute();
             $tips = $stmt->fetchAll();
@@ -55,7 +55,6 @@ class controller_tips {
             }
             $listelements = $listelements."</div>";
             $ajax->replace('#saved_tips_inner',$listelements);
-            $ajax->replace('#save-tips-loading', "<span id=\"save-tips-original\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
 
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
@@ -66,15 +65,17 @@ class controller_tips {
     function get($username) {
         $ajax = ajax();
         $ajax->call("../ajax.php?tips/pull_db/$username");
-        $ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/bbesic/"));
+        $ajax->wait(1.5);
+        $ajax->replace('#save-tips-loading', "<span id=\"save-tips\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
+        $ajax->click("save-tips",$ajax->call("../ajax.php?tips/save/$username"));
     }
 
 
     function save($username) {
         $ajax = ajax();
-        $ajax->replace('#save-tips-original', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
-        $ajax->wait(1);
+        $ajax->replace('#save-tips', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
         $ajax->grabSelections();
+        $ajax->wait(.2);
         $ajax->call("../ajax.php?tips/update_db/$username/|savedtips|");
     }
 
@@ -98,8 +99,8 @@ class controller_tips {
             $ajax->wait(1);
             $ajax->replace('#save-tips-loading', "<span id=\"save-tips-done\" class=\"glyphicon glyphicon-floppy-saved save-tips-button save-tips-done\"></span>");
             $ajax->wait(2);
-            $ajax->replace('#save-tips-done', "<span id=\"save-tips-original\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
-            $ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/bbesic/"));
+            $ajax->replace('#save-tips-done', "<span id=\"save-tips\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
+            $ajax->click("save-tips",$ajax->call("../ajax.php?tips/save/bbesic/"));
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
