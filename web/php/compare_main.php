@@ -9,10 +9,11 @@ $user = "theciuc0_jdev";
 $pass = "tqHzLt6N]h8X";
 
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
-        $customer_id = 20042;
-        $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
-        $stmt->bindParam(':customer_id', $customer_id );
+        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
+        $username = $_SESSION['username'];
+		$house_id = $_SESSION['house_id'];
+        $stmt = $dbh->prepare("SELECT * from House WHERE (id) = (:id)");
+        $stmt->bindParam(':id', $house_id );
         $stmt->execute();
         $house = $stmt->fetch();
         $this_size = $house["size"];
@@ -21,11 +22,11 @@ $pass = "tqHzLt6N]h8X";
         $this_style = $house["house_style"];
         //$ajax->call("../ajax.php?controller=compare&function=compareAll&this_age=1965&this_size=1524");
         $ajax->call("../ajax.php?compare/compare_all/$this_size--$this_age--$this_area--$this_style");
-        $house_id = $house[0];
-        if (isset($_SESSION['usage'])) {
-    	   $usage = $_SESSION['usage'];
-	} else {
-	    $stmt = $dbh->prepare("SELECT * from EnergyUsage WHERE (house_id) =  (:house_id)");
+        //$house_id = $house[0];
+        //if (isset($_SESSION['usage'])) {
+    	//   $usage = $_SESSION['usage'];
+		//} else {
+			$stmt = $dbh->prepare("SELECT * from EnergyUsage WHERE (house_id) =  (:house_id)");
 	        $stmt->bindParam(':house_id', $house_id);
 	        $stmt->execute();
 	        $usage = array();
@@ -34,7 +35,7 @@ $pass = "tqHzLt6N]h8X";
 	            $usage[] = $row;
 	        }
 	        $_SESSION['usage']=$usage;
-	}
+		//}
         
         //$rating =  get_rating($usage);
 

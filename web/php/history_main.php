@@ -12,19 +12,14 @@ $user = "theciuc0_jdev";
 $pass = "tqHzLt6N]h8X";
     try {
     	
-	if (isset($_SESSION['fullusage'])) {
-	    $usage = $_SESSION['fullusage'];
-	} else {
-	        $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
+	/*if (!isset($_SESSION['fullusage'])) {
+			$usage = $_SESSION['fullusage'];
+	} else { */
+	        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 	
-	        $customer_id = 20042;
-	        $stmt = $dbh->prepare("SELECT * from House WHERE (city_customer_id) = (:customer_id)");
-	        $stmt->bindParam(':customer_id', $customer_id );
-	        $stmt->execute();
-	        $house = $stmt->fetch();
-	
-	        //$this_size = $house["size"];
-	        $house_id = $house[0];
+	        $username = $_SESSION['username'];
+			$house_id = $_SESSION['house_id'];
+			
 	        $stmt = $dbh->prepare("SELECT energy_usage from EnergyUsage WHERE (house_id) =  (:house_id)");
 	        $stmt->bindParam(':house_id', $house_id);
 	        $stmt->execute();
@@ -43,7 +38,7 @@ $pass = "tqHzLt6N]h8X";
 	        (neighborhood) = "Stonebr" AND (bill_date) = "2013-01-01";
 	         */
 	        $dbh = null;
-	}
+	//}
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         die();

@@ -10,6 +10,7 @@ class controller_login
 {
     function authenticate($form_fields)
     {
+		session_start();
         $ajax = ajax();
 
 
@@ -48,6 +49,9 @@ class controller_login
 
 
         if ($count == 1) {
+			$_SESSION['username'] = $username;
+			return $ajax->location("/php/select_house.php");
+	
             if ($questions == 1) {
                 return $ajax->location("/php/rating_main.php");
                 //$ajax->alert("Logged in as: " . $form_fields[username]);
