@@ -60,6 +60,7 @@ label.title
     padding-bottom: 68px;
     border-top: 1px solid #d0dada;
     margin-top: 24px;
+    background-color: #e8fbe8;
 }
 .element-input
 {
@@ -84,10 +85,6 @@ label.title
     -moz-transition: background-color 0.2s;
     -ms-transition: background-color 0.2s;
     -o-transition: background-color 0.2s;
-}
-.submit
-{
-    background-color: #e8fbe8;
 }
 .submit_button:hover
 {

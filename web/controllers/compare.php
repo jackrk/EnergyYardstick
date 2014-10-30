@@ -22,6 +22,12 @@ class controller_compare {
             $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE size BETWEEN ? AND ?) GROUP BY MONTH(bill_date)");
             $lowerSizeBound = floor($this_size / 500) * 500 + 1;
             $upperSizeBound = ceil($this_size / 500) * 500;
+            if ($this_size == 0) {
+                $lowerSizeBound = 0;
+                $upperSizeBound = 5000;
+            } else {
+                $ajax->replace("#yoursize", $this_size);
+            }
             $size_avgs = [];
             //$ajax->insert('#apr', "$lowerBound-$upperBound", true);
             $stmt->execute(array($lowerSizeBound, $upperSizeBound));
@@ -29,18 +35,17 @@ class controller_compare {
                 $size_avgs[] = $row;
             }
             foreach($size_avgs as $avg){
-                $ajax->insert('#sizevals', "$avg[1]-", true);
+                $ajax->insert('#sizevals', round($avg[1])."-", true);
             }
             $age_avgs = [];
             $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE year_built BETWEEN ? AND ?) GROUP BY MONTH(bill_date)");
-            $lowerAgeBound = 0;
-            $upperAgeBound = 0;
-            if($this_age == null){
+            if($this_age == 0){
                 $lowerAgeBound = 0;
                 $upperAgeBound = 3000;
                 $stmt->execute(array(0, 3000));
             }
             else {
+                $ajax->replace("#yourage", $this_age);
                 $range = floor($this_age / 20);
                 if($range < 97){
                	 	$lowerAgeBound = 0;
@@ -68,36 +73,48 @@ class controller_compare {
                 $age_avgs[] = $row;
             }
             foreach($age_avgs as $avg){
-                $ajax->insert('#agevals', "$avg[1]-", true);
+                $ajax->insert('#agevals', round($avg[1])."-", true);
             }
             $area_avgs = [];
-            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE neighborhood = ?) GROUP BY MONTH(bill_date)");
+            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE neighborhood LIKE ?) GROUP BY MONTH(bill_date)");
+            if ($this_area === 0 || $this_area == 0) {
+                $this_area = "%";
+            } else {
+                $ajax->replace("#yourarea", $this_area);
+            }
             $stmt->execute(array($this_area));
             while($row = $stmt->fetch()) {
                 $area_avgs[] = $row;
             }
             foreach($area_avgs as $avg){
-                $ajax->insert('#areavals', "$avg[1]-", true);
+                $ajax->insert('#areavals', round($avg[1])."-", true);
             }
             $style_avgs = [];
-            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE house_style = ?) GROUP BY MONTH(bill_date)");
+            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE house_style LIKE ?) GROUP BY MONTH(bill_date)");
+            if ($this_style === 0 || $this_area == 0) {
+                $this_style = "%";
+            }
+            else {
+                $ajax->replace("#yourstyle", $this_style);
+            }
             $stmt->execute(array($this_style));
             while($row = $stmt->fetch()) {
                 $style_avgs[] = $row;
             }
             foreach($style_avgs as $avg){
-                $ajax->insert('#stylevals', "$avg[1]-", true);
+                $ajax->insert('#stylevals', round($avg[1])."-", true);
             }
             $all_avgs = [];
-            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE size BETWEEN ? AND ? AND year_built BETWEEN ? AND ? AND neighborhood = ? AND house_style = ?) GROUP BY MONTH(bill_date)");
+            $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE size BETWEEN ? AND ? AND year_built BETWEEN ? AND ? AND neighborhood LIKE ? AND house_style LIKE ?) GROUP BY MONTH(bill_date)");
             $stmt->execute(array($lowerSizeBound, $upperSizeBound, $lowerAgeBound, $upperAgeBound, $this_area, $this_style));
             while($row = $stmt->fetch()) {
                 $all_avgs[] = $row;
             }
             foreach($all_avgs as $avg){
-                $ajax->insert('#allvals', "$avg[1]-", true);
+                $ajax->insert('#allvals', round($avg[1])."-", true);
             }
             $dbh = null;
+            $ajax->callReady();
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();

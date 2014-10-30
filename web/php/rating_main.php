@@ -12,7 +12,10 @@ require_once "../ajax.php";
 
 $ajax = ajax();
 
-$ajax->call("../ajax.php?tips/get/bbesic");
+$username = $_SESSION['username'];
+$house_id = $_SESSION['house_id'];
+
+$ajax->call("../ajax.php?tips/get/$username/$house_id");
 
 //$ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/$username"));
 

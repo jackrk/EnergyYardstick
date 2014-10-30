@@ -1,6 +1,7 @@
+var setSlider = true;
+var firstLoad = true;
 
-
-function updateRating(setSlider) {
+function updateRating() {
     var hid = $("#hidden_rating_number").html();
     var curval = parseInt($("#hidden_rating_number").html());
 
@@ -46,13 +47,13 @@ function updateRating(setSlider) {
              alert("set");
              }*/
         });
+        setSlider = false;
     } else {
         $(".rating_slider").val(curval, { set: true });
     }
 }
 
 
-var firstload = true;
 function animateRating($rating_background, $rating_desc, offset, animateTime) {
 
 
@@ -121,9 +122,9 @@ function animateMetricNumbers(mpg, offset) {
     var cars = ((10-offset) - 5);
     var trees = (8 * (10-offset) - 40);
 
-    if (firstload) {
+    if (firstLoad) {
         setTimeout(function() {
-            firstload = false;
+            firstLoad = false;
             $("#mpg_number").numerator({ duration: 1000, toValue: mpg });
             $("#cars_number").numerator({ duration: 1000, toValue: cars });
             $("#trees_number").numerator({ duration: 1000, toValue: trees });

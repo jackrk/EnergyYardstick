@@ -9,7 +9,7 @@
 }
 #compgraph_container
 {
-    height: 340px;
+    height: 358px;
 }
 #compare_selector
 {
@@ -25,11 +25,11 @@
     height: 22%;
     width: 100%;
     text-align: center;
-    padding-top: .3em;
-    font-size: 1.3em;
+    padding-top: 4px;
+    font-size: 20px;
     background-color: #4c924c;
     cursor: pointer;
-    margin-bottom: 1.2em;
+    margin-bottom: 10px;
     transition: background-color 0.2s, box-shadow 0.4s;
     -webkit-transition: background-color 0.2s, box-shadow 0.4s;
     -moz-transition: background-color 0.2s, box-shadow 0.4s;
@@ -46,21 +46,16 @@
     display: inline-block;
     width: 50%;
     height: 50%;
-    padding-top: .3em;
+    padding-top: 6px;
     cursor: pointer;
     text-align: center;
     background-color: #4c924c;
-    font-size: 1.2em;
+    font-size: 19px;
     transition: background-color 0.2s, box-shadow 0.4s;
     -webkit-transition: background-color 0.2s, box-shadow 0.4s;
     -moz-transition: background-color 0.2s, box-shadow 0.4s;
     -ms-transition: background-color 0.2s, box-shadow 0.4s;
     -o-transition: background-color 0.2s, box-shadow 0.4s;
-}
-.compare_button_bottom
-{
-    height: 40%;
-    padding-top: .9em;
 }
 .color_text
 {
@@ -71,7 +66,7 @@
 {
     position: absolute;
     display: block;
-    font-size: .8em;
+    font-size: 15px;
     width: 50%;
     cursor: pointer;
 }

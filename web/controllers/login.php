@@ -45,19 +45,15 @@ class controller_login
         $count = mysql_num_rows($result);
 
         $row = mysql_fetch_row($result);
-        $questions = $row[2];
 
 
         if ($count == 1) {
 			$_SESSION['username'] = $username;
-			return $ajax->location("/php/select_house.php");
-	
-            if ($questions == 1) {
-                return $ajax->location("/php/rating_main.php");
-                //$ajax->alert("Logged in as: " . $form_fields[username]);
-            } else {
-                return $ajax->location("/php/questions.php");
-            }
+			$ajax->location("/php/select_house.php");
+
+
+
+
         } else {
             return $ajax->alert("Wrong username or password");
         }

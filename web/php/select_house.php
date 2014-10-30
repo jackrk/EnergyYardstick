@@ -3,42 +3,49 @@ require_once "../ajax.php";
 //session_start();
 $ajax = ajax();
 
+
 if (isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
-   
-$user = "theciuc0_jdev";
-$pass = "tqHzLt6N]h8X";
-
-    try {
-        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
-
-        $stmt = $dbh->prepare("SELECT * from User u, House h, User_House uh WHERE (u.username) = (:customer_id) and uh.username = u.username and uh.house_id = h.id");
-        $stmt->bindParam(':customer_id', $username );
-        $stmt->execute();
-		if($stmt->rowCount() == 1){
-			$row = $stmt->fetch();
-			$_SESSION['house_id'] = $row['house_id'];
-			if ($row['questions'] == 1) {
-                return $ajax->location("rating_main.php");
-            } else {
-                header("Location: /php/questions.php");
-				die();
-            }
-		}
-        while($house = $stmt->fetch()){
-			echo $house["address"] ;
-			echo "\n<br/>";
-		}
-		
-		//echo $house["address"];
-		//echo $stmt->rowCount();
-		
-	    $dbh = null;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        die();
-    }
+    $ajax->call("../ajax.php?house/get/$username");
+    $ajax->click("ajaxsubmit",$ajax->form('../ajax.php/house/pick'));
 } else {
 	header("Location: login.php");
 }
 ?>
+<!DOCTYPE html>
+<head>
+    <?php echo $ajax->init(); ?>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+    <link href="../css/login.css" rel="stylesheet" type="text/css">
+    <link href="../css/house.css" rel="stylesheet" type="text/css">
+</head>
+<body style="width: 599px; height: 600px; margin: 0 auto;">
+<div id="logincontainer">
+    <form id="houseform" class="houseform" method="post"><div class="logintitle">Choose an address</div>
+        <div class="house-list-container">
+            <ul id="house_list" class="house-list"></ul>
+        </div>
+        <input type="text" style="display: none" id="a[selectedhouse]" name="a[selectedhouse]" class="hidden-house-input" value="" />
+        <input type="text" style="display: none" id="a[questions]" name="a[questions]" class="hidden-questions-input" value="" />
+        <div style="margin-top: 0 !important" class="house-submit"><div id="info"></div><input id="ajaxsubmit" name="ajaxsubmit" class="house-submit-button" type="submit" value="Submit"/></div>
+    </form>
+</div>
+
+<script src="../javascript/jquery-1.11.0.min.js"></script>
+<script src="../javascript/animate/jquery.transit.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $(".house-list-container").on("click", "li", function() {
+            $(".house").each(function() {
+               $(this).removeClass("house-selected");
+            });
+            $(this).addClass("house-selected");
+            $("#info").html($(this).find(".house-address").text());
+            $(".hidden-house-input").attr("value", $(this).find(".house-id").text());
+            $(".hidden-questions-input").attr("value", $(this).find(".house-questions").text());
+        });
+    });
+</script>
+</body>
+</html>
