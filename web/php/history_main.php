@@ -181,7 +181,7 @@ $pass = "tqHzLt6N]h8X";
                         type: 'line',
                         title: 'Your Usage',
                         fillStyle: '',
-                        data: result2
+                        data: result.slice(24, 36)
                     }
                 ],
 			axes: [
