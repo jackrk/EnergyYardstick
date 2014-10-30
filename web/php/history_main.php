@@ -20,14 +20,15 @@ $pass = "tqHzLt6N]h8X";
 	        $username = $_SESSION['username'];
 			$house_id = $_SESSION['house_id'];
 			
-	        $stmt = $dbh->prepare("SELECT energy_usage from EnergyUsage WHERE (house_id) =  (:house_id)");
+	        $stmt = $dbh->prepare("SELECT bill_date, energy_usage from EnergyUsage WHERE house_id =  528390130 ORDER BY bill_date DESC LIMIT 36");
 	        $stmt->bindParam(':house_id', $house_id);
 	        $stmt->execute();
 	        $usage = array();
 	
 	        while($row = $stmt->fetch()) {
-	            $usage[] = $row;
+	            $usage[] = array("bill_date" => date_format(date_create($row["bill_date"]), 'M y'), "energy_usage" => $row["energy_usage"]);
 	        }
+
 	        $_SESSION['fullusage']=$usage;
 	        //$rating =  get_rating($usage);
 	
@@ -105,97 +106,33 @@ $pass = "tqHzLt6N]h8X";
 </body>
 </html>
     <script lang="javascript" type="text/javascript">
+		var data = <?php echo json_encode($usage); ?>;
 
-        var usage_data = [['Jan 13', <?php echo $usage[0]['energy_usage'] ?>],
-            ['Feb 13', <?php echo $usage[1]['energy_usage'] ?>], ['Mar 13', <?php echo $usage[2]['energy_usage'] ?>],
-            ['Apr 13', <?php echo $usage[3]['energy_usage'] ?>], ['May 13', <?php echo $usage[4]['energy_usage'] ?>],
-            ['Jun 13', <?php echo $usage[5]['energy_usage'] ?>], ['Jul 13', <?php echo $usage[6]['energy_usage'] ?>],
-            ['Aug 13', <?php echo $usage[7]['energy_usage'] ?>], ['Sep 13', <?php echo $usage[8]['energy_usage'] ?>],
-            ['Oct 13', <?php echo $usage[9]['energy_usage'] ?>], ['Nov 13', <?php echo $usage[10]['energy_usage'] ?>],
-            ['Dec 13', <?php echo $usage[11]['energy_usage'] ?>],
-            ['Jan 12', <?php echo $usage[12]['energy_usage'] ?>],
-            ['Feb 12', <?php echo $usage[13]['energy_usage'] ?>], ['Mar 12', <?php echo $usage[14]['energy_usage'] ?>],
-            ['Apr 12', <?php echo $usage[15]['energy_usage'] ?>], ['May 12', <?php echo $usage[16]['energy_usage'] ?>],
-            ['Jun 12', <?php echo $usage[17]['energy_usage'] ?>], ['Jul 12', <?php echo $usage[18]['energy_usage'] ?>],
-            ['Aug 12', <?php echo $usage[19]['energy_usage'] ?>], ['Sep 12', <?php echo $usage[20]['energy_usage'] ?>],
-            ['Oct 12', <?php echo $usage[21]['energy_usage'] ?>], ['Nov 12', <?php echo $usage[22]['energy_usage'] ?>],
-            ['Dec 12', <?php echo $usage[23]['energy_usage'] ?>],
-            ['Jan 11', <?php echo $usage[24]['energy_usage'] ?>],
-            ['Feb 11', <?php echo $usage[25]['energy_usage'] ?>], ['Mar 11', <?php echo $usage[26]['energy_usage'] ?>],
-            ['Apr 11', <?php echo $usage[27]['energy_usage'] ?>], ['May 11', <?php echo $usage[28]['energy_usage'] ?>],
-            ['Jun 11', <?php echo $usage[29]['energy_usage'] ?>], ['Jul 11', <?php echo $usage[30]['energy_usage'] ?>],
-            ['Aug 11', <?php echo $usage[31]['energy_usage'] ?>], ['Sep 11', <?php echo $usage[32]['energy_usage'] ?>],
-            ['Oct 11', <?php echo $usage[33]['energy_usage'] ?>], ['Nov 11', <?php echo $usage[34]['energy_usage'] ?>],
-            ['Dec 11', <?php echo $usage[35]['energy_usage'] ?>]];
+		//var array = Object.keys(data).map(function(k) { return data[k] });
+		//var usage_data = []
+		var result = [];
+		var result2 = [];
+		var result3 = [];
 
-        var usage_data_2 = [['Jan 12', <?php echo $usage[12]['energy_usage'] ?>],
-            ['', <?php echo $usage[13]['energy_usage'] ?>],
-            ['Mar 12', <?php echo $usage[14]['energy_usage'] ?>],
-            ['', <?php echo $usage[15]['energy_usage'] ?>],
-            ['May 12', <?php echo $usage[16]['energy_usage'] ?>],
-            ['', <?php echo $usage[17]['energy_usage'] ?>],
-            ['Jul 12', <?php echo $usage[18]['energy_usage'] ?>],
-            ['', <?php echo $usage[19]['energy_usage'] ?>],
-            ['Sep 12', <?php echo $usage[20]['energy_usage'] ?>],
-            ['', <?php echo $usage[21]['energy_usage'] ?>],
-            ['Nov 12', <?php echo $usage[22]['energy_usage'] ?>],
-            ['', <?php echo $usage[23]['energy_usage'] ?>],
-            ['Jan 13', <?php echo $usage[0]['energy_usage'] ?>],
-            ['', <?php echo $usage[1]['energy_usage'] ?>],
-            ['Mar 13', <?php echo $usage[2]['energy_usage'] ?>],
-            ['', <?php echo $usage[3]['energy_usage'] ?>],
-            ['May 13', <?php echo $usage[4]['energy_usage'] ?>],
-            ['', <?php echo $usage[5]['energy_usage'] ?>],
-            ['Jul 13', <?php echo $usage[6]['energy_usage'] ?>],
-            ['', <?php echo $usage[7]['energy_usage'] ?>],
-            ['Sep 13', <?php echo $usage[8]['energy_usage'] ?>],
-            ['', <?php echo $usage[9]['energy_usage'] ?>],
-            ['Nov 13', <?php echo $usage[10]['energy_usage'] ?>],
-                ['', <?php echo $usage[11]['energy_usage'] ?>]];
+		var max = 0;
 
+		for(var i in data.reverse()){
 
-        var usage_data_3 = [['Jan 11', <?php echo $usage[24]['energy_usage'] ?>],
-            ['', <?php echo $usage[25]['energy_usage'] ?>],
-            ['', <?php echo $usage[26]['energy_usage'] ?>],
-            ['Apr 11', <?php echo $usage[27]['energy_usage'] ?>],
-            ['', <?php echo $usage[28]['energy_usage'] ?>],
-            ['', <?php echo $usage[29]['energy_usage'] ?>],
-            ['Jul 11', <?php echo $usage[30]['energy_usage'] ?>],
-            ['', <?php echo $usage[31]['energy_usage'] ?>],
-            ['', <?php echo $usage[32]['energy_usage'] ?>],
-            ['Oct 11', <?php echo $usage[33]['energy_usage'] ?>],
-            ['', <?php echo $usage[34]['energy_usage'] ?>],
-            ['', <?php echo $usage[35]['energy_usage'] ?>],
-            ['Jan 12', <?php echo $usage[12]['energy_usage'] ?>],
-            ['', <?php echo $usage[13]['energy_usage'] ?>],
-            ['', <?php echo $usage[14]['energy_usage'] ?>],
-            ['Apr 12', <?php echo $usage[15]['energy_usage'] ?>],
-            ['', <?php echo $usage[16]['energy_usage'] ?>],
-            ['', <?php echo $usage[17]['energy_usage'] ?>],
-            ['Jul 12', <?php echo $usage[18]['energy_usage'] ?>],
-            ['', <?php echo $usage[19]['energy_usage'] ?>],
-            ['', <?php echo $usage[20]['energy_usage'] ?>],
-            ['Oct 12', <?php echo $usage[21]['energy_usage'] ?>],
-            ['', <?php echo $usage[22]['energy_usage'] ?>],
-            ['', <?php echo $usage[23]['energy_usage'] ?>],
-            ['Jan 13', <?php echo $usage[0]['energy_usage'] ?>],
-            ['', <?php echo $usage[1]['energy_usage'] ?>],
-            ['', <?php echo $usage[2]['energy_usage'] ?>],
-            ['Apr 13', <?php echo $usage[3]['energy_usage'] ?>],
-            ['', <?php echo $usage[4]['energy_usage'] ?>],
-            ['', <?php echo $usage[5]['energy_usage'] ?>],
-            ['Jul 13', <?php echo $usage[6]['energy_usage'] ?>],
-            ['', <?php echo $usage[7]['energy_usage'] ?>],
-            ['', <?php echo $usage[8]['energy_usage'] ?>],
-            ['Oct 13', <?php echo $usage[9]['energy_usage'] ?>],
-            ['', <?php echo $usage[10]['energy_usage'] ?>],
-            ['', <?php echo $usage[11]['energy_usage'] ?>]];
-
-
-        var usage_data_minus_five = usage_data.slice(0);
-        for (var i = 0; i < usage_data_minus_five; i++) {
-            usage_data_minus_five[i] *= .95;
-        }
+			if( parseInt(data[i]["energy_usage"]) > max)
+				max = parseInt(data[i]["energy_usage"]);
+			result.push([data[i]["bill_date"], data[i]["energy_usage"]]);
+			if(i % 2 == 0){
+				result2.push([data[i]["bill_date"], data[i]["energy_usage"]]);
+			} else {
+				result2.push(["", data[i]["energy_usage"]]);
+			}
+			if(i % 3 == 0){
+				result3.push([data[i]["bill_date"], data[i]["energy_usage"]]);
+			} else {
+				result3.push(["", data[i]["energy_usage"]]);
+			}
+		}
+		max += 200;
 
         $(document).ready(function () {
 
@@ -209,16 +146,16 @@ $pass = "tqHzLt6N]h8X";
                     // get current series
                     var series = $('#histgraph_container').jqChart('option', 'series');
                     // get the data from the first series
-                    series[0].data = usage_data.slice(0, 12);
+                    series[0].data = result.slice(24, 36);
                     // update (redraw) the chart
                     $('#histgraph_container').jqChart('update');
                 } else if ($(this).text().indexOf("24") > -1) {
                     var series = $('#histgraph_container').jqChart('option', 'series');
-                    series[0].data = usage_data_2.slice(0, 24);
+                    series[0].data = result2.slice(12, 36);
                     $('#histgraph_container').jqChart('update');
                 } else {
                     var series = $('#histgraph_container').jqChart('option', 'series');
-                    series[0].data = usage_data_3.slice(0, 36);
+                    series[0].data = result3;
                     $('#histgraph_container').jqChart('update');
                 }
             });
@@ -244,9 +181,17 @@ $pass = "tqHzLt6N]h8X";
                         type: 'line',
                         title: 'Your Usage',
                         fillStyle: '',
-                        data: usage_data.slice(0,12)
+                        data: result2
                     }
-                ]
+                ],
+			axes: [
+                         {
+                             type: 'linear',
+                             location: 'left',
+                             minimum: 0,
+                             maximum: max
+                         }
+                      ]
             });
 
         });
