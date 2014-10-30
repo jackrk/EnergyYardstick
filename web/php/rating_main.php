@@ -67,7 +67,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <div id="tab_container">
     <div id="rating_tab">
     
-            <div id="loadcover" style="height: 562px !important" class="show_load hide_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
+            <div id="loadcover" style="height: 562px !important" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
         <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
         <div id="rating_container">
             <div class="info_container">
@@ -148,6 +148,8 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <script lang="javascript" type="text/javascript" src="../javascript/excanvas.js"></script><![endif]-->
 <script lang="javascript" type="text/javascript">
 
+    $.holdReady(true);
+
     function grabSelections() {
         var datastring = "";
         $(".tip-selected").each(function() {
@@ -173,16 +175,11 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
             colorStops: [{ offset: 0, color: '#d2e6c9' },
                 { offset: 1, color: 'white' }]
         };
+        $("#goal_kwh").numerator({toValue:(parseFloat($("#cur_kwh").text()) *.9), duration: 2000, rounding:1 });
+        $("#goal_month_bill").numerator({toValue:(parseFloat($("#cur_month_bill").text()) *.9), duration: 2000, rounding:2 });
+        $("#goal_year_bill").numerator({toValue:(parseFloat($("#cur_year_bill").text()) *.9), duration: 2000, rounding:2 });
 
-
-        setTimeout(function() {
-            //$("#loadcover").addClass("hide_load");
-
-            $("#goal_kwh").numerator({toValue:(parseFloat($("#cur_kwh").text()) *.9), duration: 2000, rounding:1 });
-            $("#goal_month_bill").numerator({toValue:(parseFloat($("#cur_month_bill").text()) *.9), duration: 2000, rounding:2 });
-            $("#goal_year_bill").numerator({toValue:(parseFloat($("#cur_year_bill").text()) *.9), duration: 2000, rounding:2 });
-
-        }, 0);
+        $("#loadcover").addClass("hide_load");
         /* var decimal_places = 1;
          var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;*/
         /* $("#goal_kwh").prop('number',parseFloat($("#cur_kwh").text())).animateNumber(

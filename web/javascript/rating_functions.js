@@ -51,6 +51,7 @@ function updateRating() {
     } else {
         $(".rating_slider").val(curval, { set: true });
     }
+    $.holdReady(false);
 }
 
 

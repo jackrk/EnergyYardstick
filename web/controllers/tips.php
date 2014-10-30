@@ -6,9 +6,16 @@
  * Time: 3:02 PM
  */
 
+if ( !function_exists('sem_get') ) {
+    function sem_get($key) { return fopen(__FILE__.'.sem.'.$key, 'w+'); }
+    function sem_acquire($sem_id) { return flock($sem_id, LOCK_EX); }
+    function sem_release($sem_id) { return flock($sem_id, LOCK_UN); }
+}
+
 class controller_tips {
-    function pull_db() {
+    function pull_db($sem) {
         try {
+            sem_acquire($sem);
             $ajax = ajax();
             $username = $_SESSION['username'];
             $house_id = $_SESSION['house_id'];
@@ -60,32 +67,36 @@ class controller_tips {
             $listelements = $listelements."</div>";
             $ajax->replace('#saved_tips_inner',$listelements);
             $ajax->updateRating();
+            sem_release($sem);
 
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
+            sem_release($sem);
             die();
         }
     }
 
     function get() {
+        $sem_get = sem_get(111);
         $ajax = ajax();
-        $ajax->call("../ajax.php?tips/pull_db");
-        $ajax->wait(1.5);
+        $ajax->call("../ajax.php?tips/pull_db/$sem_get");
+        sem_acquire($sem_get);
         $ajax->replace('#save-tips-loading', "<span id=\"save-tips\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
         $ajax->click("save-tips",$ajax->call("../ajax.php?tips/save"));
     }
 
 
     function save() {
+        $sem_save = sem_get(222);
         $ajax = ajax();
-        $username = $_SESSION['username'];
+        sem_acquire($sem_save);
         $ajax->replace('#save-tips', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
         $ajax->grabSelections();
-        $ajax->wait(.2);
-        $ajax->call("../ajax.php?tips/update_db/|savedtips|");
+        sem_release($sem_save);
+        $ajax->call("../ajax.php?tips/update_db/|savedtips|/$sem_save");
     }
 
-    function update_db($datastring) {
+    function update_db($datastring, $sem) {
         try {
             $ajax = ajax();
             $username = $_SESSION['username'];
@@ -104,8 +115,9 @@ class controller_tips {
                     $stmt->execute();
                 }
             }
-            $ajax->call("../ajax.php?tips/pull_db");
-            $ajax->wait(1);
+            sem_acquire($sem);
+            $ajax->call("../ajax.php?tips/pull_db/$sem");
+            sem_acquire($sem);
             $ajax->replace('#save-tips-loading', "<span id=\"save-tips-done\" class=\"glyphicon glyphicon-floppy-saved save-tips-button save-tips-done\"></span>");
             $ajax->wait(2);
             $ajax->replace('#save-tips-done', "<span id=\"save-tips\" class=\"glyphicon glyphicon-floppy-disk save-tips-button\"></span>");
