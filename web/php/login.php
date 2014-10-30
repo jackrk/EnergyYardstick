@@ -38,5 +38,8 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/animate/jquery.transit.min.js"></script>
+<script>
+    document.getElementById("a[username]").focus();
+</script>
 </body>
 </html>

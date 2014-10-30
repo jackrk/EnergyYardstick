@@ -12,6 +12,9 @@ $pass = "tqHzLt6N]h8X";
         $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
         $username = $_SESSION['username'];
 		$house_id = $_SESSION['house_id'];
+        /*if ($username == "bilal") {
+            $username = 0;
+        }*/
         $stmt = $dbh->prepare("SELECT * from House WHERE (id) = (:id)");
         $stmt->bindParam(':id', $house_id );
         $stmt->execute();
@@ -32,8 +35,9 @@ $pass = "tqHzLt6N]h8X";
         //if (isset($_SESSION['usage'])) {
     	//   $usage = $_SESSION['usage'];
 		//} else {
-			$stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE (house_id) = (:house_id) GROUP BY MONTH(bill_date)");
+			$stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE (house_id) = (:house_id) and (customer_id) = (:username) GROUP BY MONTH(bill_date)");
 	        $stmt->bindParam(':house_id', $house_id);
+            $stmt->bindParam(':username', $username);
 	        $stmt->execute();
 	        $usage = array();
 	

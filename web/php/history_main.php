@@ -20,8 +20,9 @@ $pass = "tqHzLt6N]h8X";
 	        $username = $_SESSION['username'];
 			$house_id = $_SESSION['house_id'];
 			
-	        $stmt = $dbh->prepare("SELECT bill_date, energy_usage from EnergyUsage WHERE house_id =  528390130 ORDER BY bill_date DESC LIMIT 36");
+	        $stmt = $dbh->prepare("SELECT bill_date, energy_usage from EnergyUsage WHERE house_id = (:house_id) and (customer_id) = (:username) ORDER BY bill_date DESC LIMIT 36");
 	        $stmt->bindParam(':house_id', $house_id);
+            $stmt->bindParam(':username', $username);
 	        $stmt->execute();
 	        $usage = array();
 	

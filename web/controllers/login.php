@@ -14,10 +14,10 @@ class controller_login
         $ajax = ajax();
 
 
-        if (!$form_fields[username]) {
+        if (!$form_fields['username']) {
             return $ajax->err = 'Enter your username';
         }
-        if (!$form_fields[password]) {
+        if (!$form_fields['password']) {
             return $ajax->err = 'Enter your password';
         }
 
@@ -30,8 +30,8 @@ class controller_login
         $link = mysql_connect("$host", "$user", "$pass") or die("cannot connect");
         mysql_select_db("$db_name") or die("cannot select DB");
 
-        $username = $form_fields[username];
-        $password = $form_fields[password];
+        $username = $form_fields['username'];
+        $password = $form_fields['password'];
 
         $username = stripslashes($username);
         $password = stripslashes($password);
