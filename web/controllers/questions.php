@@ -32,8 +32,8 @@ class controller_questions
         $thermostat = $form_fields[thermostat];
         $water_heater = $form_fields[water_heater];
 
-        $sql = "INSERT INTO $tbl_name (heating, space_heaters, cooling_system, bulb_type, prog_thermostat, water_heater, username)
-                VALUES('$heating', '$space_heaters', '$cooling_system', '$lighting', '$thermostat', '$water_heater', '$username')";
+        $sql = "INSERT INTO $tbl_name (heating, space_heaters, cooling_system, bulb_type, prog_thermostat, water_heater, username, house_id)
+                VALUES('$heating', '$space_heaters', '$cooling_system', '$lighting', '$thermostat', '$water_heater', '$username', '$house')";
 
         $sql2 = "UPDATE User_House SET questions=1 WHERE username = '$username' and house_id = '$house'";
 
