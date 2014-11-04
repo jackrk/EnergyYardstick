@@ -14,16 +14,6 @@ class controller_house {
             $stmt = $dbh->prepare("SELECT uh.house_id, h.address, uh.questions from User u, House h, User_House uh WHERE (u.username) = (:customer_id) and uh.username = u.username and uh.house_id = h.id order by substring(h.address, locate(' ', h.address)), substring_index(h.address, ' ', 1)");
             $stmt->bindParam(':customer_id', $username );
             $stmt->execute();
-            if($stmt->rowCount() == 1){
-                $row = $stmt->fetch();
-                $_SESSION['house_id'] = $row['id'];
-                if ($row['questions'] == 1) {
-                    return $ajax->location("rating_main.php");
-                } else {
-                    header("Location: /php/questions.php");
-                    die();
-                }
-            }
             $houses = $stmt->fetchAll();
             $listelements = "<ul id=\"house_list\" class=\"house-list\" >";
             foreach ($houses as $house) {

@@ -77,10 +77,11 @@ class controller_compare {
             }
             $area_avgs = [];
             $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE neighborhood LIKE ?) GROUP BY MONTH(bill_date)");
-            if ($this_area === 0 || $this_area == 0) {
-                $this_area = "%";
-            } else {
+
+            if ($this_area) {
                 $ajax->replace("#yourarea", $this_area);
+            } else {
+                $this_area = "%";
             }
             $stmt->execute(array($this_area));
             while($row = $stmt->fetch()) {
@@ -91,11 +92,10 @@ class controller_compare {
             }
             $style_avgs = [];
             $stmt = $dbh->prepare("SELECT MONTH(bill_date), AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT id FROM House WHERE house_style LIKE ?) GROUP BY MONTH(bill_date)");
-            if ($this_style === 0 || $this_area == 0) {
-                $this_style = "%";
-            }
-            else {
+            if ($this_style) {
                 $ajax->replace("#yourstyle", $this_style);
+            } else {
+                $this_style = "%";
             }
             $stmt->execute(array($this_style));
             while($row = $stmt->fetch()) {
