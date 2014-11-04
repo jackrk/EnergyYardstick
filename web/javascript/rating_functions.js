@@ -120,8 +120,8 @@ function animateMetricNumbers(mpg, cars, trees) {
 }*/
 function animateMetricNumbers(mpg, offset) {
 
-    var cars = ((10-offset) - 5);
-    var trees = (8 * (10-offset) - 40);
+    var cars = (offset - 5);
+    var trees = (8 * offset - 40);
 
     if (firstLoad) {
         setTimeout(function() {
