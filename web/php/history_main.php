@@ -147,12 +147,12 @@ $pass = "tqHzLt6N]h8X";
                     // get current series
                     var series = $('#histgraph_container').jqChart('option', 'series');
                     // get the data from the first series
-                    series[0].data = result.slice(24, 36);
+                    series[0].data = result.reverse().slice(0, 12).reverse();
                     // update (redraw) the chart
                     $('#histgraph_container').jqChart('update');
                 } else if ($(this).text().indexOf("24") > -1) {
                     var series = $('#histgraph_container').jqChart('option', 'series');
-                    series[0].data = result2.slice(12, 36);
+                    series[0].data = result2.reverse().slice(0, 24).reverse();
                     $('#histgraph_container').jqChart('update');
                 } else {
                     var series = $('#histgraph_container').jqChart('option', 'series');
@@ -182,7 +182,7 @@ $pass = "tqHzLt6N]h8X";
                         type: 'line',
                         title: 'Your Usage',
                         fillStyle: '',
-                        data: result.slice(24, 36)
+                        data: result.reverse().slice(0, 12).reverse()
                     }
                 ],
 			axes: [
