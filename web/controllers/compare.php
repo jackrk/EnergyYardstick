@@ -28,6 +28,10 @@ class controller_compare {
             } else {
                 $ajax->replace("#yoursize", $this_size);
             }
+            if ($this_size > 3000) {
+                $lowerSizeBound = 3000;
+                $upperSizeBound = 10000;
+            }
             $size_avgs = [];
             //$ajax->insert('#apr', "$lowerBound-$upperBound", true);
             $stmt->execute(array($lowerSizeBound, $upperSizeBound));

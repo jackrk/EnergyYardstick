@@ -59,9 +59,16 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 </head>
 <body style="width: 599px; height: 560px; margin: 0 auto;">
 <div id="tab_menu">
-    <a id="tab_rating" href="#" class="tab_link tab_active">RATING</a>
-    <a id="tab_compare" href="compare_main.php" class="tab_link">COMPARE</a>
-    <a id="tab_history" href="history_main.php" class="tab_link tab_link_last">HISTORY</a>
+    <a id="tab_rating" href="#" class="tab_link tab_active">Rating</a>
+    <a id="tab_compare" href="compare_main.php" class="tab_link">Compare</a>
+    <a id="tab_history" href="history_main.php" class="tab_link">History</a>
+    <a id="account_button" class="tab_link account-dropdown-button"><?php echo $username ?><span class="glyphicon glyphicon-chevron-down dropdown-arrow"></span></a>
+    <div class="account-dropdown">
+        <ul>
+            <li><a href="select_house.php">Switch Address</a></li>
+            <li style="padding-bottom: 10px;"><a href="login.php">Log Out</a></li>
+        </ul>
+    </div>
 </div>
 
 <div id="tab_container">
@@ -178,6 +185,11 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
         $("#goal_kwh").numerator({toValue:(parseFloat($("#cur_kwh").text()) *.9), duration: 2000, rounding:1 });
         $("#goal_month_bill").numerator({toValue:(parseFloat($("#cur_month_bill").text()) *.9), duration: 2000, rounding:2 });
         $("#goal_year_bill").numerator({toValue:(parseFloat($("#cur_year_bill").text()) *.9), duration: 2000, rounding:2 });
+
+        $("#account_button").click(function() {
+            $(this).find(".glyphicon").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-up");
+            $(".account-dropdown").toggleClass("show");
+        });
 
         $("#loadcover").addClass("hide_load");
         /* var decimal_places = 1;

@@ -50,10 +50,6 @@ class controller_login
         if ($count == 1) {
 			$_SESSION['username'] = $username;
 			$ajax->location("/php/select_house.php");
-
-
-
-
         } else {
             return $ajax->alert("Wrong username or password");
         }

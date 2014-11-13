@@ -35,16 +35,18 @@ $pass = "tqHzLt6N]h8X";
         //if (isset($_SESSION['usage'])) {
     	//   $usage = $_SESSION['usage'];
 		//} else {
-			$stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE (house_id) = (:house_id) and (customer_id) = (:username) GROUP BY MONTH(bill_date)");
-	        $stmt->bindParam(':house_id', $house_id);
-            $stmt->bindParam(':username', $username);
-	        $stmt->execute();
-	        $usage = array();
-	
-	        while($row = $stmt->fetch()) {
-	            $usage[] = $row;
-	        }
-	        $_SESSION['usage']=$usage;
+        $stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE (house_id) = (:house_id) and (customer_id) = (:username) GROUP BY MONTH(bill_date)");
+        $stmt->bindParam(':house_id', $house_id);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $usage = array();
+        $max = 0;
+
+        while($row = $stmt->fetch()) {
+            $usage[] = $row;
+            $max = max($max, $row['AVG(energy_usage)']);
+        }
+	    $_SESSION['usage']=$usage;
 		//}
         
         //$rating =  get_rating($usage);
@@ -96,11 +98,9 @@ $pass = "tqHzLt6N]h8X";
     <link rel="stylesheet" type="text/css" href="../css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="../css/home.css"/>
     <link rel="stylesheet" type="text/css" href="../css/compare_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/rating_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/history_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/slider/jquery.nouislider.css"/>
     <link rel="stylesheet" type="text/css" href="../css/jquery.jqChart.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../css/glyphicons/css/bootstrap.min.css">
     <!--[if IE 7]>
     <link href="../css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
     <script lang="javascript" type="text/javascript" src="../javascript/excanvas.js"></script>
@@ -108,9 +108,16 @@ $pass = "tqHzLt6N]h8X";
 </head>
 <body style="width: 599px; height: 560px; margin: 0 auto;">
 <div id="tab_menu">
-    <a id="tab_rating" href="rating_main.php" class="tab_link">RATING</a>
-    <a id="tab_compare" href="#" class="tab_link tab_active">COMPARE</a>
-    <a id="tab_history" href="history_main.php" class="tab_link tab_link_last">HISTORY</a>
+    <a id="tab_rating" href="rating_main.php" class="tab_link ">Rating</a>
+    <a id="tab_compare" href="#" class="tab_link tab_active">Compare</a>
+    <a id="tab_history" href="history_main.php" class="tab_link">History</a>
+    <a id="account_button" class="tab_link account-dropdown-button"><?php echo $username ?><span class="glyphicon glyphicon-chevron-down dropdown-arrow"></span></a>
+    <div class="account-dropdown">
+        <ul>
+            <li><a href="select_house.php">Switch Address</a></li>
+            <li style="padding-bottom: 10px;"><a href="login.php">Log Out</a></li>
+        </ul>
+    </div>
 </div>
 
 <div id="tab_container">
@@ -154,6 +161,10 @@ $pass = "tqHzLt6N]h8X";
 
     $(document).ready(function () {
 
+        $("#account_button").click(function() {
+            $(this).find(".glyphicon").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-up");
+            $(".account-dropdown").toggleClass("show");
+        });
 
 
         var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -162,6 +173,10 @@ $pass = "tqHzLt6N]h8X";
         var ageData;
         var areaData;
         var styleData;
+
+        var max = 0;
+        var usageMax = 0;
+        usageMax = '<?php echo $max ?>';
 
         allData = $('#allvals').html();
         sizeData = $('#sizevals').html();
@@ -175,12 +190,16 @@ $pass = "tqHzLt6N]h8X";
         styleData= styleData.split("-").splice(0,12);
 
         for (var i=0;i<12;i++) {
+            max = Math.max(max,
+                            allData[i], sizeData[i], areaData[i], ageData[i], styleData[i],
+                            usageMax);
             allData[i] = [month[i], allData[i]];
             sizeData[i] = [month[i], sizeData[i]];
             areaData[i] = [month[i], areaData[i]];
             ageData[i] = [month[i], ageData[i]];
             styleData[i] = [month[i], styleData[i]];
         }
+        max += 200;
 
         $('#compgraph_container').jqChart({
             title: { text: 'Monthly Electricity Usage (kWh)' },
@@ -220,6 +239,14 @@ $pass = "tqHzLt6N]h8X";
                     ['Dec', {$usage[11]['AVG(energy_usage)']}]]
 EOHTML;
                 ?>
+                }
+            ],
+            axes: [
+                {
+                    type: 'linear',
+                    location: 'left',
+                    minimum: 0,
+                    maximum: max
                 }
             ]
         });

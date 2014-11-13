@@ -69,8 +69,8 @@ $pass = "tqHzLt6N]h8X";
     <link rel="stylesheet" type="text/css" href="../css/home.css"/>
     <link rel="stylesheet" type="text/css" href="../css/history_tab.css"/>
     <link rel="stylesheet" type="text/css" href="../css/jquery.jqChart.css" />
-    <link rel="stylesheet" type="text/css" href="../css/jquery.jqRangeSlider.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="../css/glyphicons/css/bootstrap.min.css">
     <!--[if IE 7]>
     <link href="../css/ie7/rating_tab.css" rel="stylesheet" type="text/css"/>
     <script lang="javascript" type="text/javascript" src="../javascript/excanvas.js"></script>
@@ -81,9 +81,16 @@ $pass = "tqHzLt6N]h8X";
 </head>
 <body style="width: 599px; height: 560px; margin: 0 auto;">
 <div id="tab_menu">
-    <a id="tab_rating" href="rating_main.php" class="tab_link">RATING</a>
-    <a id="tab_compare" href="compare_main.php" class="tab_link ">COMPARE</a>
-    <a id="tab_history" href="#" class="tab_link tab_active tab_link_last">HISTORY</a>
+    <a id="tab_rating" href="rating_main.php" class="tab_link">Rating</a>
+    <a id="tab_compare" href="compare_main.php" class="tab_link">Compare</a>
+    <a id="tab_history" href="#" class="tab_link tab_active">History</a>
+    <a id="account_button" class="tab_link account-dropdown-button"><?php echo $username ?><span class="glyphicon glyphicon-chevron-down dropdown-arrow"></span></a>
+    <div class="account-dropdown">
+        <ul>
+            <li><a href="select_house.php">Switch Address</a></li>
+            <li style="padding-bottom: 10px;"><a href="login.php">Log Out</a></li>
+        </ul>
+    </div>
 </div>
 
 <div id="tab_container">
@@ -119,8 +126,9 @@ $pass = "tqHzLt6N]h8X";
 
 		for(var i in data.reverse()){
 
-			if( parseInt(data[i]["energy_usage"]) > max)
+			if( parseInt(data[i]["energy_usage"]) > max) {
 				max = parseInt(data[i]["energy_usage"]);
+            }
 			result.push([data[i]["bill_date"], data[i]["energy_usage"]]);
 			if(i % 2 == 0){
 				result2.push([data[i]["bill_date"], data[i]["energy_usage"]]);
@@ -136,6 +144,11 @@ $pass = "tqHzLt6N]h8X";
 		max += 200;
 
         $(document).ready(function () {
+
+            $("#account_button").click(function() {
+                $(this).find(".glyphicon").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-up");
+                $(".account-dropdown").toggleClass("show");
+            });
 
             $('.range_button').on("click", function() {
                 if ($(this).hasClass("selected")) return false;

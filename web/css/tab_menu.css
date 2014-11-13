@@ -9,22 +9,23 @@
 .tab_link
 {
     font-family: 'Open Sans', Helvetica, sans-serif;
-    position:relative;
-    float:left;
+    position: relative;
+    float: left;
     text-align: center;
-    width: 200px;
+    width: 110px;
     text-decoration: none;
     display: inline;
-    height:24px;
-    padding-top:1px;
-    padding-bottom:5px;
-    font-size: 20px;
+    height: 24px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    line-height: 28px;
     color: gray;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    transition: background-color 0.2s;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
     cursor: pointer;
 }
 .tab_link:nth-child(0) {
@@ -35,13 +36,67 @@
 {
     color: black;
 }
-.tab_link_last
-{
-    width: 199px;
-}
 
 .tab_active
 {
     color: black;
+    font-weight: bold;
 }
 
+.account-dropdown-button {
+    float: right;
+    width: 90px;
+    z-index: 5;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    padding-left: 4px;
+}
+
+.account-dropdown {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    position: absolute;
+    display: inline-block;
+    padding-top: 36px;
+    right: 0px;
+    width: 160px;
+    height: auto;
+    background-color: white;
+    border-bottom: 1px solid #d3d3d3;
+    z-index: 4;
+    opacity: 0.95;
+    border-bottom-left-radius: 4px;
+    color: gray;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+    display: none;
+}
+
+.account-dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.account-dropdown ul li {
+    padding: 4px;
+    padding-right: 12px;
+    cursor: pointer;
+}
+
+.account-dropdown ul li a {
+    text-decoration: none;
+    color: gray;
+}
+.account-dropdown ul li a:hover {
+    color: black;
+}
+
+.show {
+    display: block !important;
+}

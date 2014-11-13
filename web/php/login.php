@@ -7,6 +7,8 @@
  */
 require_once "../ajax.php";
 
+session_unset();
+
 $ajax = ajax();
 
 $ajax->click("ajaxsubmit",$ajax->form('../ajax.php/login/authenticate'));
