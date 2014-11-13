@@ -11,7 +11,7 @@ class controller_house {
         try {
             $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
-            $stmt = $dbh->prepare("SELECT uh.house_id, h.address, uh.questions from User u, House h, User_House uh WHERE (u.username) = (:customer_id) and uh.username = u.username and uh.house_id = h.id order by substring(h.address, locate(' ', h.address)), substring_index(h.address, ' ', 1)");
+            $stmt = $dbh->prepare("SELECT uh.house_id, h.address, uh.questions from User u, House h, User_House uh WHERE (u.username) = (:customer_id) and uh.username = u.username and uh.house_id = h.house_id order by substring(h.address, locate(' ', h.address)), substring_index(h.address, ' ', 1)");
             $stmt->bindParam(':customer_id', $username );
             $stmt->execute();
             $houses = $stmt->fetchAll();

@@ -15,7 +15,7 @@ $pass = "tqHzLt6N]h8X";
         /*if ($username == "bilal") {
             $username = 0;
         }*/
-        $stmt = $dbh->prepare("SELECT * from House WHERE (id) = (:id)");
+        $stmt = $dbh->prepare("SELECT * from House WHERE (house_id) = (:id)");
         $stmt->bindParam(':id', $house_id );
         $stmt->execute();
         $house = $stmt->fetch();
