@@ -10,8 +10,7 @@ class controller_questions
     /**
      * @param $form_fields
      */
-    function authenticate($form_fields) {
-        session_start();
+    function create($form_fields) {
         $ajax = ajax();
 
         $host = "69.195.124.206";

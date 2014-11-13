@@ -8,6 +8,23 @@
 
 class controller_compare {
 
+    function compare_size($size) {
+
+    }
+
+    function compare_age($age) {
+
+    }
+
+    function compare_style($style) {
+
+    }
+
+    function compare_area($area) {
+
+    }
+
+
     function compare_all($datastring) {
         $data = explode("--",$datastring);
         $this_size = $data[0];

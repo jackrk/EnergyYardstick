@@ -10,7 +10,7 @@ require_once "../ajax.php";
 $ajax = ajax();
 
 if (isset($_SESSION['username'])) {
-    $ajax->click("q_ajaxsubmit",$ajax->form('../ajax.php/questions/authenticate'));
+    $ajax->click("q_ajaxsubmit",$ajax->form('../ajax.php/questions/create'));
 } else {
     header("Location: login.php");
 }
@@ -27,7 +27,7 @@ if (isset($_SESSION['username'])) {
 <div id="splash_logo">
 
 </div>
-<div id="logincontainer">
+<div id="questioncontainer">
     <form id="questionform" class="questionform" method="post" action="" onsubmit="return false;"><div class="logintitle">Tell us a little about your home</div>
         <div class="question">
             <span>Is your <b>heating system</b> gas or electric?</span>
@@ -39,22 +39,18 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="question">
             <span>Do you use <b>electric space heaters</b> for supplemental heat?</span>
-            <span id="a_space_heater" class="answertext">NO</span>
             <input id="q_space_heater" name="a[space_heater]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Do you have an <b>insulated attic space?</b></span>
-            <span id="a_attic" class="answertext">NO</span>
             <input id="q_attic" name="a[attic]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Do you have, and use, your <b>cooling system?</b></span>
-            <span id="a_cooling_system" class="answertext">NO</span>
             <input id="q_cooling_system" name="a[cooling_system]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Do you have a <b>functional</b> fireplace?</span>
-            <span id="a_fireplace" class="answertext">NO</span>
             <input id="q_fireplace" name="a[fireplace]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
@@ -79,12 +75,10 @@ if (isset($_SESSION['username'])) {
         </div>
         <div class="question">
             <span>Do you have a <b>programmable thermostat?</b></span>
-            <span id="a_thermostat" class="answertext">NO</span>
             <input id="q_thermostat" name="a[thermostat]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Is your <b>garage </b>heated and/or cooled?</span>
-            <span id="a_garage" class="answertext">NO</span>
             <input id="q_garage" name="a[garage]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
@@ -95,18 +89,18 @@ if (isset($_SESSION['username'])) {
                 <option>Electric</option>
             </select>
         </div>
-        <div class="submit"><div id="err"></div><input id="q_ajaxsubmit" name="q_ajaxsubmit" class="submit_button" type="submit" value="Submit"/></div>
+        <div class="question-submit"><div id="err"></div><input id="q_ajaxsubmit" name="q_ajaxsubmit" class="question-submit-button" type="submit" value="Submit"/></div>
     </form>
 </div>
 
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/animate/jquery.transit.min.js"></script>
-<script>
+<!--<script>
 $(document).ready(function() {
     $("input[type='checkbox']").change(function(e) {
         $(this).is(':checked') ? $(this).prev().text('YES') : $(this).prev().text('NO');
     });
 });
-</script>
+</script>-->
 </body>
 </html>
