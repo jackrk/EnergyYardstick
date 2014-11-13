@@ -43,12 +43,22 @@ if (isset($_SESSION['username'])) {
             <input id="q_space_heater" name="a[space_heater]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
+            <span>Do you have an <b>insulated attic space?</b></span>
+            <span id="a_attic" class="answertext">NO</span>
+            <input id="q_attic" name="a[attic]" type="checkbox" class="answer cb_answer"/>
+        </div>
+        <div class="question">
             <span>Do you have, and use, your <b>cooling system?</b></span>
             <span id="a_cooling_system" class="answertext">NO</span>
             <input id="q_cooling_system" name="a[cooling_system]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
-            <span>What <b>type of lighting </b>do you predominately have</span>
+            <span>Do you have a <b>functional</b> fireplace?</span>
+            <span id="a_fireplace" class="answertext">NO</span>
+            <input id="q_fireplace" name="a[fireplace]" type="checkbox" class="answer cb_answer"/>
+        </div>
+        <div class="question">
+            <span>What <b>type of lighting </b>do you predominately have?</span>
             <span id="a_lighting" class="lightimg"></span>
             <select id="q_lighting" name="a[lighting]" class="answer sl_answer">
                 <option>Incandescent</option>
@@ -57,9 +67,25 @@ if (isset($_SESSION['username'])) {
             </select>
         </div>
         <div class="question">
+            <span>What % of time are lights kept off in <b>unattended </b>rooms?</span>
+            <span id="a_lights_off" class="lights_off"></span>
+            <select id="q_lights_off" name="a[lights_off]" class="answer sl_answer">
+                <option>100%</option>
+                <option>75%</option>
+                <option>50%</option>
+                <option>25%</option>
+                <option>0%</option>
+            </select>
+        </div>
+        <div class="question">
             <span>Do you have a <b>programmable thermostat?</b></span>
             <span id="a_thermostat" class="answertext">NO</span>
             <input id="q_thermostat" name="a[thermostat]" type="checkbox" class="answer cb_answer"/>
+        </div>
+        <div class="question">
+            <span>Is your <b>garage </b>heated and/or cooled?</span>
+            <span id="a_garage" class="answertext">NO</span>
+            <input id="q_garage" name="a[garage]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Is your <b>water heater</b> gas or electric?</span>
