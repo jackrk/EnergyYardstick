@@ -15,11 +15,13 @@ if (isset($_SESSION['username'])) {
     header("Location: login.php");
 }
 
+
+
 ?>
 <!DOCTYPE html>
 <head>
     <?php echo $ajax->init(); ?>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href="../css/login.css" rel="stylesheet" type="text/css">
 <link href="../css/questions.css" rel="stylesheet" type="text/css">
 </head>
@@ -40,10 +42,6 @@ if (isset($_SESSION['username'])) {
         <div class="question">
             <span>Do you use <b>electric space heaters</b> for supplemental heat?</span>
             <input id="q_space_heater" name="a[space_heater]" type="checkbox" class="answer cb_answer"/>
-        </div>
-        <div class="question">
-            <span>Do you have an <b>insulated attic space?</b></span>
-            <input id="q_attic" name="a[attic]" type="checkbox" class="answer cb_answer"/>
         </div>
         <div class="question">
             <span>Do you have, and use, your <b>cooling system?</b></span>
@@ -89,18 +87,20 @@ if (isset($_SESSION['username'])) {
                 <option>Electric</option>
             </select>
         </div>
+        <div class="question">
+            <span>How many <b>people</b> live in this household?</span>
+            <input id="q_num_people" name="a[num_people]" type="number" class="answer sl_answer"/>
+        </div>
         <div class="question-submit"><div id="err"></div><input id="q_ajaxsubmit" name="q_ajaxsubmit" class="question-submit-button" type="submit" value="Submit"/></div>
     </form>
 </div>
 
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/animate/jquery.transit.min.js"></script>
-<!--<script>
-$(document).ready(function() {
-    $("input[type='checkbox']").change(function(e) {
-        $(this).is(':checked') ? $(this).prev().text('YES') : $(this).prev().text('NO');
-    });
-});
-</script>-->
+<script>
+    $(document).ready() {
+
+    }
+</script>
 </body>
 </html>

@@ -34,7 +34,6 @@ class controller_tips {
             $bulb_type = $answers['bulb_type'];
             $prog_thermostat = $answers['prog_thermostat'];
             $water_heater = $answers['water_heater'];
-            $attic = $answers['attic'];
             $fireplace = $answers['fireplace'];
             $lights_off = $answers['lights_off'];
             $hidden_tips = array();

@@ -22,7 +22,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <!DOCTYPE html>
 <head>
     <?php echo $ajax->init(); ?>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
     <link href="../css/login.css" rel="stylesheet" type="text/css">
 </head>
 <body style="width: 599px; height: 600px; margin: 0 auto;">

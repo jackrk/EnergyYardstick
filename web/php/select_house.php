@@ -15,7 +15,7 @@ $username = $_SESSION['username'];
 <!DOCTYPE html>
 <head>
     <?php echo $ajax->init(); ?>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href="../css/login.css" rel="stylesheet" type="text/css">
     <link href="../css/house.css" rel="stylesheet" type="text/css">
 </head>
