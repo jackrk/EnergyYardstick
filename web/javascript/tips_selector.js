@@ -107,5 +107,5 @@ function adjustNewValues() {
     kwhele.numerator({toValue:curkwh, duration: 2000, rounding:1 });
     monthele.numerator({toValue:curmonth, duration: 2000, rounding:2 });
     yearele.numerator({toValue:curyear, duration: 2000, rounding:2 });
-    updateRating(false);
+    updateRating();
 }

@@ -74,7 +74,7 @@
 {
     background-color: #197319;
 }
-.compare_selected
+.selected
 {
     background-color: darkgreen;
     box-shadow: inset 0 0 14px #363636;

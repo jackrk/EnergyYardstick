@@ -1,4 +1,3 @@
-var setSlider = true;
 var firstLoad = true;
 
 function updateRating() {
@@ -17,40 +16,6 @@ function updateRating() {
     else
         $('.rating_number').html(curval);
     animateRating($("#rating_container"), $(".rating_text"), curval, 10);
-
-    if (setSlider) {
-        $('.rating_slider').noUiSlider({
-            range: {
-                'min': [  curval ],
-                'max': [ 10 ]
-            },
-            start: curval,
-            step: 1,
-            orientation: "horizontal",
-            direction: "ltr",
-            behaviour: 'extend-tap',
-            serialization: {
-                resolution: 1
-            }/*,
-             change: function() {
-             var $ratingnumber = $(".rating_number");
-             var offset = parseInt($("#slider").val());
-             var $rating_background = $("#rating_container");
-             animateRating($rating_background, $(".rating_text"), offset, 600);
-             if (offset > parseInt($ratingnumber.html()))
-             $(".tip-unselected").first().click();
-             else if (offset < parseInt($ratingnumber.html()))
-             $(".tip-selected").last().click();
-             $ratingnumber.html(offset);
-             },
-             set: function() {
-             alert("set");
-             }*/
-        });
-        setSlider = false;
-    } else {
-        $(".rating_slider").val(curval, { set: true });
-    }
     $.holdReady(false);
 }
 
@@ -77,23 +42,23 @@ function animateRating($rating_background, $rating_desc, offset, animateTime) {
     } else if (10-offset==4) {
         $rating_desc.html('average');
         animateRatingTo_6($rating_background, animateTime);
-        animateMetricNumbers(30, offset);
+        animateMetricNumbers(25, offset);
     } else if (10-offset==5) {
         $rating_desc.html('average');
         animateRatingTo_5($rating_background, animateTime);
-        animateMetricNumbers(25, offset);
+        animateMetricNumbers(20, offset);
     } else if (10-offset==6) {
         $rating_desc.html('average');
         animateRatingTo_4($rating_background, animateTime);
-        animateMetricNumbers(20, offset);
+        animateMetricNumbers(15, offset);
     } else if (10-offset==7) {
         $rating_desc.html('poor');
         animateRatingTo_3($rating_background, animateTime);
-        animateMetricNumbers(15, offset);
+        animateMetricNumbers(10, offset);
     } else if (10-offset==8) {
         $rating_desc.html('poor');
         animateRatingTo_2($rating_background, animateTime);
-        animateMetricNumbers(10, offset);
+        animateMetricNumbers(8, offset);
     } else if (10-offset==9) {
         $rating_desc.html('bad');
         animateRatingTo_1($rating_background, animateTime);

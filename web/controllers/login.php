@@ -27,28 +27,34 @@ class controller_login
         $db_name = "theciuc0_1";
         $tbl_name = "User";
 
-        $link = mysql_connect("$host", "$user", "$pass") or die("cannot connect");
-        mysql_select_db("$db_name") or die("cannot select DB");
+        $dbh = new PDO("mysql:host=$host;dbname=$db_name", $user, $pass);
 
         $username = $form_fields['username'];
         $password = $form_fields['password'];
 
         $username = stripslashes($username);
         $password = stripslashes($password);
-        $username = mysql_real_escape_string($username);
-        $password = mysql_real_escape_string($password);
+        /*$username = mysql_real_escape_string($username);
+        $password = mysql_real_escape_string($password);*/
         $password = md5($password);
 
-        $sql = "select * from $tbl_name where username = '$username' and password = '$password'";
-        $result = mysql_query($sql, $link) or die ('Unable to run query:' . mysql_error());
 
-        $count = mysql_num_rows($result);
+        $stmt = $dbh->prepare("select * from $tbl_name where username = (:username) and password = (:password)");
+        $stmt->bindParam("username", $username);
+        $stmt->bindParam("password", $password);
+        $stmt->execute();
 
-        $row = mysql_fetch_row($result);
+
+        $count = sizeof($stmt->fetchAll());
 
 
         if ($count == 1) {
 			$_SESSION['username'] = $username;
+            if ($username == 'demo') {
+                $stmt = $dbh->prepare("delete from User_Tips where username = 'demo'");
+                $stmt->execute();
+            }
+
 			$ajax->location("/php/select_house.php");
         } else {
             return $ajax->alert("Wrong username or password");

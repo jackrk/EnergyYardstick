@@ -22,6 +22,47 @@ class controller_tips {
             $user = "theciuc0_jdev";
             $pass = "tqHzLt6N]h8X";
             $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
+            $stmt = $dbh->prepare("select * from Initial_Questions where username = ? and house_id = ?");
+
+            $stmt->bindParam(1, $username);
+            $stmt->bindParam(2, $house_id);
+            $stmt->execute();
+            $answers = $stmt->fetch();
+            $heating = $answers['heating'];
+            $space_heaters = $answers['space_heaters'];
+            $cooling = $answers['cooling_system'];
+            $bulb_type = $answers['bulb_type'];
+            $prog_thermostat = $answers['prog_thermostat'];
+            $water_heater = $answers['water_heater'];
+            $attic = $answers['attic'];
+            $fireplace = $answers['fireplace'];
+            $lights_off = $answers['lights_off'];
+            $hidden_tips = array();
+            if ($heating == "Gas") {
+                array_push($hidden_tips, 3, 16, 18, 19);
+            }
+            if (!$space_heaters) {
+                array_push($hidden_tips, 17, 21);
+            }
+            if (!$cooling) {
+                array_push($hidden_tips, 4, 9);
+            }
+            if ($bulb_type != "Incandescent") {
+                array_push($hidden_tips, 8);
+            }
+            if ($prog_thermostat) {
+                array_push($hidden_tips, 10);
+            }
+            if ($water_heater == "Gas") {
+                array_push($hidden_tips, 15, 20);
+            }
+            if (!$fireplace) {
+                array_push($hidden_tips, 16);
+            }
+            if ($lights_off == "100%") {
+                array_push($hidden_tips, 7);
+            }
+
             $stmt = $dbh->prepare("select * from Tips where id not in (select tip_id from User_Tips where username = ? and house_id = ?) order by cost");
             $stmt->bindParam(1, $username);
             $stmt->bindParam(2, $house_id);
@@ -29,17 +70,22 @@ class controller_tips {
             $tips = $stmt->fetchAll();
             $listelements = "<div id=\"tips_inner\" >";
             foreach ($tips as $tip) {
-                $cost = "";
-                if ($tip[3] == 0) {
-                    $cost = "FREE";
-                } else {
-                    $cost = "< $100";
-                }
-                $listelements = $listelements."<li class=\"tip tip-unselected\">
+                if (!in_array($tip[0], $hidden_tips)) {
+                    $cost = "";
+                    if ($tip[3] == 0) {
+                        $cost = "FREE";
+                    } else if ($tip[3] == 1) {
+                        $cost = "< $100";
+                    } else {
+                        $cost = "> $1000";
+                    }
+                    $listelements = $listelements."<li class=\"tip tip-unselected\">
                         <span class=\"tip-id\">$tip[0]</span><span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-point-val\">$tip[2]</span><span class=\"tip-cost\">$cost</span></li>";
 
-                //$ajax->insert('#tips', "<li class=\"tip tip-unselected\">
-                        //<span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip_text\">$text</span><span class=\"tip-point-val\">$tip[2]</span></li>", true);
+                    //$ajax->insert('#tips', "<li class=\"tip tip-unselected\">
+                    //<span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip_text\">$text</span><span class=\"tip-point-val\">$tip[2]</span></li>", true);
+
+                }
             }
             $listelements = $listelements."</div>";
             $ajax->replace('#tips_inner',$listelements);
@@ -55,8 +101,10 @@ class controller_tips {
                 $cost = "";
                 if ($tip[3] == 0) {
                     $cost = "FREE";
-                } else {
+                } else if ($tip[3] == 1) {
                     $cost = "< $100";
+                } else {
+                    $cost = "> $1000";
                 }
                 $listelements = $listelements."<li class=\"tip tip-saved\">
                         <span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-cost\">$cost</span><span class=\"tip-point-val\">$tip[2]</span></li>";

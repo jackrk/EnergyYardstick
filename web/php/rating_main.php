@@ -48,9 +48,6 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <link rel="stylesheet" type="text/css" href="../css/tab_menu.css"/>
     <link rel="stylesheet" type="text/css" href="../css/home.css"/>
     <link rel="stylesheet" type="text/css" href="../css/rating_tab.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/slider/jquery.nouislider.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/jquery.jqChart.css" />
-    <link rel="stylesheet" type="text/css" href="../css/jquery.jqRangeSlider.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.css" />
     <link rel="stylesheet" type="text/css" href="../css/glyphicons/css/bootstrap.min.css">
     <!--[if IE 7]>
@@ -76,8 +73,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     <div id="rating_tab">
     
             <div id="loadcover" style="height: 562px !important" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
-        <div class="slider_cont"><div class="rating_slider" id="slider"></div></div>
-        <div id="rating_container">
+         <div id="rating_container">
             <div class="info_container">
             <div class="rating_info_container"><div class="rating_info"><span class="rating_number">--</span><span class="rating_text">good</span></div></div>
             <div id="metric_container">
@@ -133,7 +129,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     </div>
 
 </div>
-<div id="hidden_rating_number" style="display: none">34</div>
+<div id="hidden_rating_number" style="display: none">54</div>
 
 </body>
 </html>
@@ -142,16 +138,12 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <script src="../javascript/jquery-1.11.0.min.js"></script>
 <script src="../javascript/jquery-ui-1.10.4.min.js"></script>
 <script type="text/javascript" src="../javascript/tips_selector.js"></script>
-<script src="../javascript/slider/jquery.nouislider.min.js"></script>
 <script src="../javascript/number/jquery.animateNumber.min.js"></script>
 <script src="../javascript/number/jquery-numerator.js"></script>
 <script src="../javascript/number/jquery.easing.1.3.js"></script>
 <script src="../javascript/animate/jquery.transit.min.js"></script>
 <script src="../javascript/tab_menu.js"></script>
 <script src="../javascript/rating_functions.js"></script>
-<script src="../javascript/jquery.mousewheel.js" type="text/javascript"></script>
-<script src="../javascript/jquery.jqChart.min.js" type="text/javascript"></script>
-<script src="../javascript/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
 <!--[if IE]>
 <script lang="javascript" type="text/javascript" src="../javascript/excanvas.js"></script><![endif]-->
 <script lang="javascript" type="text/javascript">
