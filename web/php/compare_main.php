@@ -123,7 +123,16 @@ $pass = "tqHzLt6N]h8X";
 <div id="tab_container">
     <div id="compare_container">
     
-            <div id="loadcover" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
+            <div id="loadcover" class="show_load">
+                <img class="load_gif" src="../css/images/loading_spin.gif"><br>
+                <span style="
+                    font-size: 26px;
+                    /* font-weight: bold; */
+                    position: relative;
+                    top: 161px;
+                    font-style: italic;
+                ">running comparisons</span>
+            </div>
         <div id="compgraph_container">
 
         </div>

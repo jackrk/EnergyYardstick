@@ -31,6 +31,7 @@
 {
     position: relative;
     top: 150px;
+    width: 100px;
 }
 .loading_label
 {
