@@ -53,6 +53,10 @@ class controller_login
             if ($username == 'demo') {
                 $stmt = $dbh->prepare("delete from User_Tips where username = 'demo'");
                 $stmt->execute();
+                $stmt = $dbh->prepare("delete from Initial_Questions where username = 'demo' and house_id = 527359010");
+                $stmt->execute();
+                $stmt = $dbh->prepare("update User_House set questions = 0 where username = 0 and house_id = 527359010");
+                $stmt->execute();
             }
 
 			$ajax->location("/php/select_house.php");
