@@ -7,7 +7,7 @@ class controller_rating {
 		$ajax = ajax();
         $user = "theciuc0_jdev";
         $pass = "tqHzLt6N]h8X";
-        $dbh = new PDO('mysql:host=localhost;dbname=theciuc0_1', $user, $pass);
+        $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
 
 		$stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE house_id = (:house_id) and (customer_id) = (:username) ORDER BY bill_date DESC LIMIT 12");
 		$stmt->bindParam(':house_id', $house_id);
