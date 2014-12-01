@@ -15,7 +15,8 @@ $ajax = ajax();
 $username = $_SESSION['username'];
 $house_id = $_SESSION['house_id'];
 
-$ajax->call("../ajax.php?tips/get/$username/$house_id");
+$ajax->call("../ajax.php?rating/get/$username/$house_id");
+
 
 //$ajax->click("save-tips-original",$ajax->call("../ajax.php?tips/save/$username"));
 
@@ -81,7 +82,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                         <div class="metric_number"><span id="mpg_number">0</span><span class="metric_text">&nbsp;&nbsp;mpg&nbsp;&nbsp;</span></div></div>
                     <div class="metric" id="cars_metric"><img src="../img/car_mid.png" height="32" width="32" class="icon_img"/><img src="../img/x_mid.png" height="26" width="38" class="x_img"/>
                         <div class="metric_number"><span id="cars_number">0</span><span class="metric_text">&nbsp;&nbsp;removed</span></div></div>
-                    <div class="metric" id="trees_metric"><img style="padding-left: 1px; margin-right: 9px;" src="../img/tree_mid.png" height="32" width="32" class="icon_img" /><img src="../img/x_mid.png" heheight="26" width="38" class="x_img"/>
+                    <div class="metric" id="trees_metric"><img style="padding-left: 1px; margin-right: 9px;" src="../img/tree_mid.png" height="32" width="32" class="icon_img" /><img src="../img/x_mid.png" height="26" width="38" class="x_img"/>
                         <div class="metric_number"><span id="trees_number">0</span><span class="metric_text">&nbsp;&nbsp;planted</span></div></div>
                 </div>
             </div>
@@ -128,7 +129,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     </div>
 
 </div>
-<div id="hidden_rating_number" style="display: none">54</div>
+<div id="hidden_rating_number" style="display: none"></div>
 
 </body>
 </html>
@@ -148,6 +149,9 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <script lang="javascript" type="text/javascript">
 
     $.holdReady(true);
+
+
+
 
     function grabSelections() {
         var datastring = "";
