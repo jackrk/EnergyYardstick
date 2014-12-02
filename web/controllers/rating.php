@@ -67,8 +67,10 @@ class controller_rating {
 		$stmt->execute(array($lowerSizeBound, $upperSizeBound, $lowerAgeBound, $upperAgeBound));
 		$max = $stmt->fetch()[0];
 
-		$stmt = $dbh->prepare("SELECT num_people FROM Initial_Questions where house_id = (:house_id);");
+		$stmt = $dbh->prepare("SELECT num_people FROM Initial_Questions WHERE (house_id) = (:house_id) AND (username) = (:username);");
 		$stmt->bindParam(':house_id', $house_id);
+		$stmt->bindParam(':username', $user_id);
+		$stmt->execute();
 		$people = $stmt->fetch()[0];
 		
 		//constants.
