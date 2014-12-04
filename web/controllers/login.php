@@ -58,8 +58,12 @@ class controller_login
                 $stmt = $dbh->prepare("update User_House set questions = 0 where username = 0 and house_id = 527359010");
                 $stmt->execute();
             }
-
-			$ajax->location("/php/select_house.php");
+            if($username == 'admin') {
+                $ajax->location("/php/admin.php");
+            }
+            else {
+                $ajax->location("/php/select_house.php");
+            }
         } else {
             return $ajax->alert("Wrong username or password");
         }
