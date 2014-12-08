@@ -72,7 +72,18 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 <div id="tab_container">
     <div id="rating_tab">
     
-            <div id="loadcover" style="height: 562px !important" class="show_load"><img class="load_gif" src="../css/images/loading_spin.gif"/></div>
+            <div id="loadcover" class="show_load" style="height: 562px !important">
+                <img class="load_gif" src="../css/images/loading_spin.gif"/>
+                <span style="
+                    font-size: 26px;
+                    /* font-weight: bold; */
+                    position: relative;
+                    top: 161px;
+                    font-style: italic;
+                    display: block;
+                    font-family: 'Open Sans', Helvetica, sans-serif;
+                ">calculating rating</span>
+            </div>
          <div id="rating_container">
             <div class="info_container">
             <div class="rating_info_container"><div class="rating_info"><span class="rating_number">--</span><span class="rating_text">good</span></div></div>
