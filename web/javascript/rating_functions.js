@@ -1,13 +1,42 @@
 var firstLoad = true;
 
 function updateRating() {
+
+    var adjustment = 0;
+    var kwhele = $("#new_kwh");
+    var monthele = $("#new_month_bill");
+    var yearele = $("#new_year_bill");
+    $(".tip-saved, .tip-selected").each(function() {
+        var value = parseInt($(this).find(".tip-point-val").html());
+        adjustment += value;
+    });
+    var curkwh = parseFloat($("#cur_kwh").text());
+    var curmonth = parseFloat($("#cur_month_bill").text());
+    var curyear = parseFloat($("#cur_year_bill").text());
+    curkwh = curkwh*(1-(adjustment * .01));
+    curmonth = curmonth*(1-(adjustment * .01));
+    curyear = curyear*(1-(adjustment * .01));
+    kwhele.numerator({toValue:curkwh, duration: 2000, rounding:1 });
+    monthele.numerator({toValue:curmonth, duration: 2000, rounding:2 });
+    yearele.numerator({toValue:curyear, duration: 2000, rounding:2 });
+
     var hid = $("#hidden_rating_number").html();
     var curval = parseInt($("#hidden_rating_number").html());
 
-    $(".tip-saved, .tip-selected").each(function() {
-       var points = parseInt($(this).find(".tip-point-val").html());
-        curval += points;
-    });
+    curval += adjustment;
+
+    if (adjustment > 10) {
+        curval += 15;
+        $("#usage_new").css({
+            color: '#198C19',
+            fontWeight: 600
+        });
+    } else {
+        $("#usage_new").css({
+            color: '',
+            fontWeight: ''
+        });
+    }
 
     curval = Math.round(curval/10);
 

@@ -118,6 +118,7 @@ $pass = "tqHzLt6N]h8X";
             <li style="padding-bottom: 10px;"><a href="login.php">Log Out</a></li>
         </ul>
     </div>
+    <a style="float: right" id="show_help" href="#" class="tab_link">Help</a>
 </div>
 
 <div id="tab_container">
@@ -133,6 +134,22 @@ $pass = "tqHzLt6N]h8X";
                     font-style: italic;
                 ">running comparisons</span>
             </div>
+        <div style="display: none; height: 94%;" id="helpcover" class="show_help help-modal">
+            <div class="help-title">Compare Help<span id="helpClose" class="help-close glyphicon glyphicon-remove"></span></div>
+            <!-- <p class="help-desc">
+                 The goal of using the Energy Yardstick is to understand how to improve our energy efficiency, and show the benefits that even small improvements can make.
+             </p>-->
+            <!--<div class="help-body-title"><span class="help-body-button help-body-button-on">Rating</span><span style="padding-left: 20px;" class="help-body-button">Compare</span></div>-->
+            <div class="help-body"">
+                <p>Ever wondered if you were more energy efficient than your neighbors? Good news! Now you can compare your monthly usage to others in Ames.</p>
+                <p>When you first open the page, your usage is being compared to <b><i>similar</i></b> homes. We look up homes with similar
+                    <b><i>size</i></b>, <b><i>age</i></b>, <b><i>style</i></b>, and <b><i>neighborhood</i></b>, then average out the usage for those homes for each month
+                    of the year.
+                </p>
+                <p>You can also narrow down the comparison to any one of the four categories we have available.
+                </p>
+            </div>
+        </div>
         <div id="compgraph_container">
 
         </div>
@@ -173,6 +190,14 @@ $pass = "tqHzLt6N]h8X";
         $("#account_button").click(function() {
             $(this).find(".glyphicon").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-up");
             $(".account-dropdown").toggleClass("show");
+        });
+
+        $("#show_help").click(function() {
+           $("#helpcover").css("display", "show");
+        });
+
+        $("#helpClose").click(function() {
+            $("#helpcover").css("display", "none");
         });
 
 

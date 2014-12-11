@@ -69,7 +69,7 @@
 	position: relative;
 	display: block;
 	/* border-top: 1px solid rgba(0,0,0,0.3); */
-	width: 550px;
+	width: 573px;
 	margin-left: 24px;
 	/* padding-left: 30px; */
 	margin-top: 4px;
@@ -79,17 +79,17 @@
 
 #usage_now
 {
-    padding-left: 36px;
+    right: 256px;
 }
 
 #usage_goal
 {
-    padding-left: 166px;
+    right: 136px;
 }
 
 #usage_new
 {
-    padding-left: 279px;
+    right: 24px;
 }
 
 .rating_breakdown_desc
@@ -237,6 +237,35 @@
 {
     color: #505050;
 }
+
+.tip-unselected .glyphicon-ok {
+     opacity: 0;
+ }
+
+.tip-unselected:hover .glyphicon-ok {
+    opacity: 1;
+}
+
+.tip-selected .glyphicon-ok {
+    opacity: 1;
+}
+
+.tip-selected:hover .glyphicon-ok {
+    display: none;
+}
+
+.tip-selected:hover .glyphicon-remove {
+    display: inline-block;
+}
+
+.tip-selected .glyphicon-remove {
+    display: none;
+}
+
+.tip-unselected .glyphicon-remove {
+    display: none;
+}
+
 /*.tips li:nth-child(2n)
 {
     width:275px;
@@ -251,7 +280,13 @@
 
 .tip-selected
 {
-    color: black;
+    color: darkgreen;
+    font-weight: 600;
+}
+
+.tip-selected:hover
+{
+    color: red;
     font-weight: 600;
 }
 
@@ -259,6 +294,48 @@
 {
     color: black;
     font-weight: 600;
+}
+
+.tip-saved .glyphicon-remove {
+    display: none;
+}
+
+.tip-saved:hover
+{
+    color: red;
+}
+
+.tip-saved:hover .glyphicon-ok {
+    display: none;
+}
+
+.tip-saved:hover .glyphicon-remove {
+    display: inline-block;
+}
+
+.tip-deleted {
+    color: red;
+    font-weight: 600;
+}
+
+.tip-deleted:hover {
+    color: darkgreen;
+}
+
+.tip-deleted .glyphicon-ok {
+    display: none;
+}
+
+.tip-deleted:hover .glyphicon-remove {
+    display: none;
+}
+
+.tip-deleted:hover .glyphicon-ok {
+    display: inline-block;
+}
+
+.tip-deleted .glyphicon-remove {
+    display: inline-block;
 }
 
 .tip-text {
@@ -275,6 +352,10 @@
     display: none;
 }
 
+.ut-id {
+    display: none;
+}
+
 .tip-cost {
     width: 60px;
     display: inline-block;
@@ -287,7 +368,6 @@
     width: 28px;
     display: inline-block;
     text-align: center;
-    opacity: 0;
 }
 
 .check_container img {
@@ -306,7 +386,6 @@
 .tip-saved .check_container {
     opacity: 1;
 }
-
 #rating_metrics
 {
     	position: relative;

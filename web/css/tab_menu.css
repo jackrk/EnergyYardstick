@@ -100,3 +100,69 @@
 .show {
     display: block !important;
 }
+
+.help-modal {
+    font-family: 'Open Sans';
+    position: absolute;
+    height: 98%;
+    width: 90%;
+    z-index: 10;
+    margin-left: 5%;
+    margin-top: 2%;
+    background-color: white;
+    border: 1px solid slategray;
+    border-radius: 8px;
+}
+
+.help-title {
+    height: 56px;
+    line-height: 60px;
+    padding-left: 20px;
+    font-size: 24px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+}
+
+.help-desc {
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.help-body {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.help-body-title {
+    font-size: 18px;
+    border-bottom: 1px solid #999;
+    line-height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.help-body-button {
+    color: gray;
+    display: inline-block;
+}
+
+.help-body-button-on {
+    color: black;
+    font-weight: 600;
+}
+
+.help-close {
+    display: inline-block;
+    float: right;
+    padding-top: 8px;
+    font-size: 16px;
+    padding-right: 8px;
+    color: gray;
+    cursor: pointer;
+}
+
+.help-close:hover {
+    color: black;
+}

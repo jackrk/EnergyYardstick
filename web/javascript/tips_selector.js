@@ -53,24 +53,26 @@ $(".tips").on('mouseenter', ".tip-selected", function() {
     });
 });*/
 $(".tips").on('click', ".tip-unselected", function() {
-    $(this).children().first().transition({opacity:1, queue: false}, 200);
     $(this).removeClass('tip-unselected');
     $(this).addClass('tip-selected');
-    var n = $(".tip-selected").length;
-    if (n>=0) {
-        n += parseInt($("#hidden_rating_number").html());
-    }
-    adjustNewValues();
+    updateRating();
 });
 $(".tips").on('click', ".tip-selected", function() {
-    $(this).children().first().transition({opacity:0, queue: false}, 200);
     $(this).removeClass('tip-selected');
     $(this).addClass('tip-unselected');
-    var n = $(".tip-selected").length;
-    if (n>=0) {
-        n += parseInt($("#hidden_rating_number").html());
-    }
-    adjustNewValues();
+    updateRating();
+});
+
+$(".tips").on('click', ".tip-saved", function() {
+    $(this).removeClass('tip-saved');
+    $(this).addClass('tip-deleted');
+    updateRating();
+});
+
+$(".tips").on('click', ".tip-deleted", function() {
+    $(this).removeClass('tip-deleted');
+    $(this).addClass('tip-saved');
+    updateRating();
 });
 
 $("#tip_toggle").on('click', function() {
@@ -83,29 +85,3 @@ $("#tip_toggle").on('click', function() {
     }
     return false;
 });
-
-function adjustNewValues() {
-    var adjustment = 0;
-    var kwhele = $("#new_kwh");
-    var monthele = $("#new_month_bill");
-    var yearele = $("#new_year_bill");
-    $(".tip-selected").each(function() {
-        var text = $(this).text();
-        if (text.indexOf("LED") >= 0)
-            adjustment += 0.01;
-        else if (text.indexOf("Refrigerator") >= 0)
-            adjustment += 0.03;
-        else if (text.indexOf("A/C by 3") >= 0)
-            adjustment += 0.05;
-    });
-    var curkwh = parseFloat($("#cur_kwh").text());
-    var curmonth = parseFloat($("#cur_month_bill").text());
-    var curyear = parseFloat($("#cur_year_bill").text());
-    curkwh = curkwh*(1-adjustment);
-    curmonth = curmonth*(1-adjustment);
-    curyear = curyear*(1-adjustment);
-    kwhele.numerator({toValue:curkwh, duration: 2000, rounding:1 });
-    monthele.numerator({toValue:curmonth, duration: 2000, rounding:2 });
-    yearele.numerator({toValue:curyear, duration: 2000, rounding:2 });
-    updateRating();
-}

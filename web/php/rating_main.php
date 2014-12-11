@@ -67,6 +67,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
             <li style="padding-bottom: 10px;"><a href="login.php">Log Out</a></li>
         </ul>
     </div>
+    <a style="float: right" id="show_help" href="#" class="tab_link">Help</a>
 </div>
 
 <div id="tab_container">
@@ -83,6 +84,26 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                     display: block;
                     font-family: 'Open Sans', Helvetica, sans-serif;
                 ">calculating rating</span>
+            </div>
+            <div id="helpcover" class="show_help help-modal">
+                <div class="help-title">Rating Help<span id="helpClose" class="help-close glyphicon glyphicon-remove"></span></div>
+               <!-- <p class="help-desc">
+                    The goal of using the Energy Yardstick is to understand how to improve our energy efficiency, and show the benefits that even small improvements can make.
+                </p>-->
+                <!--<div class="help-body-title"><span class="help-body-button help-body-button-on">Rating</span><span style="padding-left: 20px;" class="help-body-button">Compare</span></div>-->
+                <div class="help-body" >
+                    <p>Your rating is calculated by comparing your average energy usage to the usage of similar Ames residents, while taking in to account the number of people living in your household.</p>
+                    <p>Start by clicking on a few of the <b>tips</b> in the list and scroll down to see more. Each tip will have an impact on your <b>new</b> usage and estimated monthly bill. If some already apply to you,
+                    or you've logged in before and worked on a few, great!
+                    Select those tips, then click the <span class="glyphicon glyphicon-floppy-disk"></span> button to save them.
+                    </p>
+                    <p>You can also see tips that you've previously saved by clicking the <b>show saved</b> button. If you saved one by accident or you want to remove any from the saved list, just select them and click the
+                    <span class="glyphicon glyphicon-floppy-disk"></span> button.
+                    </p>
+                    <p>The <b>equivalent to</b> section is just a fun way of seeing what your efficiency is in terms of being environmentally friendly. If you're energy efficient, it's like getting great mpg on your car, removing
+                    cars from the roads, and planting trees.
+                    </p>
+                </div>
             </div>
          <div id="rating_container">
             <div class="info_container">
@@ -101,14 +122,14 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
             <div class="rating_breakdown">
                 <span class="rating_breakdown_desc" >
                     average monthly use: <br>
-                    average cost per month:  <br>
-                    total billed last 12 months: <br>
+                    estimated cost per month:  <br>
+                    estimated cost per year: <br>
                 </span>
                 <span id="usage_now" class="rating_breakdown_numbers" >
                     <span style="font-style: italic">now</span><br>
-                    <span id="cur_kwh">548.3</span> kWh<br>
-                    $<span id="cur_month_bill">50.45</span><br>
-                    $<span id="cur_year_bill">605.40</span><br>
+                    <span id="cur_kwh">--</span> kWh<br>
+                    $<span id="cur_month_bill">--</span><br>
+                    $<span id="cur_year_bill">--</span><br>
                 </span>
                 <span id="usage_goal" class="rating_breakdown_numbers" >
                     <span style="font-style: italic">10% less</span><br>
@@ -134,6 +155,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
             <div id="tips_list">
                 <ul id="tips" class="tips"><li id="tips_inner"></li><li id="saved_tips_inner" style="display: none"></li></ul>
                 <input type="text" style="display: none" id="savedtips" value="" />
+                <input type="text" style="display: none" id="deletedtips" value="" />
                 <!--<div id="tips_submit">Click to save any that you've completed</div>-->
             </div>
         </div>
@@ -161,7 +183,14 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
 
     $.holdReady(true);
 
-
+    function grabDeletions() {
+        var datastring = "";
+        $(".tip-deleted").each(function() {
+           var utId = $(this).find(".ut-id").html();
+            datastring += utId + "--";
+        });
+        $("#deletedtips").attr("value",datastring);
+    }
 
 
     function grabSelections() {
@@ -174,6 +203,15 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
     }
 
     $(document).ready(function () {
+
+        $("#show_help").click(function() {
+            $("#helpcover").css("display", "show");
+        });
+
+        $("#helpClose").click(function() {
+            $("#helpcover").css("display", "none");
+        });
+
         $("#goal_kwh").text((parseFloat($("#cur_kwh").text())).toFixed(1));
         $("#goal_month_bill").text((parseFloat($("#cur_month_bill").text())).toFixed(2));
         $("#goal_year_bill").text((parseFloat($("#cur_year_bill").text())).toFixed(2));

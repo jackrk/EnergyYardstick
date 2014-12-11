@@ -58,7 +58,7 @@ class controller_rating {
 				$upperAgeBound = 3000;
 			}
 		}
-			
+        
 		$stmt = $dbh->prepare("SELECT AVG(energy_usage) from EnergyUsage WHERE house_id IN (SELECT house_id FROM House WHERE size BETWEEN ? AND ? AND year_built BETWEEN ? AND ? ) AND energy_usage != 0");
 		$stmt->execute(array($lowerSizeBound, $upperSizeBound, $lowerAgeBound, $upperAgeBound));
 		$avg_usage = $stmt->fetch()[0];
@@ -89,7 +89,7 @@ class controller_rating {
 		} else {
 			$rating = 100 - floor((($usage / $avg_usage) / 2) * 100);
 		}
-		
+
 		/* 1 - 10 rating, keeping this here for safe keeping 
 		if($usage > $avg_usage){
 			$interval = ($max - $avg_usage) / 5.0;
@@ -99,7 +99,10 @@ class controller_rating {
 			$rating = 10 - floor($usage / $interval);
 		}
 		*/
-		
+
+        $ajax->update('cur_kwh', number_format((float)$usage, 1, '.', ''));
+        $ajax->update('cur_month_bill', number_format((float)($usage * .16), 2, '.', ''));
+        $ajax->update('cur_year_bill', number_format((float)($usage * .16 * 12), 2, '.', ''));
         $ajax->insert('hidden_rating_number', $rating, true);
         $ajax->call("../ajax.php?tips/get/$user_id/$house_id");
     }

@@ -79,7 +79,7 @@ class controller_tips {
                         $cost = "> $1000";
                     }
                     $listelements = $listelements."<li class=\"tip tip-unselected\">
-                        <span class=\"tip-id\">$tip[0]</span><span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-point-val\">$tip[2]</span><span class=\"tip-cost\">$cost</span></li>";
+                        <span class=\"tip-id\">$tip[0]</span><span class=\"check_container glyphicon glyphicon-ok\"></span><span style=\"top: 2px\" class=\"check_container glyphicon glyphicon-remove\"></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-point-val\">$tip[2]</span><span class=\"tip-cost\">$cost</span></li>";
 
                     //$ajax->insert('#tips', "<li class=\"tip tip-unselected\">
                     //<span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip_text\">$text</span><span class=\"tip-point-val\">$tip[2]</span></li>", true);
@@ -90,7 +90,7 @@ class controller_tips {
             $ajax->replace('#tips_inner',$listelements);
 
             // Get saved tips now
-            $stmt = $dbh->prepare("select * from Tips where id in (select tip_id from User_Tips where username = ? and house_id = ?) order by cost");
+            $stmt = $dbh->prepare("select ut.id, t.tip_text, t.point_value, t.cost from Tips t, User_Tips ut where ut.username = ? and ut.house_id = ? and t.id = ut.tip_id order by cost");
             $stmt->bindParam(1, $username);
             $stmt->bindParam(2, $house_id);
             $stmt->execute();
@@ -106,7 +106,7 @@ class controller_tips {
                     $cost = "> $1000";
                 }
                 $listelements = $listelements."<li class=\"tip tip-saved\">
-                        <span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-cost\">$cost</span><span class=\"tip-point-val\">$tip[2]</span></li>";
+                        <span class=\"check_container glyphicon glyphicon-ok\"></span><span style=\"top: 2px\" class=\"check_container glyphicon glyphicon-remove\"></span><span class=\"tip-text\">$tip[1]</span><span class=\"tip-cost\">$cost</span><span class=\"tip-point-val\">$tip[2]</span><span class=\"ut-id\">$tip[0]</span></li>";
 
                 //$ajax->insert('#tips', "<li class=\"tip tip-unselected\">
                 //<span class=\"check_container\"><img src=\"../img/checkmark.png\" /></span><span class=\"tip_text\">$text</span><span class=\"tip-point-val\">$tip[2]</span></li>", true);
@@ -139,19 +139,22 @@ class controller_tips {
         sem_acquire($sem_save);
         $ajax->replace('#save-tips', "<span id=\"save-tips-loading\" class=\"save-tips-loading\"></span>");
         $ajax->grabSelections();
+        $ajax->grabDeletions();
         sem_release($sem_save);
-        $ajax->call("../ajax.php?tips/update_db/|savedtips|/$sem_save");
+        $ajax->call("../ajax.php?tips/update_db/|savedtips|/|deletedtips|/$sem_save");
     }
 
-    function update_db($datastring, $sem) {
+    function update_db($datastring_save, $datastring_delete, $sem) {
         try {
             $ajax = ajax();
             $username = $_SESSION['username'];
             $house_id = $_SESSION['house_id'];
-            $savedtips = explode("--",$datastring);
+            $savedtips = explode("--",$datastring_save);
+            $deletedtips = explode("--", $datastring_delete);
             $user = "theciuc0_jdev";
             $pass = "tqHzLt6N]h8X";
             $dbh = new PDO('mysql:host=69.195.124.206;dbname=theciuc0_1', $user, $pass);
+
             $stmt = $dbh->prepare("INSERT INTO User_Tips (username, house_id, tip_id) VALUES (?, ?, ?)");
             $stmt->bindParam(1, $username);
             $stmt->bindParam(2, $house_id);
@@ -162,6 +165,11 @@ class controller_tips {
                     $stmt->execute();
                 }
             }
+
+            $stmt = $dbh->prepare("DELETE FROM User_Tips WHERE id IN (?)");
+            $stmt->bindParam(1, implode(',',$deletedtips));
+            $stmt->execute();
+
             sem_acquire($sem);
             $ajax->call("../ajax.php?tips/pull_db/$sem");
             sem_acquire($sem);
@@ -174,4 +182,5 @@ class controller_tips {
             die();
         }
     }
+
 } 
