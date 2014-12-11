@@ -85,7 +85,7 @@ $ajax->click("tab_history",$ajax->call("../ajax.php?tab/history")); */
                     font-family: 'Open Sans', Helvetica, sans-serif;
                 ">calculating rating</span>
             </div>
-            <div id="helpcover" class="show_help help-modal">
+            <div style="display: none;" id="helpcover" class="show_help help-modal">
                 <div class="help-title">Rating Help<span id="helpClose" class="help-close glyphicon glyphicon-remove"></span></div>
                <!-- <p class="help-desc">
                     The goal of using the Energy Yardstick is to understand how to improve our energy efficiency, and show the benefits that even small improvements can make.
